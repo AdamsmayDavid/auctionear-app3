@@ -111,6 +111,7 @@
           <div class="v-list container-md mt-5">
           <h1 class="text-center text-primary">VEHICLE AVAILABLE</h1>
             <div class="row gy-3 mt-4">
+
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <img src="/assets/images/red.jpg" class="img-fluid" />
                 <div class="col text-dark">
@@ -120,6 +121,7 @@
                   <a href="/sellerMotorcycle" class="btn btn-primary mt-2 ">MOTORCYCLE</a>
                 </div>
               </div>
+              
               <div class="col-sm-6 col-md-6 col-lg-6">
                 <img src="/assets/images/red.jpg" class="img-fluid" />
                 <div class="col text-dark">
