@@ -23,7 +23,7 @@
         
     <style>
         #picturebox{
-        width: 80%
+        width: 80%;
         background-color: grey;
         color: white;
         }

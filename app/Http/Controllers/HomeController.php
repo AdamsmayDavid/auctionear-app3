@@ -46,13 +46,23 @@ class HomeController extends Controller
      */
     public function sellerHome()
     {
-        return view('sellerHome');
+        $autos = autos::all();
+        return view('home', compact('autos'));
     }
 
-    public function auctionPage()
+    public function auctionPage(Request $request)
     {
-        $auctions = auctions::all();
+        $auctions = auctions::where('auto_id', $request->type)->get();
+        $auto_type = autos::where('id', $request->type)->first('auto_type');
+        $autos = autos::all();
 
-        return view('auctionPage', compact('auctions'));
+        return view('auctionPage', compact('auctions', 'autos', 'auto_type'));
+    }
+
+    public function createAuction()
+    {
+        $autos = autos::all();
+
+        return view('createAuction', compact('autos'));
     }
 }

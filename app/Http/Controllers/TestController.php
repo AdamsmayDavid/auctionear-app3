@@ -10,10 +10,13 @@ class TestController extends Controller
 {
     //
 
-    public function test(){
-        event(new testWebsocket);
-    }
-    public function private(){
+    // public function test(){
+    //     event(new testWebsocket);
+    // }
+    // public function private(){
+    //     event(new PrivateWebSocket);
+    // }
+    public function send_bid(){
         event(new PrivateWebSocket);
     }
 }

@@ -11,9 +11,13 @@ class auctions extends Model
     protected $table = 'auctions';
 
     protected $fillable = [ 'auto_id', 
+                            'description',
                             'starting_price',  
                             'user_id',
+                            'auction_date',
+                            'auction_time',
+                            'auctionImage',
                             //'status', 
-                            'end_time', 
-                            'auctionImage'];
+                            //'end_time', 
+                        ];
 }

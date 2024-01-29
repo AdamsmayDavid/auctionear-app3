@@ -1,10 +1,7 @@
     
-    <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="Bidport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
+@section('content')
         <title>Auctionear</title>
 
         <!-- Fonts -->
@@ -22,105 +19,81 @@
         <script src="assets/js/main.js"></script>
         
         <style>
-            .btn{
+            #btn_bid{
                 background-color:#FF6C22;
+                border:none;
                 
             }
-            .btn:hover{
+            #btn_bid:hover{
                 background-color:#FF6C40;
 
             }
          
            
         </style>
-    </head>
-    <body class="antialiased "> 
-                      
-                <!-- nav -->
-      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-light p-4 ">
-      <div class="container">
-        <a class="navbar-brand text-primary" href="/home"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
-        <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto ">
-            <li class="nav-item">
-              <a class="nav-link mx-2 active" aria-current="page" href="/home">Home</a>
-            </li>
-            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                    <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Vehicle
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#FF6C22;">
-                        <li><a class="dropdown-item" href="/biddersMotorcycle">Motorcycle</a></li>
-                        <li><a class="dropdown-item" href="/biddersSedan">Sedan</a></li>
-                        <li><a class="dropdown-item" href="/biddersSuv">Suv</a></li>
-                        <li><a class="dropdown-item" href="/biddersVan">Ban</a></li>
-                    </ul>
-                    </li>
-                </ul>
-            </div>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="#">How to start</a>
-            </li>
-            <li class="logout nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                &nbsp;{{ Auth::user()->name }}
-                                </a>
+      
+      <div class="container mt-5">
+        
+            @if(auth()->user()->type == 'user')
+                    <h1 class="text-center" style="color:#FF6C22;" >
+                        <span style="text-transform:uppercase;">
+                            {{$auto_type->auto_type}}
+                        </span>
+                    </h1>
+            @endif
 
-                                <div class="dropdown-menu dropdown-menu-end" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item " href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <a class="dropdown-item " href="#">
-                                        {{ __('Message') }}
-                                    </a>
+            @if(auth()->user()->type == 'seller')
+                    <h1 class="text-center text-primary">
+                        <span style="text-transform:uppercase;">
+                            {{$auto_type->auto_type}}
+                        </span>
+                    </h1>
+            @endif
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-          </ul>
-        </nav>
-        <center>
-            <h1 class=" mt-5" style="color:#FF6C22;" href="">MOTORCYCLE</h1>
-    <div class="container-md mt-5">
-        <div class="row text-dark align-items-center ">
-            <div class="container text-center ">
-    <div class="row gy-3 mb-4">
+            @if(auth()->user()->type == 'seller')
+                <!-- creation btn for seller -->
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a id="btn_sel" class="btn btn-outline-primary btn-lg" href="/createAuction">Create Auction</a>
+                        <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="btn_sel" class="btn btn-outline-primary btn-md" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+                <!-- creation btn for seller end-->
+            @endif
 
-        @foreach($auctions as $auction)
-            <div class="col-sm-6 col-md-6 col-lg-3">
-                <img src="{{$auction->auctionImage}}" class="img-fluid" />
-            <div class="col bg-trans">
-                {{$auction->starting_price}}
-            </div>
-            <div class="d-grid">
-                <a class="btn  mt-2 text-light" href="/biddingPage?auction_id={{$auction->auction_id}}" role="button">Bid</a>
-            </div>
-            </div>
-        @endforeach
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    
+            @foreach($auctions as $auction)
+                <div class="col">
+                    <div class="card">
+                    <img src="images/auctions/{{$auction->auctionImage}}" class="card-img-top" alt="{{$auction->auctionImage}}">
+                    <div class="card-body">
+                        <h5 class="card-title">Auction Id: {{$auction->auction_id}}</h5>
+                        <p class="card-text">Description: {{$auction->description}} </p>
+                        <p class="card-text">Recent Bid: </p>
 
+                        @if(auth()->user()->type == 'user')
+                            <a id="btn_bid" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-primary">Bid</a>
+                        @endif
 
-        </div>
-    </div>
-    </div>
-    </div>
-    </center>
+                        @if(auth()->user()->type == 'seller')
+                            <a id="btn_sel" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-primary">View</a>
+                        @endif
 
+                    </div>
+                    </div>
+                </div>
+            @endforeach
+
+      
      <!-- script file -->
      <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
             <script src="assets/js/main.js"></script>
 
-
-    </body>
-    </html>
+    
+@endsection
 

@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('auctions', function (Blueprint $table) {
             $table->id('auction_id');
             $table->integer('auto_id')->references('id')->on('autos')->unsigned();
+            $table->string('description');
             $table->integer('starting_price');
             $table->integer('user_id')->references('id')->on('users')->unsigned();
-            //$table->string('status');
-            $table->timestamp('end_time')->nullable();
+            $table->date('auction_date')->nullable();
+            $table->time('auction_time')->nullable();
             $table->string('auctionImage');
+            //$table->string('status');
+            //$table->timestamp('end_time')->nullable();
             $table->timestamps();
         });
     }
