@@ -41,10 +41,10 @@
               <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#">Vehicle</a>
+              <a class="nav-link mx-2" href="#vehicle">Vehicle</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#">How to start</a>
+              <a class="nav-link mx-2" href="#start">How to start</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -144,7 +144,7 @@
               <div style="margin-top:50px;" class="about container text-center ">
                   <div class="row align-items-start">
                       <div class="col ">
-                    <h1 class="text-primary"><a href="" style="text-decoration:none">HOW TO START</a></h1>
+                    <h1 class="text-primary">HOW TO START</h1>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                       </div>
                   </div>
@@ -153,7 +153,7 @@
 
 
             <!--Types Vehicle -->
-            <section class="vehicle container">
+            <section id="vehicle" class="vehicle container">
             <div class="row mt-5">
               <h1 class="text-center text-primary" >AVAILABLE VEHICLE</h1>
               <h6 class="text-center mb-5" style="color: #FF6C22;">Click to view every vehicle descriptions !</h6>

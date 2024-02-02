@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat System UI</title>
+  <title>Styled Chat System UI</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Adjust the styles based on your needs */
     body {
       background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
     }
 
     .chat-container {
@@ -31,8 +31,13 @@
       margin-bottom: 15px;
     }
 
+    .user .message {
+      text-align: right;
+    }
+
     .message .sender {
       font-weight: bold;
+      color: #007bff; /* User color */
     }
 
     .message .timestamp {
@@ -40,8 +45,24 @@
       color: #6c757d;
     }
 
+    .message .text {
+      color: #333;
+    }
+
+    .seller .message {
+      text-align: left;
+    }
+
     .input-group {
       margin-top: 20px;
+    }
+
+    .form-control {
+      border-radius: 5px;
+    }
+
+    .btn-primary {
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -50,13 +71,13 @@
 <div class="container chat-container">
   <div class="chat-box" id="chatBox">
     <!-- Example messages -->
-    <div class="message">
+    <div class="message user">
       <div class="sender">User 1</div>
       <div class="timestamp">12:30 PM</div>
       <div class="text">Hello there!</div>
     </div>
-    <div class="message">
-      <div class="sender">User 2</div>
+    <div class="message seller">
+      <div class="sender">Seller</div>
       <div class="timestamp">12:35 PM</div>
       <div class="text">Hi! How can I help you?</div>
     </div>
