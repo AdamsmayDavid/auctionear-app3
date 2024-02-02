@@ -65,4 +65,10 @@ class HomeController extends Controller
 
         return view('createAuction', compact('autos'));
     }
+    public function chats()
+    {
+        $autos = autos::all();
+
+        return view('chats', compact('autos'));
+    }
 }

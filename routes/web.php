@@ -11,8 +11,17 @@ use App\Http\Controllers\WebSocketController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/chatSystem', function () {
+   return view('chatSystem');
+});
+
+
+Route::get('/chats', [HomeController::class, 'chats']);
+
  
 Auth::routes();
+
 
 //Tesing routes
 Route::get('test', [TestController::class, 'test']);
