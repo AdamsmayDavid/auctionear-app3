@@ -18,7 +18,7 @@
         <!-- carousel -->
         <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
         <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-        <script src="assets/js/main.js"></script>
+        <script src="a/js/main.js"></script>
         
         <style>
          
@@ -83,7 +83,7 @@
          <!-- nav-end -->
       
             <!--front page -->
-                <div class="container bg-waves text-start  ">
+                <div class="container bg-waves text-start">
                       <div class="row">
                             <div class="col-sm-5 col-md-6 mt-5">   <p style="color:#FF6C22; font-size:3vh">
                                   Welcome To Auctionear
