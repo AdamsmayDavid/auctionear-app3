@@ -66,7 +66,7 @@ background-color: #d66024;
 }
 
 .navbar{
-  background-color: #FF6C22;
+  
 }
 /* .navbar .nav-link{
  
@@ -159,4 +159,13 @@ color:#000000;
   .list #btn_bid:hover{
   background-color: #d66024;
   border-color: none !important;
+  }
+
+
+  #phone:focus:invalid{
+    border-color: red !important;
+  }
+
+  #password:focus:invalid{
+    border-color: red !important;
   }

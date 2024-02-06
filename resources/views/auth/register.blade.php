@@ -93,7 +93,13 @@
                                             <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
                                             <div class="col-md-6">
-                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror  border-primary-subtle" placeholder="{{ __('Name') }}" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                <input id="name" 
+                                                type="text" class="form-control @error('name') is-invalid @enderror  border-primary-subtle" 
+                                                placeholder="{{ __('Name') }}" 
+                                                name="name" 
+                                                value="{{ old('name') }}" 
+                                                required autocomplete="name" 
+                                                autofocus>
 
                                                 @error('name')
                                                     <span class="invalid-feedback" role="alert">
@@ -107,7 +113,13 @@
                                             <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
                                             <div class="col-md-6">
-                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror  border-primary-subtle" placeholder="{{ __('Email Address') }}" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                                <input id="email" 
+                                                type="email" 
+                                                class="form-control @error('email') is-invalid @enderror  border-primary-subtle" 
+                                                placeholder="{{ __('Email Address') }}" 
+                                                name="email" 
+                                                value="{{ old('email') }}" 
+                                                required autocomplete="email">
 
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -116,12 +128,113 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        <!-- address -->
+                                        <div class="row mb-3">
+                                            <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
 
+                                            <div class="col-md-12">
+                                                <input id="address" 
+                                                type="address" 
+                                                class="form-control @error('address') is-invalid @enderror  border-primary-subtle"
+                                                placeholder="{{ __('Complete Address') }}" 
+                                                name="address" 
+                                                required 
+                                                autocomplete="address"
+                                                >
+
+                                                @error('phone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <!-- for contact -->
                                         <div class="row mb-3">
                                             <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> -->
 
                                             <div class="col-md-12">
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror  border-primary-subtle" placeholder="{{ __('Password') }}" name="password" required autocomplete="new-password">
+                                                <input id="phone" 
+                                                type="tel" 
+                                                class="form-control @error('phone') is-invalid @enderror  border-primary-subtle"
+                                                placeholder="{{ __('phone 63+') }}" 
+                                                name="phone" 
+                                                required 
+                                                autocomplete="phone"
+                                                pattern="[0-9]{11}"
+                                                >
+
+                                                @error('phone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                            <!-- Valid Id 1-->
+                                            <div class="row mb-3 ">
+                                            <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
+
+                                            <div class="col-md-6 mb-3">
+                                            <div class="mb-2 d-flex justify-content-center">
+                                                <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+                                                alt="example placeholder" style="width: 200px;" />
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="btn btn-primary btn-rounded">
+                                                    <label class="form-label text-white m-1" for="customFile1">Valid Id</label>
+                                                    <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" required>
+                                                </div>
+                                                
+                                            </div>
+
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                    
+
+                                                 <!-- Valid Id 2-->
+                                            <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('ValidId2') }}</label> -->
+
+                                            <!-- <div class="col-md-6">
+                                            <div class="mb-4 d-flex justify-content-end">
+                                                <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+                                                alt="example placeholder" style="width: 270px;" />
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="btn btn-primary btn-rounded">
+                                                    <label class="form-label text-white m-1" for="customFile1">Choose file</label>
+                                                    <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" />
+                                                </div>
+                                                
+                                            </div>
+
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                         -->
+
+                                            
+                                            <!-- for password -->
+                                        <div class="row mb-3">
+                                            <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> -->
+
+                                            <div class="col-md-12">
+                                                <input id="password"
+                                                 type="password" 
+                                                 class="form-control @error('password') is-invalid @enderror  border-primary-subtle" 
+                                                 placeholder="{{ __('Password') }}" 
+                                                 name="password" 
+                                                 required autocomplete="new-password">
+                                                 
 
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -135,13 +248,19 @@
                                             <!-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> -->
 
                                             <div class="col-md-12">
-                                                <input id="password-confirm" type="password" class="form-control  border-primary-subtle" placeholder="{{ __('Confirm Password') }}" name="password_confirmation" required autocomplete="new-password">
+                                                <input id="password-confirm" 
+                                                type="password" class="form-control  border-primary-subtle" 
+                                                placeholder="{{ __('Confirm Password') }}" 
+                                                name="password_confirmation" 
+                                                required autocomplete="new-password">
                                             </div>
                                         </div>
 
                                         <div class="register row mb-0">
                                             <div class="col-md-12 offset-md-">
-                                                <button type="submit" class="btn btn-primary col-md-12">
+                                                <button 
+                                                type="submit" 
+                                                class="btn btn-primary col-md-12">
                                                     {{ __('Register') }}
                                                 </button>
                                             </div>
@@ -155,6 +274,7 @@
                 <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
             <script src="assets/js/main.js"></script>
+            
         
      
     </body>

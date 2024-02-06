@@ -83,7 +83,7 @@
          <!-- nav-end -->
       
             <!--front page -->
-                <div class="container bg-waves text-start">
+                <div class="container bg-waves text-start p-5">
                       <div class="row">
                             <div class="col-sm-5 col-md-6 mt-5">   <p style="color:#FF6C22; font-size:3vh">
                                   Welcome To Auctionear

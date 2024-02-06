@@ -60,3 +60,11 @@ document.querySelectorAll('.conversation-back').forEach(function(item) {
     })
 })
 // end: Coversation
+
+ // for navbar
+    
+
+
+        //display image for valid id
+      
+        
