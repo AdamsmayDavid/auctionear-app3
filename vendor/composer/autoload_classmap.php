@@ -4879,6 +4879,7 @@ return array(
     'RingCentral\\Psr7\\StreamDecoratorTrait' => $vendorDir . '/ringcentral/psr7/src/StreamDecoratorTrait.php',
     'RingCentral\\Psr7\\StreamWrapper' => $vendorDir . '/ringcentral/psr7/src/StreamWrapper.php',
     'RingCentral\\Psr7\\Uri' => $vendorDir . '/ringcentral/psr7/src/Uri.php',
+    'SQLite3Exception' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/SQLite3Exception.php',
     'SebastianBergmann\\CliParser\\AmbiguousOptionException' => $vendorDir . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
     'SebastianBergmann\\CliParser\\Exception' => $vendorDir . '/sebastian/cli-parser/src/exceptions/Exception.php',
     'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => $vendorDir . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',

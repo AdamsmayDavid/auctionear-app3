@@ -423,8 +423,8 @@ class ComposerStaticInit58cf4b9c2c04b815654c7da9dcfd0bcd
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -5495,6 +5495,7 @@ class ComposerStaticInit58cf4b9c2c04b815654c7da9dcfd0bcd
         'RingCentral\\Psr7\\StreamDecoratorTrait' => __DIR__ . '/..' . '/ringcentral/psr7/src/StreamDecoratorTrait.php',
         'RingCentral\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/ringcentral/psr7/src/StreamWrapper.php',
         'RingCentral\\Psr7\\Uri' => __DIR__ . '/..' . '/ringcentral/psr7/src/Uri.php',
+        'SQLite3Exception' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/SQLite3Exception.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',
