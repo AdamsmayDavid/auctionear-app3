@@ -169,3 +169,100 @@ color:#000000;
   #password:focus:invalid{
     border-color: red !important;
   }
+
+  /*Introduction*/
+@media only screen and (min-width: 320px) and (max-width: 767.98px) {
+  .w-xs-50 {
+    width: 50% !important;
+  }
+
+  #introduction {
+    background-image: url("https://svgshare.com/i/JoA.svg") !important;
+    min-height: 50vh !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0% -8vh;
+    width: 100%;
+  }
+
+  #intro-img-holder {
+    top: -29% !important;
+  }
+
+  #intro-img {
+    width: 95% !important;
+  }
+
+  h2 {
+    margin-top: 2%;
+    cursor: default !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1198.98px) {
+  .w-md-50 {
+    width: 50% !important;
+  }
+
+  .w-md-85 {
+    width: 85% !important;
+  }
+
+  #introduction {
+    background-image: url("https://svgshare.com/i/JsH.svg") !important;
+    background-repeat: no-repeat;
+    background-position: 8% 112%;
+  }
+
+  #intro-img-holder {
+    top: -13% !important;
+    left: 20% !important;
+    height: 100% !important;
+  }
+
+  #intro-img {
+    height: 110% !important;
+  }
+
+  h2 {
+    margin-top: 8vh;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .w-md-50 {
+    width: 50% !important;
+  }
+
+  .w-md-85 {
+    width: 85% !important;
+  }
+
+  #introduction {
+    background-image: url("") !important;
+    background-repeat: no-repeat;
+    background-position: 11% 112%;
+  }
+
+  #intro-img-holder {
+    top: -13% !important;
+    left: 17% !important;
+    height: 100% !important;
+  }
+
+  #intro-img {
+    height: 110% !important;
+  }
+
+  h2 {
+    margin-top: 8vh;
+    cursor: default !important;
+  }
+}
+.color-grayish-blue {
+  color: #9698a6 !important;
+}
+
+#request-invite-btn {
+  background-color: #FF6C22 !important;
+  font-size: 18px !important;
+  display: block;
+}

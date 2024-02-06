@@ -83,23 +83,24 @@
          <!-- nav-end -->
       
             <!--front page -->
-                <div class="container bg-waves text-start p-5">
-                      <div class="row">
-                            <div class="col-sm-5 col-md-6 mt-5">   <p style="color:#FF6C22; font-size:3vh">
-                                  Welcome To Auctionear
-                                </p>
-
-                                <h1 style=" font-size:8vh;" class="text-primary">Bid, Sell & Collect Vehicle Items.</h1>
-                                <p style="color:#4E413B;">
-                                    And yet, here you are, still persevering in reading this placeholder text, hoping for some more insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of that here.
-                                </p>
-                                <a  style="" href="{{ route('register') }}" type="button" class="btn btn-start btn-lg text-light rounded-3">Start Auction  </a></p></div>
-                                    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0 mt-2">
-                                    <img src="assets/images/bigbike.jpg" class="col-md-6 float-md-end sm-w-100 mb-3 ms-md-3 w-100 h-100 rounded" alt="...">
-                            </div>
+               <!-- Intro Starts -->
+                  <div class="d-flex container-fluid flex-direction-column flex-direction-md-row flex-wrap flex-wrap-md-nowrap">
+                    <div id="introduction" class="container-fluid-md  w-md-50 order-md-2 overflow-hidden">
+                      <div id="intro-img-holder" class="col-11 row justify-content-center m-0 p-0">
+                        <img id="intro-img" class="img-fluid" src="assets/images/intro.jpg.png" alt="intro img">
                       </div>
-                  </div> 
-                </div>
+
+                    </div>
+                    <div class="container-md w-md-50 d-md-flex justify-content-center align-items-center flex-column">
+                      <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-0 double-gutter-md-left-padding ">
+                        
+                      <h2 id="business-tagline"  class="text-center text-md-left">AuctioNear</h2>
+                      <p class="text-center  text-md-left color-grayish-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, pariatur eveniet in atque quibusdam rerum et magnam cumque saepe sequi ipsum commodi eius, hic reprehenderit necessitatibus porro. Ea, voluptatibus cum.</p>
+                      <button id="request-invite-btn" type="button" class="btn btn-lg rounded-pill text-white bg-green-cyan request-btns align-item-center">Register now</button>
+                        </div>
+                    </div>
+                  </div>
+              <!-- Intro Ends -->
             <!-- <div class="clearfix container mt-5">
                 <img src="assets/images/bigbike.jpg" class="col-md-6 float-md-end sm-w-100 mb-3 ms-md-3 w-50" alt="...">
                 <div style="position:relative; top:50px;" class="intro">
