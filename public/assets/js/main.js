@@ -15,3 +15,5 @@ function displaySelectedImage(event, elementId) {
         reader.readAsDataURL(fileInput.files[0]);
     }
 }
+
+window.location.replace("#");

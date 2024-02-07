@@ -59,12 +59,48 @@ document.querySelectorAll('.conversation-back').forEach(function(item) {
         document.querySelector('.conversation-default').classList.add('active')
     })
 })
+
+
+ 
 // end: Coversation
 
- // for navbar
-    
 
+// for message event listener
+const socket = io();
 
-        //display image for valid id
-      
-        
+  // Receive new message event
+        socket.on('message', data => {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML += `<p><strong>${data.username}</strong>: ${data.message}</p>`;
+        });
+
+        // Receive user joined event
+        socket.on('userJoined', username => {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML += `<p><em>${username} joined the chat</em></p>`;
+        });
+
+        // Receive user left event
+        socket.on('userLeft', username => {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML += `<p><em>${username} left the chat</em></p>`;
+        });
+
+        // Send message when Enter key is pressed
+        document.getElementById('message').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            const chatBox = document.getElementById('chat-box');
+            const username = document.getElementById('username').value;
+            
+            if (message.trim() !== '') {
+                socket.emit('sendMessage', message);
+                chatBox.innerHTML += `<p><strong>${username}</strong>: ${message}</p>`;
+                document.getElementById('message').value = '';
+            }
+        }

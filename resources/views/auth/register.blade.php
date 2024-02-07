@@ -25,10 +25,10 @@
            
         </style>
     </head>
-    <body class="antialiased"> 
+    <body class="antialiased bg-warning"> 
                       
                 <!-- nav -->
-      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-light p-2 ">
+      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-2 shadow">
       <div class="container">
         <a class="navbar-brand text-primary" href="/#"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

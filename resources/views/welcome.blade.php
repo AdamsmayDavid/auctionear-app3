@@ -13,6 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/style.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <!-- Styles -->
 
         <!-- carousel -->
@@ -25,11 +26,11 @@
            
         </style>
     </head>
-    <body class="antialiased "> 
+    <body class="antialiased bg-warning"> 
                       
                 <!-- nav -->
-      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-light p-2 ">
-      <div class="container">
+      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-light bg-warning p-2 shadow">
+      <div class="container-md">
         <a class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,7 +59,7 @@
           </ul>
           
                     
-                        <div style="margin-top:15px;"  id="btn-G" class="btn-reg">
+                        <div style="margin-top:15px;"  id="btn-G" class="btn-reg ms-auto">
                             @if (Route::has('login'))
                                 
                                     @auth
@@ -84,20 +85,20 @@
       
             <!--front page -->
                <!-- Intro Starts -->
-                  <div class="d-flex container-fluid flex-direction-column flex-direction-md-row flex-wrap flex-wrap-md-nowrap">
+                  <div class="intro d-flex container-fluid flex-direction-column flex-direction-md-row flex-wrap flex-wrap-md-nowrap">
                     <div id="introduction" class="container-fluid-md  w-md-50 order-md-2 overflow-hidden">
                       <div id="intro-img-holder" class="col-11 row justify-content-center m-0 p-0">
-                        <img id="intro-img" class="img-fluid" src="assets/images/intro.jpg.png" alt="intro img">
+                        <img id="intro-img" class="img-fluid" src="assets/images/intro.jpg.png" alt="intro img"  data-aos="fade-left">
                       </div>
 
                     </div>
-                    <div class="container-md w-md-50 d-md-flex justify-content-center align-items-center flex-column">
-                      <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-0 double-gutter-md-left-padding ">
+                    <div class="auctionearTittle container-md w-md-50 d-md-flex justify-content-center align-items-center flex-column">
+                      <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-0 double-gutter-md-left-padding "  data-aos="fade-right">
+                          <h1 class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near</span></b></h1>
+                          <p class="text-quote text-start  text-md-left text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, pariatur eveniet in atque quibusdam rerum et magnam cumque saepe sequi ipsum commodi eius, hic reprehenderit necessitatibus porro. Ea, voluptatibus cum.</p>
+                          <a style="text-decoration:none;" href="{{ route('register') }}"><button id="request-invite-btn" type="button" class="btn btn-lg text-white align-item-center">Register now</button> </a>
+                      </div>
                         
-                      <h2 id="business-tagline"  class="text-center text-md-left">AuctioNear</h2>
-                      <p class="text-center  text-md-left color-grayish-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, pariatur eveniet in atque quibusdam rerum et magnam cumque saepe sequi ipsum commodi eius, hic reprehenderit necessitatibus porro. Ea, voluptatibus cum.</p>
-                      <button id="request-invite-btn" type="button" class="btn btn-lg rounded-pill text-white bg-green-cyan request-btns align-item-center">Register now</button>
-                        </div>
                     </div>
                   </div>
               <!-- Intro Ends -->
@@ -123,17 +124,17 @@
             <!-- columns -->
                 <div style="margin-top:100px;" class="vision container text-center ">
                   <div class="row align-items-start">
-                      <div class="col ">
-                    <h2 class="text-primary">WE LOVE OUR CUSTOMERS</h2>
-                      <p>We are known to provide best possible service ever</p>
+                      <div class="col bg-light p-5 m-2 shadow" data-aos="fade-right">
+                        <h2 class="" style="color:#FF6C22;" >WE LOVE OUR CUSTOMERS</h2>
+                          <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
                       </div>
-                      <div class="col">
-                      <h2 class="text-primary">WE LOVE OUR CUSTOMERS</h2>
-                      <p>We are known to provide best possible service ever</p>
+                      <div class="col bg-light p-5 m-2 shadow" data-aos="fade-up">
+                        <h2 class="" style="color:#FF6C22;" >WE LOVE OUR CUSTOMERS</h2>
+                          <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
                       </div>
-                      <div class="col">
-                      <h2 class="text-primary">WE LOVE OUR CUSTOMERS</h2>
-                      <p>We are known to provide best possible service ever</p>
+                      <div class="col bg-light p-5 m-2 shadow" data-aos="fade-left">
+                        <h2 class="" style="color:#FF6C22;">WE LOVE OUR CUSTOMERS</h2>
+                          <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
                       </div>
                   </div>
                 </div>
@@ -142,11 +143,11 @@
 
 
               <!-- start an auction -->
-              <div style="margin-top:50px;" class="about container text-center ">
-                  <div class="row align-items-start">
+              <div style="margin-top:80px !important;" class="about container text-center p-5  shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="300">
+                  <div class="row align-items-start p-5 m-2">
                       <div class="col ">
-                    <h1 class="text-primary">HOW TO START</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h1 class="" style="color:#FF6C22;">HOW TO START</h1>
+                      <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                       </div>
                   </div>
                 </div>
@@ -154,35 +155,35 @@
 
 
             <!--Types Vehicle -->
-            <section id="vehicle" class="vehicle container">
+            <section id="vehicle" class="vehicle container  p-5 mt-5 shadow bg-light" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
             <div class="row mt-5">
-              <h1 class="text-center text-primary" >AVAILABLE VEHICLE</h1>
+              <h1 class="text-center" style="color:#FF6C22;" >AVAILABLE VEHICLE</h1>
               <h6 class="text-center mb-5" style="color: #FF6C22;">Click to view every vehicle descriptions !</h6>
-            <div class="column">
+            <div class="column"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
               <div class="card">
-                <img src="assets/images/bigbike.jpg" alt="">
-                <p class=" mt-3 text-primary">MOTORCYCLE</p>
+                <img src="assets/images/motor1.png" alt="">
+                <p class=" mt-3" style="color:#FF6C22;">MOTORCYCLE</p>
               </div>
             </div>
 
-            <div class="column">
+            <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">
               <div class="card">
-               <img src="assets/images/bigbike.jpg" alt="">
-               <p class=" mt-3 text-primary">SEDAN</p>
+               <img src="assets/images/sedan.png" alt="">
+               <p class=" mt-3" style="color:#FF6C22;">SEDAN</p>
               </div>
             </div>
             
-            <div class="column">
+            <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="800">
               <div class="card">
-               <img src="assets/images/bigbike.jpg" alt="">
-               <p class=" mt-3 text-primary">SUV</p>
+               <img src="assets/images/suv.png" alt="">
+               <p class=" mt-3" style="color:#FF6C22;">SUV</p>
               </div>
             </div>
             
-            <div class="column">
+            <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
               <div class="card">
-               <img src="assets/images/bigbike.jpg" alt="">
-               <p class=" mt-3 text-primary">VAN</p>
+               <img src="assets/images/van.png" alt="">
+               <p class=" mt-3 " style="color:#FF6C22;">VAN</p>
               </div>
             </div>
           </div>
@@ -193,11 +194,11 @@
 
                 <!-- about -->
 
-                <div style="margin-top:50px;" class="about container text-center ">
-                  <div class="row align-items-start">
+                <div style="margin-top:50px;" class="about container text-center p-5  shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
+                  <div class="row align-items-start m-5">
                       <div class="col ">
-                    <h1 class="text-primary">ABOUT US</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h1 class="" style="color:#FF6C22;"> ABOUT US</h1>
+                      <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                       </div>
                   </div>
                 </div>
@@ -206,41 +207,41 @@
 
             <!-- contact form -->
               <!-- Wrapper container -->
-              <div class="container py-4 pt-5">
-                    <H1 class="text-center" style="color: #FF6C22;">CONTACT US</H1>
-              <!-- Bootstrap 5 starter form -->
-              <form id="contactForm ">
+              <div class="container py-4 pt-5 bg-light mt-5 shadow" data-aos="fade-up">
+                          <H1 class="text-center" style="color: #FF6C22;">CONTACT US</H1>
+                    <!-- Bootstrap 5 starter form -->
+                    <form id="contactForm" class="m-1">
 
-                <!-- Name input -->
-                <div class="contact mb-3 col-md-7 m-auto">
-                  <label class="form-label " for="name">Name</label>
-                  <input class="form-control border-primary-subtle" id="name" type="text"  />
-                </div>
+                      <!-- Name input -->
+                      <div class="contact mb-3 col-md-7 m-auto">
+                        <label class="form-label " for="name">Name</label>
+                        <input class="form-control border-primary-subtle" id="name" type="text"  />
+                      </div>
 
-                <!-- Email address input -->
-                <div class="contact mb-3 col-md-7 m-auto">
-                  <label class="form-label" for="emailAddress">Email Address</label>
-                  <input class="form-control border-primary-subtle" id="emailAddress" type="email" />
-                </div>
+                      <!-- Email address input -->
+                      <div class="contact mb-3 col-md-7 m-auto">
+                        <label class="form-label" for="emailAddress">Email Address</label>
+                        <input class="form-control border-primary-subtle" id="emailAddress" type="email" />
+                      </div>
 
-                <!-- Contact input -->
-                   <div class="contact mb-3 col-md-7 m-auto">
-                  <label class="form-label" for="message">Contact Number</label>
-                  <input class="form-control border-primary-subtle" id="message" type="number"></input>
-                </div>
+                      <!-- Contact input -->
+                        <div class="contact mb-3 col-md-7 m-auto">
+                        <label class="form-label" for="message">Contact Number</label>
+                        <input class="form-control border-primary-subtle" id="message" type="number"></input>
+                      </div>
 
-                <!-- Message input -->
-                <div class="contact mb-3 col-md-7 m-auto">
-                  <label class="form-label" for="message">Message</label>
-                  <textarea class="form-control border-primary-subtle" id="message" type="text"  style="height: 10rem;"></textarea>
-                </div>
+                      <!-- Message input -->
+                      <div class="contact mb-3 col-md-7 m-auto">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea class="form-control border-primary-subtle" id="message" type="text"  style="height: 10rem;"></textarea>
+                      </div>
 
-                <!-- Form submit button -->
-                <div class="contact d-grid  col-md-7 m-auto">
-                  <button class="btn btn-lg" type="submit">Submit</button>
-                </div>
+                      <!-- Form submit button -->
+                      <div class="contact d-grid  col-md-7 m-auto">
+                        <button class="btn btn-lg" type="submit">Submit</button>
+                      </div>
 
-              </form>
+                    </form>
 
               </div>
 
@@ -271,6 +272,10 @@
             <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
             <script src="assets/js/main.js"></script>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+              AOS.init();
+            </script>
         
      
     </body>

@@ -90,7 +90,7 @@
             </div>
         </nav> -->
                  <!-- nav -->
-      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-light p-4 ">
+      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-4 shadow">
       <div class="container">
         <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,14 +105,14 @@
             <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                    <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Vehicle
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#FF6C22;">
-                        @foreach($autos as $auto)
-                          <li><a class="dropdown-item" href="/biddersSedan">{{$auto->auto_type}}</a></li>
-                        @endforeach
-                    </ul>
+                        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Vehicle
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#FF6C22;">
+                            @foreach($autos as $auto)
+                            <li><a class="dropdown-item" href="/biddersSedan">{{$auto->auto_type}}</a></li>
+                            @endforeach
+                        </ul>
                     </li>
                 </ul>
             </div>
