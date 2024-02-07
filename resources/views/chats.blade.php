@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="conversation-item-content">
                                     <div class="conversation-item-wrapper">
-                                        <div class="conversation-item-box">
+                                        <div  class="conversation-item-box">
                                             <div class="conversation-item-text">
                                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet natus repudiandae quisquam sequi nobis suscipit consequatur rerum alias odio repellat!</p>
                                                 <div class="conversation-item-time">12:30</div>
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="conversation-item">
+                            <li class="conversation-item ">
                                 <div class="conversation-item-side">
                                     <img class="conversation-item-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
                                 </div>
@@ -145,7 +145,7 @@
                                     <div class="conversation-item-wrapper">
                                         <div class="conversation-item-box">
                                             <div class="conversation-item-text">
-                                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                                <p>aaaLorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                                                 <div class="conversation-item-time">12:30</div>
                                             </div>
                                             <div class="conversation-item-dropdown">
@@ -224,10 +224,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="conversation-item-wrapper">
+                                    <div  class="conversation-item-wrapper">
                                         <div class="conversation-item-box">
-                                            <div  id="chat-box" class="conversation-item-text">
-                                                <div class="conversation-item-time"> </div>
+                                            <div id="chat-container" class="conversation-item-text">
+                                                <div id="timestamp" class="conversation-item-time"> </div>
                                             </div>
                                             <div class="conversation-item-dropdown">
                                                 <button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>
@@ -242,14 +242,24 @@
                             </li>
                         </ul>
                     </div>
+                                        <!-- bidders -->
                     <div class="conversation-form">
                         <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
                         <div class="conversation-form-group">
-                        <input type="text" id="username" placeholder="Enter your username">
-                        <textarea id="message" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
+                        <textarea id="message-input-user1" class="conversation-form-input" rows="1" placeholder="bidders"></textarea>
                             <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
                         </div>
-                        <button type="button" onclick="sendMessage()" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
+                        <button  id="send-button-user1" type="button" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
+                    </div>
+
+                            <!-- seller -->
+                    <div class="conversation-form ">
+                        <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
+                        <div class="conversation-form-group">
+                        <textarea id="message-input-user2" class="conversation-form-input" rows="1" placeholder="seller"></textarea>
+                            <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
+                        </div>
+                        <button  id="send-button-user2" type="button" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
                     </div>
                 </div>
 
@@ -437,6 +447,7 @@
     </section>
     <!-- end: Chat -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script src="assets/js/script.js"></script>
 @endsection

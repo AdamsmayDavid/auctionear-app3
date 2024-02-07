@@ -65,42 +65,72 @@ document.querySelectorAll('.conversation-back').forEach(function(item) {
 // end: Coversation
 
 
-// for message event listener
-const socket = io();
+$(document).ready(function(){
+    // Function to send a message
+    function sendMessage(message) {
+        // Get current timestamp
+        var timestamp = new Date().toLocaleString();
 
-  // Receive new message event
-        socket.on('message', data => {
-            const chatBox = document.getElementById('chat-box');
-            chatBox.innerHTML += `<p><strong>${data.username}</strong>: ${data.message}</p>`;
-        });
+        // Create a new div element for the message
+        var messageElement = $("<div>").addClass("message");
+        
+        // Create a span for message content
+        var contentElement = $("<span>").addClass("content").text(message);
+        
+        // Create a span for timestamp
+        var timestampElement = $("<span>").addClass("timestamp").text(" [" + timestamp + "]");
+        
+        // Append message content and timestamp to the message element
+        messageElement.append(contentElement, timestampElement);
+        
+        // Append the message element to the chat container
+        $("#chat-container").append(messageElement);
+    }
 
-        // Receive user joined event
-        socket.on('userJoined', username => {
-            const chatBox = document.getElementById('chat-box');
-            chatBox.innerHTML += `<p><em>${username} joined the chat</em></p>`;
-        });
+    // Example of sending a message when a button is clicked
+    $("#send-button").click(function(){
+        var message = $("#message-input").val(); // Get the message from an input field
+        sendMessage(message); // Call the sendMessage function to create and append the message
+        $("#message-input").val(""); // Clear the input field after sending the message
+    });
+});
 
-        // Receive user left event
-        socket.on('userLeft', username => {
-            const chatBox = document.getElementById('chat-box');
-            chatBox.innerHTML += `<p><em>${username} left the chat</em></p>`;
-        });
 
-        // Send message when Enter key is pressed
-        document.getElementById('message').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        });
+$(document).ready(function(){
+    // Function to send a message
+    function sendMessage(sender, message) {
+        // Get current timestamp
+        var timestamp = new Date().toLocaleString();
 
-        function sendMessage() {
-            const message = document.getElementById('message').value;
-            const chatBox = document.getElementById('chat-box');
-            const username = document.getElementById('username').value;
-            
-            if (message.trim() !== '') {
-                socket.emit('sendMessage', message);
-                chatBox.innerHTML += `<p><strong>${username}</strong>: ${message}</p>`;
-                document.getElementById('message').value = '';
-            }
-        }
+        // Create a new div element for the message
+        var messageElement = $("<div>").addClass("message");
+        
+        // Create a span for sender's name
+        var senderElement = $("<span>").addClass("sender").text(sender + ": ");
+        
+        // Create a span for message content
+        var contentElement = $("<span>").addClass("content").text(message);
+        
+        // Create a span for timestamp
+        var timestampElement = $("<span>").addClass("timestamp").text(" [" + timestamp + "]");
+        
+        // Append sender, message content, and timestamp to the message element
+        messageElement.append(senderElement, contentElement, timestampElement);
+        
+        // Append the message element to the chat container
+        $("#chat-container").append(messageElement);
+    }
+
+    // Example of sending a message when a button is clicked
+    $("#send-button-user1").click(function(){
+        var message = $("#message-input-user1").val(); // Get the message from user 1's input field
+        sendMessage("User 1", message); // Call the sendMessage function to create and append the message
+        $("#message-input-user1").val(""); // Clear user 1's input field after sending the message
+    });
+
+    $("#send-button-user2").click(function(){
+        var message = $("#message-input-user2").val(); // Get the message from user 2's input field
+        sendMessage("User 2", message); // Call the sendMessage function to create and append the message
+        $("#message-input-user2").val(""); // Clear user 2's input field after sending the message
+    });
+});

@@ -773,3 +773,18 @@ body {
     }
 }
 /* end: Breakpoints */
+
+/* message */
+.timestamp {
+    font-size: 0.8em;
+    color: #cccccc;
+}
+.user1 {
+    background-color: #f0f0f0;
+    text-align: left !important;
+}
+.user2 {
+    background-color: #d3d3d3;
+    text-align: right !important;
+    justify-content: end !important;
+}
