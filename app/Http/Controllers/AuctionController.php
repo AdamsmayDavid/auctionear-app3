@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\auctions;
 use App\Models\autos;
+use App\Models\bids;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
@@ -36,9 +37,9 @@ class AuctionController extends Controller
                 'auto_id' => 'required',
                 'description' => 'required',
                 'starting_price' => 'required',
-                'auc_date' => 'required',
-                'auc_time' => 'required',
-                'auc_image' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+                //'auc_date' => 'required',
+                //'auc_time' => 'required',
+                'auc_image' => 'required', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
             ]);
 
             $auto_id = $request->auto_id;
@@ -57,12 +58,12 @@ class AuctionController extends Controller
                 'auto_id' => $auto_id,
                 'description' => $description,
                 'starting_price' => $starting_price,
-                'user_id' => $user['id'],
-                'auction_date' => $auc_date,
-                'auction_time' => $auc_time,
+                'creator_id' => $user['id'],
+                //'auction_date' => $auc_date,
+                //'auction_time' => $auc_time,
                 'auctionImage' => $AutoImgLoc,
-                // 'status' => 'active',
-                // 'end_time' => Carbon::now()->addHours(6), //addMinutes(1) or addHours(6)
+                'status' => 'active',
+                'end_time' => Carbon::now()->addHours(24), //addMinutes(1) or addHours(6)
             ]);
 
             return redirect()->back()->withSuccess('Upload image successful')
@@ -77,12 +78,150 @@ class AuctionController extends Controller
 
     public function biddingPage(Request $request)
     {
+        $on_auction = $request->input('auction_id');
         $autos = autos::all();
-        $auction = auctions::where('auction_id', $request->auction_id)->first('auction_id');
 
-        $auto_type = autos::where('id', $request->type)->first('auto_type');
 
-        return view('biddingPage', compact('autos', 'auction'));
+        $auctionData = auctions::select(
+            'auctions.auction_id',
+            'auctions.starting_price',
+            //'auctions.end_time',
+            //'auctions.crop_name',
+            //'auctions.status',
+            'auctions.creator_id', //'auctions.creator_id',
+            'bids.on_time',
+            'users.name as creator_name',
+            'auctions.auto_id',
+            'bids.bid_amount',
+            DB::raw('COALESCE(MAX(bids.bid_amount), auctions.starting_price) as latest_bid_price')
+        )
+        ->join('users', 'auctions.creator_id', '=', 'users.id')
+            ->leftJoin('bids', 'auctions.auction_id', '=', 'bids.auction_id')
+            ->where('auctions.auction_id', $on_auction)
+            ->groupBy(
+                        'auctions.auction_id',  
+                        'auctions.starting_price',  
+                        'auctions.status',
+                        'auctions.creator_id',
+                        'bids.on_time',
+                        'users.name', 
+                        //'users.profile_img',
+                        'auctions.auto_id', 
+                        'bids.bid_amount',
+                        'auctions.end_time',
+                    )
+            ->get();
+
+            $bids = bids::select('bids.bid_id', 'users.name', 'bids.bid_amount', 'bids.on_time')
+            ->join('users', 'bids.bidder_id', '=', 'users.id')
+            ->where('bids.auction_id', $on_auction)
+            ->orderBy('bid_amount', 'asc')
+            ->get();
+
+            return view('biddingPage', compact('auctionData', 'bids', 'autos'))->with('success', 'highest bid fetched');
+
+
+
+
+
+
+        // $autos = autos::all();
+
+        // $on_auction = $request->auction_id;
+        // $auction = auctions::where('auction_id', $on_auction)->first('auction_id');
+
+        // $auto_type = autos::where('id', $request->type)->first('auto_type');
+             
+        // //new
+        // $bids = bids::where('auction_id', $on_auction)->orderBy('bid_amount', 'desc')->get();
+
+
+
+
+        /*
+   
+        public function selectAuction(Request $request)
+    {
+        $on_auction = $request->input('auction_id');
+
+
+        $auctionData = demandAuctions::select(
+            'demand_auctions.auction_id',
+            'demand_auctions.crop_volume',
+            'demand_auctions.starting_price',
+            'demand_auctions.pick_up_date',
+            'demand_auctions.end_time',
+            //'demand_auctions.crop_name',
+            'demand_auctions.starting_price',
+            'demand_auctions.status',
+            'demand_auctions.creator_id',
+            'demand_bids.on_time',
+            'users.name as creator_name',
+            'users.profile_img',
+            'demand_auctions.crop_name',
+            'demand_bids.bid_amount',
+            DB::raw('COALESCE(MAX(demand_bids.bid_amount), demand_auctions.starting_price) as latest_bid_price')
+        )
+            ->join('users', 'demand_auctions.creator_id', '=', 'users.id')
+            ->leftJoin('demand_bids', 'demand_auctions.auction_id', '=', 'demand_bids.auction_id')
+            ->where('demand_auctions.auction_id', $on_auction)
+            ->groupBy(
+                        'demand_auctions.auction_id', 
+                        'demand_auctions.crop_volume', 
+                        'demand_auctions.starting_price', 
+                        'demand_auctions.pick_up_date', 
+                        //'demand_auctions.crop_name',
+                        'demand_auctions.starting_price',
+                        'demand_auctions.status',
+                        'demand_auctions.creator_id',
+                        'demand_bids.on_time',
+                        'users.name', 
+                        'users.profile_img',
+                        'demand_auctions.crop_name', 
+                        'demand_bids.bid_amount',
+                        'demand_auctions.end_time',
+                    )
+            ->get();
+
+            $bids = demand_bids::select('demand_bids.bid_id', 'users.name', 'demand_bids.bid_amount','users.profile_img', 'demand_bids.on_time')
+            ->join('users', 'demand_bids.bidder_id', '=', 'users.id')
+            ->where('demand_bids.auction_id', $on_auction)
+            ->orderBy('bid_amount', 'asc')
+            ->get();
+
+            return view('demandBidding', compact('auctionData', 'bids'))->with('success', 'highest bid fetched');
+
+
+
+
+
+
+
+        /*
+        $bids = demand_bids::select(
+            'demand_bids.bid_id', 
+            'demand_bids.crop_name', 
+            'users.name', 
+            'demand_bids.bid_amount',
+            'users.profile_img', 
+            'demand_bids.on_time'
+            )
+        ->join('users', 'demand_bids.bidder_id', '=', 'users.id')
+        ->where('demand_bids.auction_id', $on_auction)
+        ->orderBy('bid_amount', 'desc')
+        ->get();
+
+        $auctions = demandAuctions::where('auction_id', $on_auction)->get();
+        $highestbid = demand_bids::where('auction_id', $on_auction)->get('bid_amount')->max();
+        foreach($auctions as $auction)
+        {
+            $creator = User::where('id', $auction->user_id)->get();
+            $crop = crops::where('crop_id', $auction->crop_id)->first();
+        }
+        return view('demandBidding', compact('bids','auctions', 'highestbid', 'creator', 'crop'))->with('success', 'highest bid fetched');
+        */
     }
+    
+
  
 }

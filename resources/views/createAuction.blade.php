@@ -55,15 +55,15 @@
                         <input name="starting_price" type="number" class="form-control" id="startingPrice" placeholder="Enter starting price" required>
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="auctionDate" class="form-label">Auction Date</label>
                         <input name="auc_date" type="date" class="form-control" id="auctionDate" required>
-                    </div>
+                    </div> -->
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="auctionTime" class="form-label">Auction Time</label>
                         <input name="auc_time" type="time" class="form-control" id="auctionTime" required>
-                    </div>
+                    </div> -->
 
                     <div class="mb-3">
                         <label for="imageUpload" class="form-label">Upload Images (up to 4)</label>

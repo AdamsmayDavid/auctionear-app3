@@ -5,6 +5,11 @@
 
         <title>Bidding Page</title>
         @vite('resources/js/app.js')
+        @if(!empty($auctionData))            
+          @foreach($auctionData as $auction) 
+                    
+          @endforeach
+      @endif
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -78,7 +83,7 @@
             
 
             <li class="list-group-item">
-                <p class="mb-0">Current Highest Bid: $100</p>
+                <p class="mb-0">Current Highest Bid: ${{ $auction->latest_bid_price }}</p>
             </li>
             <li class="list-group-item">
                 <p class="mb-0">Bidding Ends: January 31, 2024</p>
@@ -86,12 +91,37 @@
             <li class="list-group-item">
                 <p class="mb-0">Bidders:</p>
                 <ul id="bids_here">
-                    <li>adams- $150</li>
-                    <li>adams - $120</li>
-                    <li>adams - $100</li>
+                    @if(!empty($bids))            
+                    @foreach($bids as $bid) 
+                        <li>{{ $bid->name }}- ${{ $bid->bid_amount }}</li>
+                    @endforeach
+                  @endif
                 </ul>
             </li>
         </ul>
+
+        
+                <!-- 
+                    @if(!empty($bids))            
+                    @foreach($bids as $bid) 
+                    <tr>
+                        <td class="text-center">
+                          <img
+                            src="/images/profiles/{{ $bid->profile_img }}"
+                            alt=""
+                            class="rounded-circle object-fit-cover"
+                            id="table-img"
+                          />
+                        </td>
+                        <td>{{ $bid->name }}</td>
+                        <td>₱{{ $bid->bid_amount }} /kg</td>
+                        <td>{{ $bid->on_time }}</td>
+                    </tr>
+                    @endforeach
+                  @endif
+                   -->
+
+
 
         @if(auth()->user()->type == 'user')           
             <div class="card-body">
@@ -107,6 +137,12 @@
     </div>
 </div>
 
+@if(!empty($auctionData))
+    @foreach($auctionData as $auction)
+    
+    @endforeach
+@endif
+                        
      <!-- script file -->
      <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
