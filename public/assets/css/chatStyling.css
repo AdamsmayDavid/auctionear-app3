@@ -422,19 +422,19 @@ body {
 .conversation-wrapper {
     list-style-type: none;
 }
-.conversation-item {
+.conversation-item, .conversation-item-me {
     display: flex;
     align-items: flex-end;
     flex-direction: row-reverse;
     margin-bottom: 16px;
 }
-.conversation-item.me {
+.conversation-item-me {
     flex-direction: row;
 }
 .conversation-item-side {
     margin-left: 8px;
 }
-.conversation-item.me .conversation-item-side {
+.conversation-item-me .conversation-item-side {
     margin-right: 8px;
 }
 .conversation-item-image {
@@ -455,7 +455,7 @@ body {
     position: relative;
     margin-left: auto;
 }
-.conversation-item.me .conversation-item-box {
+.conversation-item-me .conversation-item-box {
     margin-left: unset;
 }
 .conversation-item-text {
@@ -467,11 +467,11 @@ body {
     line-height: 1.5;
     margin-left: 32px;
 }
-.conversation-item.me .conversation-item-text {
+.conversation-item-me .conversation-item-text {
     margin-left: unset;
     margin-right: 32px;
 }
-.conversation-item.me .conversation-item-text {
+.conversation-item-me .conversation-item-text {
     background-color: var(--emerald-500);
     box-shadow: 0 2px 12px -2px var(--emerald-500);
     color: rgba(255, 255, 255, .8);
@@ -484,7 +484,7 @@ body {
     margin-top: 4px;
     line-height: 1;
 }
-.conversation-item.me .conversation-item-time {
+.conversation-item-me .conversation-item-time {
     color: rgba(255, 255, 255, .7);
 }
 .conversation-item-dropdown {
@@ -495,7 +495,7 @@ body {
     visibility: hidden;
     transition: all .15s ease-in-out;
 }
-.conversation-item.me .conversation-item-dropdown {
+.conversation-item-me .conversation-item-dropdown {
     left: unset;
     right: 0;
 }
@@ -540,7 +540,7 @@ body {
     transform-origin: left top;
     transition: all .15s ease-in-out;
 }
-.conversation-item.me .conversation-item-dropdown-list {
+.conversation-item-me .conversation-item-dropdown-list {
     left: unset;
     right: 0;
 }

@@ -27,7 +27,9 @@ Auth::routes();
 Route::get('test', [TestController::class, 'test']);
 Route::get('private', [TestController::class, 'private']);
 Route::view('bbb', 'checkingWebsocket');
+
 Route::post('/send_bid', [WebSocketController::class, 'send_bid']);
+Route::post('/send_message', [WebSocketController::class, 'send_message']);
 
 
 //Bidder Routes List
