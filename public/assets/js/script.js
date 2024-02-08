@@ -110,6 +110,7 @@ document.querySelectorAll('.conversation-back').forEach(function(item) {
 // end: Coversation
 
 
+<<<<<<< HEAD
 // for message event listener
 // const socket = io();
 
@@ -198,3 +199,74 @@ document.querySelectorAll('.conversation-back').forEach(function(item) {
 //  //tbody1.append(row);
 //  //tbody2.append(row);
 //  $("tbody").prepend(row);
+=======
+$(document).ready(function(){
+    // Function to send a message
+    function sendMessage(message) {
+        // Get current timestamp
+        var timestamp = new Date().toLocaleString();
+
+        // Create a new div element for the message
+        var messageElement = $("<div>").addClass("message");
+        
+        // Create a span for message content
+        var contentElement = $("<span>").addClass("content").text(message);
+        
+        // Create a span for timestamp
+        var timestampElement = $("<span>").addClass("timestamp").text(" [" + timestamp + "]");
+        
+        // Append message content and timestamp to the message element
+        messageElement.append(contentElement, timestampElement);
+        
+        // Append the message element to the chat container
+        $("#chat-container").append(messageElement);
+    }
+
+    // Example of sending a message when a button is clicked
+    $("#send-button").click(function(){
+        var message = $("#message-input").val(); // Get the message from an input field
+        sendMessage(message); // Call the sendMessage function to create and append the message
+        $("#message-input").val(""); // Clear the input field after sending the message
+    });
+});
+
+
+$(document).ready(function(){
+    // Function to send a message
+    function sendMessage(sender, message) {
+        // Get current timestamp
+        var timestamp = new Date().toLocaleString();
+
+        // Create a new div element for the message
+        var messageElement = $("<div>").addClass("message");
+        
+        // Create a span for sender's name
+        var senderElement = $("<span>").addClass("sender").text(sender + ": ");
+        
+        // Create a span for message content
+        var contentElement = $("<span>").addClass("content").text(message);
+        
+        // Create a span for timestamp
+        var timestampElement = $("<span>").addClass("timestamp").text(" [" + timestamp + "]");
+        
+        // Append sender, message content, and timestamp to the message element
+        messageElement.append(senderElement, contentElement, timestampElement);
+        
+        // Append the message element to the chat container
+        $("#chat-container").append(messageElement);
+    }
+
+    // Example of sending a message when a button is clicked
+    $("#send-button-user1").click(function(){
+        var message = $("#message-input-user1").val(); // Get the message from user 1's input field
+        sendMessage("User 1", message); // Call the sendMessage function to create and append the message
+        $("#message-input-user1").val(""); // Clear user 1's input field after sending the message
+    });
+
+    $("#send-button-user2").click(function(){
+        var message = $("#message-input-user2").val(); // Get the message from user 2's input field
+        sendMessage("User 2", message); // Call the sendMessage function to create and append the message
+        $("#message-input-user2").val(""); // Clear user 2's input field after sending the message
+    });
+});
+>>>>>>> 5fa94053606992fb92c9ccd0f3d936191d60c3ef
