@@ -21,6 +21,6 @@ Broadcast::channel('myPrivateChannel.user.{id}', function($user, $id){
     return $user->id == $id;
 });
 
-Broadcast::channel('messageChannel.user.{id}', function($user, $id){
+Broadcast::channel('messageSender.user.{id}', function($user, $id){
     return $user->id == $id;
 });

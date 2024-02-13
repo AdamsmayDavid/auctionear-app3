@@ -40,37 +40,24 @@
                     </form>
                     <div class="content-messages">
                         <ul class="content-messages-list">
+
                             <li class="content-message-title"><span>Recently</span></li>
-                            <li>
-                                <a href="#" data-conversation="#conversation-1">
-                                    <img class="content-message-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
-                                    <span class="content-message-info">
-                                        <span class="content-message-name">Jake Samson</span>
-                                        <span class="content-message-text">Lorem ipsum dolor sit amet consectetur.</span>
-                                    </span>
-                                    <span class="content-message-more">
-                                        <span class="content-message-unread">5</span>
-                                        <span class="content-message-time">12:30</span>
-                                    </span>
-                                </a>
-                            </li>
 
-                            <!-- CONVERSATION USER 2 -->
-                            <!-- <li>
-                                <a href="#" data-conversation="#conversation-2">
-                                    <img class="content-message-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
-                                    <span class="content-message-info">
-                                        <span class="content-message-name">Joshua Salazar</span>
-                                        <span class="content-message-text">Lorem ipsum dolor sit amet consectetur.</span>
-                                    </span>
-                                    <span class="content-message-more">
-                                        <span class="content-message-time">12:30</span>
-                                    </span>
-                                </a>
-                            </li> -->
-
-                            <!-- CONVERSATION USER 2 END-->
-                            
+                            @foreach($conversations as $conversation)
+                                    <li>
+                                        <a href="#" data-conversation="#conversation-{{$conversation->con_id}}">
+                                            <img class="content-message-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
+                                            <span class="content-message-info">
+                                                 <span class="content-message-name">{{$conversation->con_id}}</span> <!--user 2 -->
+                                                <!-- <span class="content-message-text">Lorem ipsum dolor sit amet consectetur.</span> -->
+                                            </span>
+                                            <span class="content-message-more">
+                                                <!-- <span class="content-message-unread">5</span> -->
+                                                <!-- <span class="content-message-time">12:30</span> -->
+                                            </span>
+                                        </a>
+                                    </li>
+                            @endforeach
                         </ul>
                     
                     </div>
@@ -83,139 +70,66 @@
                 </div>
 
 
-
-                <div class="conversation" id="conversation-1">
-                    <div class="conversation-top">
-                        <button type="button" class="conversation-back"><i class="ri-arrow-left-line"></i></button>
-                        <div class="conversation-user">
-                            <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
-                            <div>
-                                <div class="conversation-user-name">Someone</div>
-                                <div class="conversation-user-status online">online</div>
-                            </div>
-                        </div>
-                        <div class="conversation-buttons">
-                            <button type="button"><i class="ri-phone-fill"></i></button>
-                            <button type="button"><i class="ri-vidicon-line"></i></button>
-                            <button type="button"><i class="ri-information-line"></i></button>
+                @foreach($conversations as $conversation)
+                <div class="conversation" id="conversation-{{$conversation->con_id}}">
+                <div class="conversation-top">
+                    <button type="button" class="conversation-back"><i class="ri-arrow-left-line"></i></button>
+                    <div class="conversation-user">
+                        <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
+                        <div>
+                            <div class="conversation-user-name">{{$conversation->id}}</div>
+                            <div class="conversation-user-status online">online</div>
                         </div>
                     </div>
-
-
-                    <div class="conversation-main">
-
-                        <ul class="conversation-wrapper" id="convo">
-                            <div class="coversation-divider"><span>Today</span></div>
-
-                                    <div class="conversation-item-me">
-                                        <div class="conversation-item-box">
-                                            <div class="conversation-item-text">
-                                                <p>User 1Green Testing afssa Testingfdg dfgdfgdfgd dfg dfsgd 
-                                                Testingfdg dfgdfgdfgd  Green Testing dfg dfsgd gdgd dfgTestingfdg dfgdfgdfgd dfg dfsgd gdgd dfg
-                                                gdgd dfgTestingfdg dfgdfgdfgd dfg dfsgd gdgd dfgTe Green Testing stingfdg dfgdfgdfgd dfg dfsgd gdgd dfg </p>
-                                                <div class="conversation-item-time">12:30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="conversation-item">
-                                        <div class="conversation-item-box">
-                                            <div class="conversation-item-text">
-                                                <p>User 1White Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfg vWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfgWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd
-                                                     dfgWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfgWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfg </p>
-                                                <div class="conversation-item-time">12:30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                    </div>
-
-
-                    <div class="conversation-form">
-                        <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
-                        <div class="conversation-form-group">
-                        <!-- <input type="text" id="username" placeholder="Enter your username"> -->
-                        <textarea id="message" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
-                            <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
-                        </div>
-                        <button id="send_message" type="sumbit"  class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button> <!-- onclick="sendMessage()" -->
-
+                    <div class="conversation-buttons">
+                        <button type="button"><i class="ri-phone-fill"></i></button>
+                        <button type="button"><i class="ri-vidicon-line"></i></button>
+                        <button type="button"><i class="ri-information-line"></i></button>
                     </div>
                 </div>
+                <div class="conversation-main">
 
-                <!--  CONVERSATION USER 2  -->
-                <!-- <div class="conversation" id="conversation-2">
-                    <div class="conversation-top">
-                        <button type="button" class="conversation-back"><i class="ri-arrow-left-line"></i></button>
-                        <div class="conversation-user">
-                            <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
-                            <div>
-                                <div class="conversation-user-name">Someone 1</div>
-                                <div class="conversation-user-status online">online</div>
-                            </div>
-                        </div>
-                        <div class="conversation-buttons">
-                            <button type="button"><i class="ri-phone-fill"></i></button>
-                            <button type="button"><i class="ri-vidicon-line"></i></button>
-                            <button type="button"><i class="ri-information-line"></i></button>
-                        </div>
-                    </div>
-                    <div class="conversation-main">
-                        <ul class="conversation-wrapper">
-                            <div class="coversation-divider"><span>Today</span></div>
+                    <ul class="conversation-wrapper" id="convo">
+                        <div class="coversation-divider"><span>Today</span></div>
 
+                            @foreach($messages as $message)
+                                @if($message->con_id == $conversation->con_id)  
+                                    @if($message->sender_id == Auth::id())                                                    
+                                        <div class="conversation-item">
+                                            <div class="conversation-item-box">
+                                                <div class="conversation-item-text">
+                                                    <p>{{$message->content}}</p>
+                                                    <div class="conversation-item-time">12:30</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="conversation-item-me">
+                                            <div class="conversation-item-box">
+                                                <div class="conversation-item-text">
+                                                    <p>{{$message->content}}</p>
+                                                    <div class="conversation-item-time">12:30</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endif
+                            @endforeach
                             
-                            <div class="conversation-item me">
-                                        <div class="conversation-item-box">
-                                            <div class="conversation-item-text">
-                                                <p>User 2 Green Testing afssa Testingfdg dfgdfgdfgd dfg dfsgd 
-                                                Testingfdg dfgdfgdfgd  Green Testing dfg dfsgd gdgd dfgTestingfdg dfgdfgdfgd dfg dfsgd gdgd dfg
-                                                gdgd dfgTestingfdg dfgdfgdfgd dfg dfsgd gdgd dfgTe Green Testing stingfdg dfgdfgdfgd dfg dfsgd gdgd dfg </p>
-                                                <div class="conversation-item-time">12:30</div>
-                                            </div>
-                                            <div class="conversation-item-dropdown">
-                                                <button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>
-                                                <ul class="conversation-item-dropdown-list">
-                                                    <li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>
-                                                    <li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="conversation-item">
-                                        <div class="conversation-item-box">
-                                            <div class="conversation-item-text">
-                                                <p>User 2White Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfg vWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfgWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd
-                                                     dfgWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfgWhite Testingfdg dfgdfgdfgd dfg dfsgd gdgd dfg </p>
-                                                <div class="conversation-item-time">12:30</div>
-                                            </div>
-                                            <div class="conversation-item-dropdown">
-                                                <button type="button" class="conversation-item-dropdown-toggle"><i class="ri-more-2-line"></i></button>
-                                                <ul class="conversation-item-dropdown-list">
-                                                    <li><a href="#"><i class="ri-share-forward-line"></i> Forward</a></li>
-                                                    <li><a href="#"><i class="ri-delete-bin-line"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                          
-                        </ul>
+                                                                
+                </div>
+                <div class="conversation-form">
+                    <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
+                    <div class="conversation-form-group">
+                    <!-- <input type="text" id="username" placeholder="Enter your username"> -->
+                    <textarea id="message" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
+                        <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
                     </div>
+                    <button id="send_message" type="sumbit"  class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button> <!-- onclick="sendMessage()" -->
 
-                    <div class="conversation-form">
-                        <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
-                        <div class="conversation-form-group">
-                        <textarea id="message" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
-                            <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
-                        </div>
-                        <button type="button" onclick="sendMessage()" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
-                    </div> -->
-                    <!-- CONVERSATION USER 2 -->
-                <!-- end: Conversation -->
-                
-
+                </div>
+            </div>
+            @endforeach
 
                 
             </div>
@@ -233,13 +147,13 @@
     
 
 
-<!-- script file -->
-<script src="assets/js/jquery.min.js"></script>
+            <!-- script file -->
+            <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
             <script src="assets/js/main.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            <script>
+<script>
       $(document).ready(function() {
 
         //para sa Web toh par
@@ -307,7 +221,7 @@
     setTimeout(() => {
         //window.Echo.channel for public
         //window.Echo.private for private
-        window.Echo.channel('messageChannel.user.{{Auth::id()}}')
+        window.Echo.channel('messageSender.user.{{Auth::id()}}')
         .listen('.message', (data) => {
             console.log(data.message);
 

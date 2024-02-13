@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\auctions;
 use App\Models\autos;
+use App\Models\conversations;
+use App\Models\messages;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -69,6 +72,58 @@ class HomeController extends Controller
     {
         $autos = autos::all();
 
-        return view('chats', compact('autos'));
+        $user = Auth::id();
+
+        $conversations = conversations::where('user_one', $user)
+                                        ->orwhere('user_two', $user)->get();
+
+        $messages = messages::where('sender_id', $user)
+                              ->orwhere('receiver_id', $user)->get();
+        // $conversations = conversations::select(
+        //                                         'conversations.con_id', 
+        //                                         'conversations.user_one', 
+        //                                         'conversations.user_two', 
+        //                                         'users.name', 
+        //                                       )
+                                              
+        // ->join('users', 'conversations.con_id', '=', 'users.id')
+        // ->where('conversations.user_one', $my_conversations)
+        // ->orwhere('conversations.user_two', $my_conversations)
+        // ->get();
+        // //dd($conversations);
+
+        // $messages = messages::select(
+        //                               'messages.con_id',
+        //                               'messages.content', 
+        //                               'messages.sender_id', 
+        //                               'messages.receiver_id'
+        //                             )
+        // ->join('messages', 'messages.con_id', '=', 'conversations.con_id')
+        // ->where('messages.sender_id', $my_conversations)
+        // ->orwhere('messages.receiver_id', $my_conversations)
+        // ->orderBy('message_id', 'desc')
+        // ->get();
+        // //dd($messages);
+        
+
+        return view('chats', compact('autos', 'conversations', 'messages'));
     }
 }
+
+/*
+
+SELECT
+  `conversations`.`con_id`,
+  `conversations`.`user_one`,
+  `conversations`.`user_two`,
+  `users`.`name`,
+  `messages`.`con_id`
+FROM
+  `conversations`
+  INNER JOIN `users` ON `conversations`.`con_id` = `users`.`id`
+  INNER JOIN `messages` ON `messsages`.`message_id` = `messages`.`message_id`
+WHERE
+  `conversations`.`user_one` = 2
+  OR `conversations`.`user_two` = 2
+
+  */

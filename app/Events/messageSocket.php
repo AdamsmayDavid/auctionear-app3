@@ -37,7 +37,7 @@ class messageSocket implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('messageChannel.user.'.$this->channel),
+            new Channel('messageSender.user.'.$this->channel),
 
             // Private channel are using the user id. I try to use Private channels but 
             // its not working so I tried public channel which is the "Channel" only instead of 

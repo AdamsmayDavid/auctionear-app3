@@ -132,3 +132,5 @@ Route::get('/auctionPage', [HomeController::class, 'auctionPage']);
    //  });
 
    
+
+   
