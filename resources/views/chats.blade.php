@@ -77,7 +77,7 @@
                     <div class="conversation-user">
                         <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
                         <div>
-                            <div class="conversation-user-name">{{$conversation->id}}</div>
+                            <div class="conversation-user-name">{{$conversation->con_id}}</div>
                             <div class="conversation-user-status online">online</div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="conversation-main">
 
-                    <ul class="conversation-wrapper" id="convo">
+                    <ul class="conversation-wrapper" id="convo-{{$conversation->con_id}}">
                         <div class="coversation-divider"><span>Today</span></div>
 
                             @foreach($messages as $message)
@@ -121,11 +121,11 @@
                 <div class="conversation-form">
                     <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
                     <div class="conversation-form-group">
-                    <!-- <input type="text" id="username" placeholder="Enter your username"> -->
-                    <textarea id="message" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
+                    <input type="hidden" id="con_id" value="{{$conversation->con_id}}">
+                    <textarea id="message{{$conversation->con_id}}" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
                         <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
                     </div>
-                    <button id="send_message" type="sumbit"  class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button> <!-- onclick="sendMessage()" -->
+                    <button id="send_message{{$conversation->con_id}}" type="sumbit"  class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button> <!-- onclick="sendMessage()" -->
 
                 </div>
             </div>
@@ -153,13 +153,15 @@
             <script src="assets/js/main.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+@foreach($conversations as $conversation)
 <script>
       $(document).ready(function() {
 
         //para sa Web toh par
            
-             $('#send_message').click(function() {
-                var message = $('#message').val();
+             $('#send_message{{$conversation->con_id}}').click(function() {
+                var message = $('#message{{$conversation->con_id}}').val();
+                var con_id = $('#con_id').val();
                 if (message.trim() !== '') {
                     // AJAX request to send the message to the server
                     $.ajax({
@@ -169,12 +171,14 @@
                         { 
                           _token: '{{ csrf_token() }}',
                           message: message,
-                          channel: '{{Auth::id()}}',
-                          bidder: "{{ Auth::user()['name'] }}",
+                          channel: '{{$conversation->con_id}}',
+                          receiver: "{{Auth::id()}}",
                         },
                         success: function(response) {
                             // Handle success if needed
+                            $('#message{{$conversation->con_id}}').val('');
                             console.log('Message Response: ', response);
+                            
 
                             if (response == 'failed') {
                                 // Log or display validation errors
@@ -221,22 +225,22 @@
     setTimeout(() => {
         //window.Echo.channel for public
         //window.Echo.private for private
-        window.Echo.channel('messageSender.user.{{Auth::id()}}')
+        window.Echo.channel('messageSender.user.{{$conversation->con_id}}')
         .listen('.message', (data) => {
             console.log(data.message);
 
         // Update UI with received message
         let message = data.message;
-        let bidder_id = data.bidder;
+        let receiver = data.receiver;
         // let profile_img = data.profile_img;
         // let on_time = data.bid_on;
 
         // let list = document.createElement("li");
         // list.innerText = `${bidder_id} - ` + bid_price;
 
-        if (message.trim() == '2') {
+        if (receiver.trim() == '{{Auth::id()}}') {
 
-        let message_wrap = document.createElement('div');
+            let message_wrap = document.createElement('div');
         message_wrap.classList.add('conversation-item'); //message_wrap.classList.add('conversation-item-me');
 
         let message_box = document.createElement('div');
@@ -261,11 +265,12 @@
         message_text.appendChild(message_time);
 
 
-        document.getElementById("convo").append(message_wrap);
+        document.getElementById("convo-{{$conversation->con_id}}").append(message_wrap);
+
         }
         else
         {
-            
+
         let message_wrap = document.createElement('div');
         message_wrap.classList.add('conversation-item-me'); //message_wrap.classList.add('conversation-item-me');
 
@@ -291,7 +296,8 @@
         message_text.appendChild(message_time);
 
 
-        document.getElementById("convo").append(message_wrap);
+        document.getElementById("convo-{{$conversation->con_id}}").append(message_wrap);
+
         }
 
         })
@@ -314,7 +320,7 @@
     }, 200)
     */
 </script>
-
+@endforeach
 
 
 

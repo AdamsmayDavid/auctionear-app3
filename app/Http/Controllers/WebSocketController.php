@@ -22,10 +22,10 @@ class WebSocketController extends Controller
     public function send_message(Request $request)
     {
         $message = $request->message;
-        $bidder = $request->bidder;
+        $receiver = $request->receiver;
         $channel = $request->channel;
 
-        event(new messageSocket($message, $bidder, $channel));
+        event(new messageSocket($message, $receiver, $channel));
 
 
     }
