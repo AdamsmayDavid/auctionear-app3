@@ -53,6 +53,12 @@ class HomeController extends Controller
         return view('home', compact('autos'));
     }
 
+    public function activateUsers()
+    {
+        $autos = autos::all();
+        return view('activateUsers', compact('autos'));
+    }
+
     public function auctionPage(Request $request)
     {
         $auctions = auctions::where('auto_id', $request->type)->get();

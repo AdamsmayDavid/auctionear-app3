@@ -49,6 +49,7 @@ Route::middleware(['auth', 'user-access:seller'])->group(function () {
 //Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+   Route::get('/activateUsers', [HomeController::class, 'activateUsers'])->name('activateUsers');
 });
 
 
