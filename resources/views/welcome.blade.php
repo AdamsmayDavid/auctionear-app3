@@ -17,8 +17,6 @@
         <!-- Styles -->
 
         <!-- carousel -->
-        <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
         <script src="a/js/main.js"></script>
         
         <style>
@@ -26,7 +24,7 @@
            
         </style>
     </head>
-    <body class="antialiased bg-warning"> 
+    <body class="antialiased "> 
                       
                 <!-- nav -->
       <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-light bg-warning p-2 shadow">
@@ -85,6 +83,7 @@
       
             <!--front page -->
                <!-- Intro Starts -->
+               <div class="bg-cover cover-responsive">
                   <div class="intro d-flex container-fluid flex-direction-column flex-direction-md-row flex-wrap flex-wrap-md-nowrap">
                     <div id="introduction" class="container-fluid-md  w-md-50 order-md-2 overflow-hidden">
                       <div id="intro-img-holder" class="col-11 row justify-content-center m-0 p-0">
@@ -95,12 +94,13 @@
                     <div class="auctionearTittle container-md w-md-50 d-md-flex justify-content-center align-items-center flex-column">
                       <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-0 double-gutter-md-left-padding "  data-aos="fade-right">
                           <h1 class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near</span></b></h1>
-                          <p class="text-quote text-start  text-md-left text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, pariatur eveniet in atque quibusdam rerum et magnam cumque saepe sequi ipsum commodi eius, hic reprehenderit necessitatibus porro. Ea, voluptatibus cum.</p>
+                          <p class="text-quote text-start  text-md-left text-dark">"Welcome to our online auction! Explore, bid, and win your favorite items from the comfort of your home. Start bidding now and discover exciting treasures awaiting you!"</p>
                           <a style="text-decoration:none;" href="{{ route('register') }}"><button id="request-invite-btn" type="button" class="btn btn-lg text-white align-item-center">Register now</button> </a>
                       </div>
                         
                     </div>
                   </div>
+                </div>
               <!-- Intro Ends -->
             <!-- <div class="clearfix container mt-5">
                 <img src="assets/images/bigbike.jpg" class="col-md-6 float-md-end sm-w-100 mb-3 ms-md-3 w-50" alt="...">
@@ -122,18 +122,19 @@
            
 
             <!-- columns -->
-                <div style="margin-top:100px;" class="vision container text-center ">
-                  <div class="row align-items-start">
-                      <div class="col bg-light p-5 m-2 shadow" data-aos="fade-right">
-                        <h2 class="" style="color:#FF6C22;" >WE LOVE OUR CUSTOMERS</h2>
+                <div style="margin-top:100px;" class="vision container text-center shadow p-5 ">
+                <h1 class="text-light">OUR VALUES</h1>
+                  <div class="row align-items-start container mx-auto">
+                      <div class="col bg-light p-5 shadow m-3" data-aos="fade-right">
+                        <h2 class="" style="color:#FF6C22;" >Mission</h2>
                           <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
                       </div>
-                      <div class="col bg-light p-5 m-2 shadow" data-aos="fade-up">
-                        <h2 class="" style="color:#FF6C22;" >WE LOVE OUR CUSTOMERS</h2>
+                      <div class="col bg-light p-5  shadow m-3" data-aos="fade-up">
+                        <h2 class="" style="color:#FF6C22;" >Vision</h2>
                           <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
                       </div>
-                      <div class="col bg-light p-5 m-2 shadow" data-aos="fade-left">
-                        <h2 class="" style="color:#FF6C22;">WE LOVE OUR CUSTOMERS</h2>
+                      <div class="col bg-light p-5 m-3 shadow" data-aos="fade-left">
+                        <h2 class="" style="color:#FF6C22;">Goal</h2>
                           <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
                       </div>
                   </div>
@@ -143,47 +144,49 @@
 
 
               <!-- start an auction -->
-              <div style="margin-top:80px !important;" class="about container text-center p-5  shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="300">
-                  <div class="row align-items-start p-5 m-2">
-                      <div class="col ">
-                    <h1 class="" style="color:#FF6C22;">HOW TO START</h1>
-                      <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div style="margin-top:10px; z-index:;" class="about container text-center shadow p-5">
+                  <div class="row  mx-auto container mx-auto">
+                      <div style="background-color:#FF6C22;" class="col p-5 shadow m-3" data-aos="fade-right">
+                        <h1 class="text-light" >HOW TO START</h1>
+                          <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
                       </div>
+      
                   </div>
                 </div>
+
                  <!-- start an auction end -->
 
 
             <!--Types Vehicle -->
-            <section id="vehicle" class="vehicle container  p-5 mt-5 shadow bg-light" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
-            <div class="row mt-5">
-              <h1 class="text-center" style="color:#FF6C22;" >AVAILABLE VEHICLE</h1>
-              <h6 class="text-center mb-5" style="color: #FF6C22;">Click to view every vehicle descriptions !</h6>
+            <section id="vehicle" class="bg-image img-responsive vehicle container p-5 mt-5 shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
+            <div class="row container mx-auto p-5">
+              <h1 class="text-center" style="color:#FF6C22" >AVAILABLE VEHICLE</h1>
+              <h6 class="text-center mb-5 text-warning" >Click to view every vehicle descriptions !</h6>
             <div class="column"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
-              <div class="card">
+              <div class="card ">
                 <img src="assets/images/motor1.png" alt="">
-                <p class=" mt-3" style="color:#FF6C22;">MOTORCYCLE</p>
+                <p class=" mt-3 text-dark" >MOTORCYCLE</p>
               </div>
             </div>
 
             <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">
               <div class="card">
                <img src="assets/images/sedan.png" alt="">
-               <p class=" mt-3" style="color:#FF6C22;">SEDAN</p>
+               <p class=" mt-3">SEDAN</p>
               </div>
             </div>
             
             <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="800">
               <div class="card">
                <img src="assets/images/suv.png" alt="">
-               <p class=" mt-3" style="color:#FF6C22;">SUV</p>
+               <p class=" mt-3" >SUV</p>
               </div>
             </div>
             
             <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
               <div class="card">
                <img src="assets/images/van.png" alt="">
-               <p class=" mt-3 " style="color:#FF6C22;">VAN</p>
+               <p class=" mt-3 " >VAN</p>
               </div>
             </div>
           </div>
@@ -195,10 +198,10 @@
                 <!-- about -->
 
                 <div style="margin-top:50px;" class="about container text-center p-5  shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
-                  <div class="row align-items-start m-5">
+                  <div class="row align-items-start m-5 p-5" style="background-color:#FF6C22;">
                       <div class="col ">
-                    <h1 class="" style="color:#FF6C22;"> ABOUT US</h1>
-                      <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h1 class="text-light" > ABOUT US</h1>
+                      <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                       </div>
                   </div>
                 </div>
@@ -210,7 +213,7 @@
               <div class="container py-4 pt-5 bg-light mt-5 shadow" data-aos="fade-up">
                           <H1 class="text-center" style="color: #FF6C22;">CONTACT US</H1>
                     <!-- Bootstrap 5 starter form -->
-                    <form id="contactForm" class="m-1">
+                    <form id="contactForm" class="m-1 p-5">
 
                       <!-- Name input -->
                       <div class="contact mb-3 col-md-7 m-auto">
@@ -270,7 +273,6 @@
           
             <!-- script file -->
             <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
             <script src="assets/js/main.js"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             <script>
