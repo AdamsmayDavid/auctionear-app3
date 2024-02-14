@@ -172,7 +172,7 @@
                           _token: '{{ csrf_token() }}',
                           message: message,
                           channel: '{{$conversation->con_id}}',
-                          receiver: "{{Auth::id()}}",
+                          sender: "{{Auth::id()}}",
                         },
                         success: function(response) {
                             // Handle success if needed
@@ -231,14 +231,14 @@
 
         // Update UI with received message
         let message = data.message;
-        let receiver = data.receiver;
+        let sender = data.sender;
         // let profile_img = data.profile_img;
         // let on_time = data.bid_on;
 
         // let list = document.createElement("li");
         // list.innerText = `${bidder_id} - ` + bid_price;
 
-        if (receiver.trim() == '{{Auth::id()}}') {
+        if (sender.trim() == '{{Auth::id()}}') {
 
             let message_wrap = document.createElement('div');
         message_wrap.classList.add('conversation-item'); //message_wrap.classList.add('conversation-item-me');
