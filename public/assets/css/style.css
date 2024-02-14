@@ -1,4 +1,12 @@
+*{
+  padding: none !important;
+  margin: none !important;
 
+}
+
+
+
+/* logut btn */
 .btn-start{
   background-color: #FF6C22;
 }
@@ -17,15 +25,34 @@ background-color: #d66024;
 }
 
 /*Introduction*/
+
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
-  /* body{
-    background-image: url('/assets/images/waves.png');
-    height: 300vh !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-  } */
+  .bg-waves{
+    background-image: url('/assets/images/waves1.jpg');
+   background-size: 100vh !important;
+   background-repeat:repeat-y !important;
+    
+  }
+
+
+  .bg-cover{
+    margin-top: 20px !important;
+  }
+
+  html,body{
+   overflow-x: hidden;
+   scroll-behavior: smooth !important;
+    
+  }
  
- 
+  .vision {
+    margin-top: 10 !important;
+    padding: 0 !important;
+  }
+
+  .vision h1{
+    padding-top: 20px !important;
+  }
   .w-xs-50 {
     width: 50% !important;
   }
@@ -59,11 +86,9 @@ background-color: #d66024;
     font-size: 6vh !important;
   }
   .auctionearTittle p{
-    font-size: 2vh !important;
+    font-size: 3vh !important;
   }
 }
-
-
 @media only screen and (min-width: 768px) and (max-width: 1198.98px) {
   .w-md-50 {
     width: 50% !important;
@@ -78,6 +103,7 @@ background-color: #d66024;
     background-repeat: no-repeat;
     background-position: 8% 112%;
   }
+  
 
   #intro-img-holder {
     top: -13% !important;
@@ -89,11 +115,12 @@ background-color: #d66024;
     height: 110% !important;
   }
 
-  h1 {
-    margin-top: 8vh;
+  .auctionearTittle h1{
+    margin-top: 8vh !important;
   }
 }
 @media only screen and (min-width: 1200px) {
+  
   .w-md-50 {
     width: 50% !important;
   }
@@ -107,9 +134,9 @@ background-color: #d66024;
       height: 80vh !important;
       
     }
-    body{
+    .bg-waves{
       background-image: url('/assets/images/waves.png');
-      height: 430vh !important;
+      height: 440vh !important;
       background-size: cover !important;
       background-repeat: no-repeat !important;
     }
@@ -133,15 +160,47 @@ background-color: #d66024;
  .auctionearTittle h1{
     margin-top: 5vh !important;
     cursor: default !important;
-    font-size: 90px !important;
+    font-size: 100px !important;
     
   }
 
   .auctionearTittle p{
-    font-size: 20px !important;
+    font-size: 24px !important;
+   
   }
 }
 
+
+
+/* start media */
+@media only screen and (min-width: 320px) and (max-width: 767.98px) {
+  .start
+  {
+    padding: 0 !important;
+    margin-top: -80px !important;
+  }
+  .start h1
+  {
+    padding-top: 20px !important;
+  }
+  }
+
+  /* about  */
+  @media only screen and (min-width: 320px) and (max-width: 767.98px) {
+    .about
+    {
+      margin-top: 40px!important;
+      padding: 2px !important;
+    }
+    .about h1
+    {
+      padding-top: 20px !important;
+    }
+    .about .col{
+     
+    }
+    
+  }
 /* vision page */
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
     .vision{
@@ -216,7 +275,9 @@ background-color: #d66024;
 } */
 
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
- 
+ #vehicle{
+  padding: 0 !important;
+ }
   
   }
 

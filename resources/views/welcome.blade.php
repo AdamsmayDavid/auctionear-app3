@@ -7,6 +7,9 @@
         <title>Auctionear</title>
 
         <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
@@ -24,14 +27,14 @@
            
         </style>
     </head>
-    <body class="antialiased "> 
+    <body class="bg-waves"> 
                       
                 <!-- nav -->
-      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-light bg-warning p-2 shadow">
-      <div class="container-md">
+      <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-light bg-warning p-2 shadow">
+      <div class="container-md ">
         <a class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
-        <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button id="TogglerIcon" class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon "></span>
         </button>
     
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
@@ -83,7 +86,7 @@
       
             <!--front page -->
                <!-- Intro Starts -->
-               <div class="bg-cover cover-responsive">
+               <div style="margin-top:100px;" class="bg-cover cover-responsive">
                   <div class="intro d-flex container-fluid flex-direction-column flex-direction-md-row flex-wrap flex-wrap-md-nowrap">
                     <div id="introduction" class="container-fluid-md  w-md-50 order-md-2 overflow-hidden">
                       <div id="intro-img-holder" class="col-11 row justify-content-center m-0 p-0">
@@ -144,11 +147,12 @@
 
 
               <!-- start an auction -->
-              <div style="margin-top:10px; z-index:;" class="about container text-center shadow p-5">
-                  <div class="row  mx-auto container mx-auto">
+              <div style="margin-top:80px; z-index:;" class="start container text-center shadow p-5">
+             
+              <div class="row  mx-auto container mx-auto">
                       <div style="background-color:#FF6C22;" class="col p-5 shadow m-3" data-aos="fade-right">
-                        <h1 class="text-light" >HOW TO START</h1>
-                          <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
+                      <h1 class="text-light" >HOW TO START</h1>
+                      <p class="text-light mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
                       </div>
       
                   </div>
@@ -158,8 +162,8 @@
 
 
             <!--Types Vehicle -->
-            <section id="vehicle" class="bg-image img-responsive vehicle container p-5 mt-5 shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
-            <div class="row container mx-auto p-5">
+            <section id="vehicle" style="margin-top:80px;" class="bg-image img-responsive vehicle container p-5 shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
+            <div class="pad-about row container mx-auto p-5">
               <h1 class="text-center" style="color:#FF6C22" >AVAILABLE VEHICLE</h1>
               <h6 class="text-center mb-5 text-warning" >Click to view every vehicle descriptions !</h6>
             <div class="column"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
@@ -197,12 +201,14 @@
 
                 <!-- about -->
 
-                <div style="margin-top:50px;" class="about container text-center p-5  shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
-                  <div class="row align-items-start m-5 p-5" style="background-color:#FF6C22;">
-                      <div class="col ">
-                    <h1 class="text-light" > ABOUT US</h1>
-                      <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div style="margin-top:80px;"  class="about container text-center shadow p-5">
+              <div class="row  mx-auto container mx-auto">
+                      <div style="background-color:#FF6C22;" class="col p-5 shadow" data-aos="fade-right">
+                      <h1 class="text-light">ABOUT US</h1>
+                          <p class="text-light mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis 
+                          incidunt nemo ad possimus quisquam tenetur impedit nam. Repellat optio, odio, neque aliquam assumenda nobis sint dolor in aperiam, quaerat voluptatem!  veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
                       </div>
+      
                   </div>
                 </div>
              
@@ -210,8 +216,8 @@
 
             <!-- contact form -->
               <!-- Wrapper container -->
-              <div class="container py-4 pt-5 bg-light mt-5 shadow" data-aos="fade-up">
-                          <H1 class="text-center" style="color: #FF6C22;">CONTACT US</H1>
+              <div style="margin-top:80px;" class="container py-4 bg-light shadow" data-aos="fade-up">
+                          <H1 class="text-center" style="color: #FF6C22; margin-top:40px;">CONTACT US</H1>
                     <!-- Bootstrap 5 starter form -->
                     <form id="contactForm" class="m-1 p-5">
 
