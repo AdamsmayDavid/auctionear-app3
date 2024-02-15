@@ -10,6 +10,7 @@ use App\Models\autos;
 use App\Models\bids;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use App\Models\conversations;
 
 
 class AuctionController extends Controller
@@ -78,6 +79,12 @@ class AuctionController extends Controller
 
     public function biddingPage(Request $request)
     {
+        $user1 = conversations::where('con_id', 1)
+                              ->where('user_one', 1)->first('user_one');
+
+        $user2 = conversations::where('con_id', 1)
+                              ->where('user_two', 1)->first('user_two');
+        dd($user1, $user2->user_two);
         $on_auction = $request->input('auction_id');
         $autos = autos::all();
 
