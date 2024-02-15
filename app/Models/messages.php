@@ -9,5 +9,5 @@ class messages extends Model
 {
     use HasFactory;
     protected $table = 'messages';
-    protected $fillable = ['content', 'sender_id', 'receiver_id'];
+    protected $fillable = ['con_id', 'content', 'sender_id', 'receiver_id'];
 }

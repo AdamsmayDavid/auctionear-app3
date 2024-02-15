@@ -19,13 +19,13 @@ class messageSocket implements ShouldBroadcast
      */
  
     public $message;
-    public $receiver;
+    public $sender;
     public $channel;
-    public function __construct($message, $receiver, $channel)
+    public function __construct($message, $sender, $channel)
     {
         //
         $this->message = $message;
-        $this->receiver = $receiver;
+        $this->sender = $sender;
         $this->channel = $channel;
     }
 
@@ -55,7 +55,7 @@ class messageSocket implements ShouldBroadcast
     {
         return [
             'message' => $this->message,
-            'receiver' => $this->receiver,
+            'sender' => $this->sender,
             // 'profile_img'=> $this->profile_img,
             // 'bid_on' => $this->on_time,
             // //'user' => auth()->user()->name,
