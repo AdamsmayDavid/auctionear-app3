@@ -21,14 +21,144 @@
         <script src="assets/js/main.js"></script>
         
     <style>
-      
-      .table-primary{
-        border:white solid;
-        background-color:#FF6C22;
-      }
-      .table-trans{
-        border:white solid;
-      }
+        /* #picturebox{
+        width: 80%
+        background-color: grey;
+        color: white;
+        } */
+
+        thead th{
+            border: 1px solid black ;
+            border-collapse: collapse;
+            text-align:center !important;
+            padding:15px !important;
+
+        }
+
+         tbody td{
+            border: 1px solid black !important;
+            border-collapse: collapse !important;  
+            
+        }
+        tbody th{
+            border: 1px solid black;
+            border-collapse: collapse;  
+        }
+        .navbar{
+            Z-index:10 !important;
+        }
+
+        @media only screen and (min-width: 375px) and (max-width: 896px) {
+            thead th{
+            border: 1px solid black ;
+            border-collapse: collapse;
+            text-align:center !important;
+            padding:0 !important;
+            font-size:1.5vh !important;
+
+        }
+    
+        tbody tr td{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0 !important;
+            font-size:1vh !important;
+            margin: 0 !important;
+        }
+        tbody tr th{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0px !important;
+            font-size:10px !important;
+            margin: 0 !important;
+        }
+        tbody .btn{
+           padding:5px !important;
+           color:blue !important;
+        }
+        tbody .btn:hover{
+           color:white !important;
+        }
+        .activate-user{
+            margin:auto !important;
+            
+            
+        }
+
+        .activate-user .btn{
+           width: 150px !important;
+            
+            
+        }
+        #searchForm {
+           margin:auto !important;
+        }
+        #searchForm #searchInput{
+            width:210px !important;
+        }
+        #searchForm .btn{
+            width:110px !important;
+
+        }
+            
+        }
+        @media only screen and (min-width: 360px) and (max-width: 740px) {
+            thead th{
+            border: 1px solid black ;
+            border-collapse: collapse;
+            text-align:center !important;
+            padding:0 !important;
+            font-size:1.5vh !important;
+
+        }
+    
+        tbody td{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0px !important;
+            font-size:1vh !important;
+            margin: 0 !important;
+        }
+        tbody th{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0px !important;
+            font-size:1.8vh !important;
+            margin: 0 !important;
+        }
+        tbody .btn{
+           padding:5px !important;
+           color:blue !important;
+        }
+        tbody .btn:hover{
+           color:white !important;
+        }
+        .activate-user{
+            margin:auto !important;
+            
+            
+        }
+
+        .activate-user .btn{
+           width: 150px !important;
+            
+            
+        }
+        #searchForm {
+           margin:auto !important;
+        }
+        #searchForm #searchInput{
+            width:210px !important;
+        }
+        #searchForm .btn{
+            width:110px !important;
+
+        }
+            
+        }
+
+        
+
     
     </style>
     </head>
@@ -36,7 +166,7 @@
     <body class="">
         
               <!-- nav -->
-              <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-light p-4 ">
+              <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-light bg-warning p-4 ">
       <div class="container">
         <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +197,7 @@
               <a class="nav-link mx-0" href="#">How to sell</a>
             </li> -->
             <li class="logout nav-item dropdown mt-1">
-                                <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="btn btn-primary shadow btn-sm dropdown-toggle text-light"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 &nbsp;{{ Auth::user()->name }}
                                 </a>
 
@@ -91,41 +221,46 @@
           </ul>
         </nav>
                     <section class="container mt-5">
-                    <nav class="navbar bg-body-tertiary">
-                        <div class="container-fluid">
-                            <h1><a class="btn btn-outline-primary text-light active" href="/admin/home">Users</a><a class="btn btn-primary mx-2" href="">Active Users</a></h1>
-                            <form id="searchForm">
-                              <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="searchInput" placeholder="Search for...">
-                                <button class="btn btn-primary" type="button" onclick="search()">Search</button>
-                              </div>
-                            </form>
-                        </div>
-                    </nav>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                            <th scope="col" class="table-primary">Id</th>
-                            <th scope="col" class="table-primary text-center">Credentials</th>
-                            <th scope="col" class="table-primary">Full Name</th>
-                            <th scope="col" class="table-primary">Contact Number</th>
-                            <th scope="col" class="table-primary">email</th>
-                            <th scope="col" class="table-primary text-center">Activate User</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row" class="table-trans">1</th>
-                            <td class="btn btn-primary col-12 btn-sm" onclick="viewCredentials()"> View </td>
-                            <td class="table-trans">Mark</td>
-                            <td class="table-trans">Otto</td>
-                            <td class="table-trans">@mdo</td>
-                            <td class="btn btn-primary col-12 btn-sm" onclick="showActivateAlert()">Activate users</td>
-                            </tr>
-                            
-                            
-                        </tbody>
-                        </table>
+                                <nav class="navbar bg-light ">
+                                    <div class="container bg-light ">
+                                        <div class="activate-user">
+                                        <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Users</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Active Users</a></h1>
+                                        </div>
+                                        <form id="searchForm">
+                                        <div class="input-group ">
+                                            <input type="text" class="form-control shadow" id="searchInput" placeholder="Search for...">
+                                            <button class="btn btn-primary" type="button" onclick="search()">Search</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </nav>
+                            <table class="table">
+                                <thead>
+                                    <tr> <th colspan="6" class="shadow bg-warning pt-4 p-3 border-light text-center"> <h2>ACTIVATE USERS</h2></th> </tr>     
+                                </thead>
+                                <thead>
+                                    <tr class>
+                                    <th scope="col" class="table-primary">Id</th>
+                                    <th scope="col" class="table-primary text-center">Credentials</th>
+                                    <th scope="col" class="table-primary">Full Name</th>
+                                    <th scope="col" class="table-primary">Contact Number</th>
+                                    <th scope="col" class="table-primary">email</th>
+                                    <th scope="col" class="table-primary text-center">Activate User</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row" class="table-trans">1</th>
+                                    <td class="btn btn-primary col-12 btn-md border-2 border-primary rounded-0"  onclick="viewCredentials()"> View </td>
+                                    <td class="table-trans">Mark</td>
+                                    <td class="table-trans">Otto</td>
+                                    <td class="table-trans">@mdoasdasdasdsadsa</td>
+                                    <td class="btn btn-outline-primary col-12 btn-md border-2 border-primary rounded-0" onclick="showActivateAlert()">Activate</td>
+                                    </tr>
+                                    
+                                    
+                                </tbody>
+                                </table>
                         
                     </section>
                     
@@ -194,6 +329,7 @@
                             <p><strong>Age:</strong> ${age}</p>
                             <p><strong>Email:</strong> ${email}</p>
                             <p><strong>Contact Number:</strong> ${contactNumber}</p>
+                            <p><strong>Valid ID:</strong> <a href="${validIdUrl}" target="_blank">View Valid ID</a></p>
                             <p><strong>Valid ID:</strong> <a href="${validIdUrl}" target="_blank">View Valid ID</a></p>
                         `;
 

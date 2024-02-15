@@ -58,6 +58,7 @@ class HomeController extends Controller
         $autos = autos::all();
         return view('activateUsers', compact('autos'));
     }
+    
 
     public function auctionPage(Request $request)
     {

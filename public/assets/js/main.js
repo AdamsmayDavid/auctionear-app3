@@ -16,4 +16,20 @@ function displaySelectedImage(event, elementId) {
     }
 }
 
+
+function displaySelectedFile(event, elementId) {
+    const selectedFile = document.getElementById(elementId);
+    const fileInput = event.target;
+
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            selectedFile.src = e.target.result;
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+}
+
 window.location.replace("#");

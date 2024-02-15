@@ -21,11 +21,121 @@
         <script src="assets/js/main.js"></script>
         
     <style>
-        #picturebox{
+        /* #picturebox{
         width: 80%
         background-color: grey;
         color: white;
+        } */
+
+        thead tr th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align:center !important;
+            padding:15px !important;
+
         }
+
+         tbody td{
+            border: 1px solid black;
+            border-collapse: collapse;  
+        }
+        tbody th{
+            border: 1px solid black;
+            border-collapse: collapse;  
+        }
+        @media only screen and (min-width: 375px) and (max-width: 896px) {
+            thead tr th{
+            border: 1px solid black ;
+            border-collapse: collapse;
+            text-align:center !important;
+            padding:0px !important;
+            font-size:2vh !important;
+
+        }
+    
+        tbody tr td{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0 !important;
+            font-size:1.4vh !important;
+            margin: 0 !important;
+        }
+        tbody th{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0 !important;
+            font-size:1vh !important;
+            margin: 0 !important;
+        }
+        .ban-user{
+            margin:auto !important;
+            
+            
+        }
+        .ban-user .btn{
+           width: 120px !important;
+            
+            
+        }
+        #searchForm {
+           margin:auto !important;
+           padding-bottom:5px !important;
+        }
+        #searchForm #searchInput{
+            width:240px !important;
+        }
+        #searchForm .btn{
+            width:110px !important;
+
+        }
+            
+        }
+        @media only screen and (min-width: 360px) and (max-width: 740px) {
+                thead th{
+                border: 1px solid black ;
+                border-collapse: collapse;
+                text-align:center !important;
+                padding:0 !important;
+                font-size:1.5vh !important;
+
+            }
+                
+                tbody tr td{
+                border: 1px solid black !important;
+                border-collapse: collapse;  
+                padding: 0px !important;
+                font-size:1.8vh !important;
+                margin: 0 !important;
+            }
+                tbody tr th{
+                border: 1px solid black;
+                border-collapse: collapse;  
+                padding: 0px !important;
+                font-size:2vh !important;
+                margin: 0 !important;
+            }
+                .ban-user{
+                margin:auto !important;
+                }
+                .ban-user .btn{
+                width: 120px !important;
+                    
+                    
+                }
+                #searchForm {
+                margin:auto !important;
+                padding-bottom:5px !important;
+                }
+                #searchForm #searchInput{
+                    width:200px !important;
+                }
+                #searchForm .btn{
+                    width:100px !important;
+
+                }
+        }
+
+        
 
     
     </style>
@@ -34,7 +144,7 @@
     <body>
         
               <!-- nav -->
-              <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-light p-4 ">
+              <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-4 ">
       <div class="container">
         <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +175,7 @@
               <a class="nav-link mx-0" href="#">How to sell</a>
             </li> -->
             <li class="logout nav-item dropdown mt-1">
-                                <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light bg-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 &nbsp;{{ Auth::user()->name }}
                                 </a>
 
@@ -89,7 +199,86 @@
           </ul>
         </nav>
 
-        <h1 class="text-center">ADMIN PANEL</h1>
+        <section  class="container p- mt-5">
+                    <nav class="navbar bg-light ">
+                        <div class="container bg-light">
+                            <div class="ban-user">
+                            <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Users</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Active Users</a></h1>
+                            </div>
+                            <form id="searchForm">
+                              <div class="input-group ">
+                                <input type="text" class="form-control shadow" id="searchInput" placeholder="Search for...">
+                                <button class="btn btn-primary" type="button" onclick="search()">Search</button>
+                              </div>
+                            </form>
+                        </div>
+                    </nav>
+
+
+                        <table class="table">
+                                    <thead>
+                                        <tr> <th colspan="5" class="shadow bg-warning pt-4 border-light"> <h2>BAN USER</h2></th> </tr>
+                                    
+                                    </thead>
+                                <thead>
+                                    <tr>
+                                    <th scope="col" class="table-primary">Id</th>
+                                    <th scope="col" class="table-primary">Full Name</th>
+                                    <th scope="col" class="table-primary">Contact Number</th>
+                                    <th scope="col" class="table-primary">email</th>
+                                    <th scope="col" class="table-primary text-center">Ban user</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row" class="table-trans">1</th>
+                                    <td class="table-trans">Mark</td>
+                                    <td class="table-trans">Otto</td>
+                                    <td class="table-trans">@mdo</td>
+                                    <td class="btn btn-warning border-danger col-12 btn-lg rounded-0" onclick="showBanAlert()">Ban</td>
+                                    </tr>
+                                    
+                                    
+                                </tbody>
+                        </table>
+        </section>
+
+              
+                    <script>
+                    function showBanAlert() {
+                        // Create an alert
+                        var banAlert = `
+                            <div class="alert alert-danger alert-dismissible fade show fixed-top" role="alert">
+                                Are you sure you want to ban this user? 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <button type="button" class="btn btn-danger btn-md " onclick="banUser()">Ban</button>
+                            </div>
+                        `;
+
+                        // Append the alert to the body
+                        document.body.insertAdjacentHTML('beforeend', banAlert);
+                    }
+
+                    function banUser() {
+                        // Perform the ban action (you can implement server-side logic here)
+
+                        // Close the alert
+                        document.querySelector('.alert').remove();
+                        
+                        // Optionally, you can display a confirmation message
+                        alert('User has been banned.');
+                    }
+                </script>
+
+                <!-- seach engine -->
+                <script>
+                    function search() {
+                    var searchQuery = document.getElementById('searchInput').value;
+                    alert('Searching for: ' + searchQuery);
+                    // You can replace the alert with your actual search functionality here
+                    }
+                </script>
+
 
             
     </body>

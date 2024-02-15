@@ -12,16 +12,18 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Styles -->
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/tailwindcss-colors.css">
-    <link rel="stylesheet" href="assets/css/chatStyling.css">
-    <title>Chat</title>
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/tailwindcss-colors.css">
+        <link rel="stylesheet" href="assets/css/chatStyling.css">
+        <title>Chat</title>
     
-
+ 
 
     <!-- start: Chat -->
+        
+ 
     <section class="chat-section">
-        <div class="chat-container">
+        <div class="chat-container bg-warning shadow">
             <!-- start: Sidebar -->
             
                         <button type="button" class="chat-sidebar-profile-toggle">
@@ -30,7 +32,7 @@
               
             <!-- end: Sidebar -->
             <!-- start: Content -->
-            <div class="chat-content">
+            <div class="chat-content bg-warning shadow">
                 <!-- start: Content side -->
                 <div class="content-sidebar">
                     <div class="content-sidebar-title">Chats</div>
@@ -46,9 +48,8 @@
                             @foreach($conversations as $conversation)
                                     <li>
                                         <a href="#" data-conversation="#conversation-{{$conversation->con_id}}">
-                                            <img class="content-message-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
                                             <span class="content-message-info">
-                                                 <span class="content-message-name">{{$conversation->con_id}}</span> <!--user 2 -->
+                                                 <span class="content-message-name">{{ Auth::user()->name }} {{$conversation->con_id}}</span> <!--user 2 -->
                                                 <!-- <span class="content-message-text">Lorem ipsum dolor sit amet consectetur.</span> -->
                                             </span>
                                             <span class="content-message-more">
@@ -75,17 +76,16 @@
                 <div class="conversation-top">
                     <button type="button" class="conversation-back"><i class="ri-arrow-left-line"></i></button>
                     <div class="conversation-user">
-                        <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
                         <div>
-                            <div class="conversation-user-name">{{$conversation->con_id}}</div>
+                            <div class="conversation-user-name">{{ Auth::user()->name }}</div>
                             <div class="conversation-user-status online">online</div>
                         </div>
                     </div>
-                    <div class="conversation-buttons">
+                    <!-- <div class="conversation-buttons">
                         <button type="button"><i class="ri-phone-fill"></i></button>
                         <button type="button"><i class="ri-vidicon-line"></i></button>
                         <button type="button"><i class="ri-information-line"></i></button>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="conversation-main">
 
@@ -106,7 +106,7 @@
                                     @else
                                         <div class="conversation-item-me">
                                             <div class="conversation-item-box">
-                                                <div class="conversation-item-text">
+                                                <div class="conversation-item-text bg-primary shadow">
                                                     <p>{{$message->content}}</p>
                                                     <div class="conversation-item-time">12:30</div>
                                                 </div>
@@ -125,7 +125,7 @@
                     <textarea id="message{{$conversation->con_id}}" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
                         <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
                     </div>
-                    <button id="send_message{{$conversation->con_id}}" type="sumbit"  class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button> <!-- onclick="sendMessage()" -->
+                    <button id="send_message{{$conversation->con_id}}" type="sumbit"  class="conversation-form-button conversation-form-submit bg-primary"><i class="ri-send-plane-2-line"></i></button> <!-- onclick="sendMessage()" -->
 
                 </div>
             </div>
@@ -400,4 +400,6 @@
         });
 </script> -->
 <script src="assets/js/script.js"></script>
+
+ </body>
 @endsection
