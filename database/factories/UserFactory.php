@@ -18,7 +18,7 @@ class UserFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
+     * BCRYP 
      * @return array<string, mixed>
      */
     public function definition(): array
