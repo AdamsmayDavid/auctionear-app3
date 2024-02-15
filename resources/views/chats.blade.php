@@ -281,6 +281,8 @@
 
         let message_text = document.createElement('div');
         message_text.classList.add('conversation-item-text');
+        message_text.classList.add('bg-primary');
+        message_text.classList.add('shadow');
 
         message_box.appendChild(message_text);
 
