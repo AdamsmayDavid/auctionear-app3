@@ -25,7 +25,7 @@
            
         </style>
     </head>
-    <body class="antialiased bg-warning"> 
+    <body class="antialiased"> 
                       
                 <!-- nav -->
       <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-2 shadow">
@@ -173,18 +173,19 @@
                                             </div>
                                         </div>
                                             <!-- Valid Id 1-->
+                                            <section class="container">
                                             <div class="row mb-3 ">
                                             <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
-                                            <div class="col-md-6 mb-3">
+                                            <div class="col-md-6 ">
                                             <div class="mb-2 d-flex justify-content-center">
                                                 <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
                                                 alt="example placeholder" style="width: 200px;" />
                                             </div>
                                             <div class="d-flex justify-content-center">
                                                 <div class="btn btn-primary btn-rounded">
-                                                    <label class="form-label text-white m-1" for="customFile1">Valid Id</label>
-                                                    <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" required>
+                                                    <label class="form-label text-white m-1" for="customFile">Valid Id</label>
+                                                    <input type="file" class="form-control d-none" id="customFile" onchange="displaySelectedImage(event, 'selectedImage')" required>
                                                 </div>
                                                 
                                             </div>
@@ -198,6 +199,29 @@
                                     
 
                                                  <!-- Valid Id 2-->
+                                            
+                                            <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
+
+                                            <div class="col-md-6 mb-3">
+                                            <div class="mb-2 d-flex justify-content-center">
+                                                <img id="selectedFile" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+                                                alt="example placeholder" style="width: 200px;" />
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="btn btn-primary btn-rounded">
+                                                    <label class="form-label text-white m-1" for="customFile1">Valid Id</label>
+                                                    <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedFile(event, 'selectedFile')" required>
+                                                </div>
+                                                
+                                            </div>
+
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                </section>
                                             <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('ValidId2') }}</label> -->
 
                                             <!-- <div class="col-md-6">

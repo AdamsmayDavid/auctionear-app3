@@ -25,7 +25,7 @@
            
         </style>
     </head>
-    <body class="antialiased bg-warning"> 
+    <body class="antialiased "> 
                       
                 <!-- nav -->
       <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-2 shadow">
