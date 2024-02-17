@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Auth;
  
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
  
 use Illuminate\Http\Request;
+//deletables
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
  
 class LoginController extends Controller
 {
@@ -28,20 +33,38 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-       
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+
+        $users = User::where($this->username(), $request->email)->where('status', '0')->first();
+        
+        if ($users == null)
         {
-            if (auth()->user()->type == 'admin') {
-                return redirect()->route('admin.home');
-            }else if (auth()->user()->type == 'seller') {
-                return redirect()->route('seller.home');
-            }else if (auth()->user()->type == 'user'){
-                return redirect()->route('home');
+            if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'], 'status' => 1)))
+            {
+                if (auth()->user()->type == 'admin') {
+                    return redirect()->route('admin.home');
+                }else if (auth()->user()->type == 'seller') {
+                    return redirect()->route('seller.home');
+                }else if (auth()->user()->type == 'user'){
+                    return redirect()->route('home');
+                }else{
+                    return back()->withErrors([
+                        'email' => 'Error! please try again',
+                    ])->onlyInput('email');
+                }
+            }else{
+                return back()->withErrors([
+                    'email' => 'Incorrect Password or Email.',
+                ])->onlyInput('email');
             }
-        }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
         }
+        else
+        {
+            return back()->withErrors([
+                'email' => 'Your acoount is not activated yet',
+            ])->onlyInput('email');
+        }
+
+        
             
         /*
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
