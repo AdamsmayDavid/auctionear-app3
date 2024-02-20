@@ -21,6 +21,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+    
  
     /**
      * Show the application dashboard.
@@ -63,6 +64,11 @@ class HomeController extends Controller
         $banUser = User::where("id", $request->id)->update(['status' => '0']);
 
         return redirect()->back()->with("success","Banned User");
+    }
+
+    public function waitingUser()
+    {
+        return view('waitingUser');
     }
     
     /**

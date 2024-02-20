@@ -12,6 +12,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/waitingUser', function () {
+   return view('waitingUser');
+});
+
+
 Route::get('/chatSystem', function () {
    return view('chatSystem');
 });

@@ -48,14 +48,11 @@
             <li class="nav-item">
               <a class="nav-link mx-2" href="#start">How to start</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Company
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">About Us</a></li>
-                <li><a class="dropdown-item" href="#">Contact us</a></li>
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#contact">Contact Us</a>
             </li>
           </ul>
           
@@ -147,16 +144,14 @@
 
 
               <!-- start an auction -->
-              <div style="margin-top:80px; z-index:;" class="start container text-center shadow p-5">
-             
-              <div class="row  mx-auto container mx-auto">
-                      <div style="background-color:#FF6C22;" class="col p-5 shadow m-3" data-aos="fade-right">
-                      <h1 class="text-light" >HOW TO START</h1>
-                      <p class="text-light mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
-                      </div>
-      
+              <div id="start" style="margin-top:80px; z-index:;" class="start container text-center shadow p-5">
+                  <div class="row  mx-auto container mx-auto">
+                          <div style="background-color:#FF6C22;" class="col p-5 shadow m-3" data-aos="fade-right">
+                          <h1 class="text-light" >HOW TO START</h1>
+                          <p class="text-light mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
+                          </div>
                   </div>
-                </div>
+              </div>
 
                  <!-- start an auction end -->
 
@@ -201,7 +196,7 @@
 
                 <!-- about -->
 
-                <div style="margin-top:80px;"  class="about container text-center shadow p-5">
+                <div id="about" style="margin-top:80px;"  class="about container text-center shadow p-5">
               <div class="row  mx-auto container mx-auto">
                       <div style="background-color:#FF6C22;" class="col p-5 shadow" data-aos="fade-right">
                       <h1 class="text-light">ABOUT US</h1>
@@ -216,7 +211,7 @@
 
             <!-- contact form -->
               <!-- Wrapper container -->
-              <div style="margin-top:80px;" class="container py-4 bg-light shadow" data-aos="fade-up">
+              <div id="contact" style="margin-top:80px;" class="container py-4 bg-light shadow" data-aos="fade-up">
                           <H1 class="text-center" style="color: #FF6C22; margin-top:40px;">CONTACT US</H1>
                     <!-- Bootstrap 5 starter form -->
                     <form id="contactForm" class="m-1 p-5">
