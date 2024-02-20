@@ -50,6 +50,7 @@ Route::middleware(['auth', 'user-access:seller'])->group(function () {
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
    Route::get('/activateUsers', [HomeController::class, 'activateUsers'])->name('activateUsers');
+   Route::get('/banUser' ,[HomeController::class , 'banUser']);
 });
 
 

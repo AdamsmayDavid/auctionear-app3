@@ -7,6 +7,7 @@ use App\Models\auctions;
 use App\Models\autos;
 use App\Models\conversations;
 use App\Models\messages;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -39,7 +40,29 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('adminHome');
+        $autos = autos::all();
+
+        $theseUsers = User::where('type', 0)->orWhere('type', 1)->get(); 
+        $users = array();
+
+        foreach ($theseUsers as $user) 
+        {
+            if($user->status == '1' && ($user->user_type == 0 || $user->user_type == 1))
+            {
+                $users[] = $user;
+            }
+            //$user->delete();
+        }
+
+        return view('adminHome', compact('autos', 'users'));
+    }
+    public function banUser(Request $request)
+    {
+        //when admin banned the User, it will bring back the user status to 0 on the database
+        // it can then be activated again on the Activate user page
+        $banUser = User::where("id", $request->id)->update(['status' => '0']);
+
+        return redirect()->back()->with("success","Banned User");
     }
     
     /**
@@ -56,7 +79,19 @@ class HomeController extends Controller
     public function activateUsers()
     {
         $autos = autos::all();
-        return view('activateUsers', compact('autos'));
+
+        $theseUsers = User::where('type', 0)->orWhere('type', 1)->get(); 
+        $users = array();
+        foreach ($theseUsers as $user) 
+        {
+            if($user->status == '0' && ($user->user_type == 0 || $user->user_type == 1))
+            {
+                $users[] = $user;
+            }
+            //$user->delete();
+        }
+
+        return view('activateUsers', compact('autos', 'users'));
     }
     
 
