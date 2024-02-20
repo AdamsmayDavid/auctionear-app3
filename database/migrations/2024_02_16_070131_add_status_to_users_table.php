@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('status', '1')->after('type'); // use this for field after specific column.
+            $table->string('status', '1')->nullable()->after('type'); // use this for field after specific column.
         });
     }
 
