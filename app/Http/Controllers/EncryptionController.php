@@ -8,8 +8,8 @@ use Illuminate\support\Facades\Crpyt;
 class EncryptionController extends Controller
 {
     public function encrypt(){
-        $encrypted = Crypt::encryptString($message); 
-        return $encrypted;
+        $encrypted = Crypt::encryptString('hsahahha'); 
+        dd($encrypted);
     }
 
     public function decrypt(){

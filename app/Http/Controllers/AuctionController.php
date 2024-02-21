@@ -84,7 +84,7 @@ class AuctionController extends Controller
 
         $user2 = conversations::where('con_id', 1)
                               ->where('user_two', 1)->first('user_two');
-        dd($user1, $user2->user_two);
+        // dd($user1, $user2->user_two);
         $on_auction = $request->input('auction_id');
         $autos = autos::all();
 

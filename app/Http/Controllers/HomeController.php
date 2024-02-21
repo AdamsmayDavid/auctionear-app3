@@ -10,6 +10,9 @@ use App\Models\messages;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+// use Illuminate\Support\Facades\Crypt;
+// use Illuminate\Contracts\Encryption\DecryptException;
+
 class HomeController extends Controller
 {
     /**
@@ -99,6 +102,21 @@ class HomeController extends Controller
 
         return view('activateUsers', compact('autos', 'users'));
     }
+    public function activate(Request $request)
+    {
+        //when the admin activate the user it will change the user status to 1 on the database
+        $activateUser = User::where("id", $request->id)->update(['status' => '1']);
+
+        return redirect()->back()->with("success","User Activated");
+    }
+    public function rejectUser(Request $request)
+    {
+        //when the admin rejects the request, the data will be delete on the database 
+        //so that user can resubmit request
+        $deleteUser = User::where("id", $request->id)->delete();
+
+        return redirect()->back()->with("success","User rejection");
+    }
     
 
     public function auctionPage(Request $request)
@@ -156,6 +174,19 @@ class HomeController extends Controller
 
         return view('chats', compact('autos', 'conversations', 'messages'));
     }
+
+    
+// public function encrypt(){
+//     $encrypted = Crypt::encryptString('hsahahha'); 
+//     dd($encrypted);
+// }
+
+// public function decrypt(){
+//     $encryptedValue = 'eyJpdiI6IkoreHR5bDNtbmNHR2tKVjRmYitGVHc9PSIsInZhbHVlIjoiY2l6dXVXNllGNDgvcVBiblRaT0VkZz09IiwibWFjIjoiNjJhNjQ0OWEyYzMyMTBjNTJiYTM1ZThmMWI5MDUyOTQ5YTY4NThmNTc5OWFjZjMwZjQ4MWQ4NzA5ZDFlYjY1NSIsInRhZyI6IiJ9';
+//     $decrypted = Crypt::decryptString($encryptedValue); 
+//     dd($decrypted);
+// }
+
 }
 
 /*

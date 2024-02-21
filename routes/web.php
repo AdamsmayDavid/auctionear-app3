@@ -56,13 +56,17 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
    Route::get('/activateUsers', [HomeController::class, 'activateUsers'])->name('activateUsers');
    Route::get('/banUser' ,[HomeController::class , 'banUser']);
+   Route::get('/activate' ,[HomeController::class , 'activate']);
+   Route::get('/rejectUser' ,[HomeController::class , 'rejectUser']);
 });
 
 
 Route::get('/biddingPage', [AuctionController::class, 'biddingPage']);
 Route::get('/auctionPage', [HomeController::class, 'auctionPage']);
 
-  
+
+// Route::get('/en', [HomeController::class, 'encrypt']);
+// Route::get('/de', [HomeController::class, 'decrypt']);
 
 // Route::middleware(['auth', 'user-access:seller', 'user-access:user'])->group(function () {
    
