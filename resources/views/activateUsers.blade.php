@@ -7,7 +7,6 @@
         <title>Big Bike</title>
         
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
@@ -41,7 +40,9 @@
       rel="stylesheet"
     />
 
-        
+
+        <script src="assets/js/main.js"></script> 
+
     <style>
         /* #picturebox{
         width: 80%
@@ -179,6 +180,10 @@
             
         }
 
+        .logout #navbarDropdown {
+          z-index: 10000000 !important;
+        }
+
         
 
     
@@ -188,7 +193,7 @@
     <body class="">
         
               <!-- nav -->
-              <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-light bg-warning p-4 ">
+              <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-4 ">
       <div class="container">
         <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -206,7 +211,7 @@
                     <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         Vehicle
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-primary bg-primary">
+                    <ul class="dropdown-menu dropdown-menu-dark bg-primary">
                         <li><a class="dropdown-item" href="/sellerMotorcycle">Motorcycle</a></li>
                         <li><a class="dropdown-item" href="/sellerSedan">Sedan</a></li>
                         <li><a class="dropdown-item" href="/sellerSuv">Suv</a></li>
@@ -219,11 +224,11 @@
               <a class="nav-link mx-0" href="#">How to sell</a>
             </li> -->
             <li class="logout nav-item dropdown mt-1">
-                                <a id="navbarDropdown" class="btn btn-primary shadow btn-sm dropdown-toggle text-light"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light bg-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 &nbsp;{{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-primary dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-light2" href="#">
                                         {{ __('Message') }}
                                     </a>
