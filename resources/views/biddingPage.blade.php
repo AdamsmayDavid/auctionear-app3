@@ -69,13 +69,33 @@
                 <li class="list-group-item">
                     <div class="input-group">
                         <span class="input-group-text">Your Bid:</span>
-                        <input id="bid_price" type="text" class="form-control" placeholder="Enter your bid amount">
-                        <button id="place_bid" class="btn btn-primary">Place Bid</button>
-                    </div>
+                        <input id="bid_price" type="text" class="form-control" placeholder="Enter your bid amount" required>
+                       <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-md btn-primary shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Place Bid
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm your Bid</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                               Confirm your bid
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
                 </li>
             @endif
 
-            <!-- @if(auth()->user()->type == 'seller')
+            <!-- @if(auth()->user()->type == 'seller')`
                 <h1 class=" display-3 text-primary"> <b>Seller</b></h1>
                 <p class="text-dark" >Hello <span class="text-primary"> <b>{{ Auth::user()->name }}</b>  </span> welcome to auctionear <br>click button bellow to create a auction</p>
             @endif -->
@@ -123,7 +143,7 @@
 
 
 
-        @if(auth()->user()->type == 'user')           
+        <!-- @if(auth()->user()->type == 'user')           
             <div class="card-body">
                 <button class="btn btn-danger">Cancel Bid</button>
             </div>
@@ -135,7 +155,7 @@
         
 
     </div>
-</div>
+</div> -->
 
 @if(!empty($auctionData))
     @foreach($auctionData as $auction)
@@ -282,134 +302,3 @@
 
 
 @endsection
-<!--  
-<-- Conversations --      
-@foreach($conversations as $conversation)
-            @if($conversation->user_one == Auth::id())
-            <div class="conversation" id="conversation-{{$conversation->user_two}}">
-                    <div class="conversation-top">
-                        <button type="button" class="conversation-back"><i class="ri-arrow-left-line"></i></button>
-                        <div class="conversation-user">
-                            <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
-                            <div>
-                                <div class="conversation-user-name">{{$conversation->name}}</div>
-                                <div class="conversation-user-status online">online</div>
-                            </div>
-                        </div>
-                        <div class="conversation-buttons">
-                            <button type="button"><i class="ri-phone-fill"></i></button>
-                            <button type="button"><i class="ri-vidicon-line"></i></button>
-                            <button type="button"><i class="ri-information-line"></i></button>
-                        </div>
-                    </div>
-
-
-                    <div class="conversation-main">
-
-                        <ul class="conversation-wrapper" id="convo">
-                            <div class="coversation-divider"><span>Today</span></div>
-
-                            @foreach($messages as $message)
-                                @if($message->sender_id == $conversation->user_two)
-                                    <div class="conversation-item">
-                                        <div class="conversation-item-box">
-                                            <div class="conversation-item-text">
-                                                <p>{{$message->content}}</p>
-                                                <div class="conversation-item-time">12:30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @elseif($message->receiver_id == $conversation->user_one)
-                                    <div class="conversation-item-me">
-                                        <div class="conversation-item-box">
-                                            <div class="conversation-item-text">
-                                                <p>{{$message->content}} </p>
-                                                <div class="conversation-item-time">12:30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                            
-
-                    </div>
-
-
-                    <div class="conversation-form">
-                        <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
-                        <div class="conversation-form-group">
-                        <-- <input type="text" id="username" placeholder="Enter your username"> --
-                        <textarea id="message" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
-                            <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
-                        </div>
-                        <button id="send_message" type="sumbit"  class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button> <-- onclick="sendMessage()" --
-
-                    </div>
-                </div>
-
-        
-            @elseif($conversation->user_two == Auth::id())
-            <div class="conversation" id="conversation-{{$conversation->user_one}}">
-                    <div class="conversation-top">
-                        <button type="button" class="conversation-back"><i class="ri-arrow-left-line"></i></button>
-                        <div class="conversation-user">
-                            <img class="conversation-user-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
-                            <div>
-                                <div class="conversation-user-name">{{$conversation->name}}</div>
-                                <div class="conversation-user-status online">online</div>
-                            </div>
-                        </div>
-                        <div class="conversation-buttons">
-                            <button type="button"><i class="ri-phone-fill"></i></button>
-                            <button type="button"><i class="ri-vidicon-line"></i></button>
-                            <button type="button"><i class="ri-information-line"></i></button>
-                        </div>
-                    </div>
-
-
-                    <div class="conversation-main">
-
-                        <ul class="conversation-wrapper" id="convo">
-                            <div class="coversation-divider"><span>Today</span></div>
-
-                                @foreach($messages as $message)
-                                    @if($message->sender_id == $conversation->user_two)
-                                        <div class="conversation-item">
-                                            <div class="conversation-item-box">
-                                                <div class="conversation-item-text">
-                                                    <p>{{$message->content}}</p>
-                                                    <div class="conversation-item-time">12:30</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @elseif($message->receiver_id == $conversation->user_one)
-                                        <div class="conversation-item-me">
-                                            <div class="conversation-item-box">
-                                                <div class="conversation-item-text">
-                                                    <p>{{$message->content}} </p>
-                                                    <div class="conversation-item-time">12:30</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-
-                    </div>
-
-
-                    <div class="conversation-form">
-                        <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
-                        <div class="conversation-form-group">
-                        <-- <input type="text" id="username" placeholder="Enter your username"> --
-                        <textarea id="message" class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
-                            <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
-                        </div>
-                        <button id="send_message" type="sumbit"  class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button> <-- onclick="sendMessage()" --
-
-                    </div>
-                </div>
-
-            @endif
-        @endforeach
-<-- Converstions --
--->
