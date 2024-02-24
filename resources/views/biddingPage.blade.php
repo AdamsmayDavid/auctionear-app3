@@ -65,13 +65,33 @@
                 <li class="list-group-item">
                     <div class="input-group">
                         <span class="input-group-text">Your Bid:</span>
-                        <input id="bid_price" type="text" class="form-control" placeholder="Enter your bid amount">
-                        <button id="place_bid" class="btn btn-primary">Place Bid</button>
-                    </div>
+                        <input id="bid_price" type="text" class="form-control" placeholder="Enter your bid amount" required>
+                       <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-md btn-primary shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Place Bid
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm your Bid</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                               Confirm your bid
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
                 </li>
             @endif
 
-            <!-- @if(auth()->user()->type == 'seller')
+            <!-- @if(auth()->user()->type == 'seller')`
                 <h1 class=" display-3 text-primary"> <b>Seller</b></h1>
                 <p class="text-dark" >Hello <span class="text-primary"> <b>{{ Auth::user()->name }}</b>  </span> welcome to auctionear <br>click button bellow to create a auction</p>
             @endif -->
@@ -119,7 +139,7 @@
 
 
 
-        @if(auth()->user()->type == 'user')           
+        <!-- @if(auth()->user()->type == 'user')           
             <div class="card-body">
                 <button class="btn btn-danger">Cancel Bid</button>
             </div>
@@ -131,7 +151,7 @@
         
 
     </div>
-</div>
+</div> -->
 
 @if(!empty($auctionData))
     @foreach($auctionData as $auction)
