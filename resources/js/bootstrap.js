@@ -26,10 +26,21 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: import.meta.env.VITE_PUSHER_APP_KEY,
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
-    wsHost: window.location.hostname,       //import.meta.env.VITE_PUSHER_HOST ?? `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
-    wsPort: 6001,       //import.meta.env.VITE_PUSHER_PORT ?? 80,
-    //wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
-    forceTLS: false,//(import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
-    //enabledTransports: ['ws', 'wss'],
-    disableStatus: true,
+    wsHost: '192.168.100.10', // Your domain
+    encrypted: false,
+    wsPort: 6001, // Yor http port
+    disableStats: true, // Change this to your liking this disables statistics
+    forceTLS: false,
+    enabledTransports: ['ws', 'wss'],
+    disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming'] // Can be removed
+
+    
 });
+
+
+// wsHost: window.location.hostname,       //import.meta.env.VITE_PUSHER_HOST ?? `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
+//     wsPort: 6001,       //import.meta.env.VITE_PUSHER_PORT ?? 80,
+//     //wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
+//     forceTLS: false,//(import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
+//     //enabledTransports: ['ws', 'wss'],
+//     disableStatus: true,
