@@ -69,10 +69,10 @@
                 <li class="list-group-item">
                     <div class="input-group">
                         <span class="input-group-text">Your Bid:</span>
-                        <input id="bid_price" type="text" class="form-control" placeholder="Enter your bid amount" required>
+                        <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required>
                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-md btn-primary shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Place Bid
+                        <button type="button" class="btn btn-md btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -86,8 +86,8 @@
                                Confirm your bid
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+                                <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Save changes</button>
                             </div>
                             </div>
                         </div>
@@ -142,8 +142,8 @@
                    -->
 
 
-
-        <!-- @if(auth()->user()->type == 'user')           
+<!-- 
+        @if(auth()->user()->type == 'user')           
             <div class="card-body">
                 <button class="btn btn-danger">Cancel Bid</button>
             </div>
@@ -274,6 +274,18 @@
     }, 200)
     */
 </script>
+
+<!-- clear text -->
+<script>
+      let bids_here = document.getElementById('bids_here');
+      function clearText(event) {
+         // access input field
+         let bid_price = document.getElementById('bid_price');
+         // clear the input field.
+         bids_here.value = "";
+        
+      }
+   </script>
 
 
 <!-- Testing create element 
