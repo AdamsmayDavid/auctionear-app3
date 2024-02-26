@@ -5,18 +5,14 @@
 
         <title>Bidding Page</title>
         @vite('resources/js/app.js')
-        @if(!empty($auctionData))            
-          @foreach($auctionData as $auction) 
-                    
-          @endforeach
-      @endif
+        
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Styles -->
 
@@ -103,7 +99,7 @@
             
 
             <li class="list-group-item">
-                <p class="mb-0">Current Highest Bid: ${{ $auction->latest_bid_price }}</p>
+               
             </li>
             <li class="list-group-item">
                 <p class="mb-0">Bidding Ends: January 31, 2024</p>
@@ -162,12 +158,19 @@
     
     @endforeach
 @endif
+
+        
+      
                         
      <!-- script file -->
      <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
             <script src="assets/js/main.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@if(!empty($auctionData))            
+    @foreach($auctionData as $auction) 
+            
     <script>
       $(document).ready(function() {
 
@@ -274,18 +277,6 @@
     }, 200)
     */
 </script>
-
-<!-- clear text -->
-<script>
-      let bids_here = document.getElementById('bids_here');
-      function clearText(event) {
-         // access input field
-         let bid_price = document.getElementById('bid_price');
-         // clear the input field.
-         bids_here.value = "";
-        
-      }
-   </script>
 
 
 <!-- Testing create element 

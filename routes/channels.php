@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
-});
+// Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+//     return (int) $user->id === (int) $id;
+// });
 
-Broadcast::channel('myPrivateChannel.user.{id}', function($user, $id){
-    return $user->id == $id;
-});
+// Broadcast::channel('myPrivateChannel.user.{id}', function($user, $id){
+//     return $user->id == $id;
+// });
 
 // Broadcast::channel('messageSender.user.{id}', function($user, $id){
 //     return $user->id == $id;
