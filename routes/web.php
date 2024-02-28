@@ -40,16 +40,16 @@ Route::post('/send_message', [WebSocketController::class, 'send_message']);
 //Bidder Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    
 });
 
 //Seller Routes List
 Route::middleware(['auth', 'user-access:seller'])->group(function () {
-   
+
     Route::get('/seller/home', [HomeController::class, 'index'])->name('seller.home');
     Route::get('/createAuction', [HomeController::class, 'createAuction']);
     Route::post('/newAuction' ,[AuctionController::class , 'newAuction'])->name('newAuction');
-});
+   });
 
 //Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
