@@ -7,24 +7,51 @@
         <title>Big Bike</title>
         
 
- <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="assets/js/main.js"></script>
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-        <!-- bootsrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <!-- Styles -->
+          <!-- Fonts -->
+                  <!-- Fonts -->
+              <link rel="preconnect" href="https://fonts.bunny.net">
 
+
+          <!-- Fonts -->
+              <link rel="preconnect" href="https://fonts.bunny.net">
+
+            <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+            <!-- bootsrap -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+          
+            <link rel="stylesheet" href="assets/css/style.css">
+            <!-- Styles -->
+
+            <!-- carousel -->
+            <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+            <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+            <script src="assets/js/main.js"></script>
+
+
+          <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous"
+          />
+
+          <!--Font Links-->
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap"
+          rel="stylesheet"
+          />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+          href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+          rel="stylesheet"
+          />
+
+                  <script src="assets/js/main.js"></script>
+
+  
     <style>
         /* #picturebox{
         width: 80%
@@ -77,23 +104,35 @@
             font-size:10px !important;
             margin: 0 !important;
         }
-        tbody .btn{
+        /* tbody .btn{
            padding:5px !important;
            color:blue !important;
         }
         tbody .btn:hover{
            color:white !important;
-        }
+        } */
         .activate-user{
-            margin:auto !important;
-            
-            
+            margin:auto !important; 
         }
 
         .activate-user .btn{
            width: 150px !important;
-            
-            
+        }
+        .btn-activate{
+          text-decoration:none !important;
+          font-size:1vh !important;
+          height: 30px !important;
+          
+        }
+
+        .btn-reject{
+          text-decoration:none !important;
+          font-size: 1vh !important;
+          height: 30px !important;
+          
+        }
+        .btn-g{
+          padding:2px !important;
         }
         #searchForm {
            margin:auto !important;
@@ -131,7 +170,7 @@
             font-size:1.8vh !important;
             margin: 0 !important;
         }
-        tbody .btn{
+        /* tbody .btn{
            padding:5px !important;
            color:blue !important;
         }
@@ -142,10 +181,10 @@
             margin:auto !important;
             
             
-        }
+        } */
 
         .activate-user .btn{
-           width: 150px !important;
+           width: 140px !important;
             
             
         }
@@ -254,7 +293,7 @@
                                     <th scope="col" class="table-primary">Full Name</th>
                                     <th scope="col" class="table-primary">Contact Number</th>
                                     <th scope="col" class="table-primary">email</th>
-                                    <th scope="col" class="table-primary text-center">Activate User</th>
+                                    <th scope="col" class="table-primary  text-center">Activate User</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -280,9 +319,9 @@
             <td>{{ $user->phone}}</td>
             <td>{{ $user->email}}</td>
             <td>
-              <div class="d-flex flex-column gap-2">
+              <div class="d-flex flex-column gap-1 btn-g">
 
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#{{ $user->id }}activateUserBackdrop">
+                <button type="button" class="btn btn-danger btn-reject" data-bs-toggle="modal" data-bs-target="#{{ $user->id }}activateUserBackdrop">
                   Reject User
                 </button>
                 <div class="modal fade" id="{{ $user->id }}activateUserBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -302,13 +341,13 @@
                     </div>
                   </div>
                 </div>
-                {{-- <a href="{{ url('rejectUser')}}?id={{ $user->id}}" class="btn btn-outline-danger btn-lg">
+                {{-- <a href="{{ url('rejectUser')}}?id={{ $user->id}}" class="btn btn-danger btn-lg">
                   Reject User
                 </a> --}}
                 <!-- Button trigger modal -->
                 <button
                   type="button"
-                  class="btn btn-success"
+                  class="btn btn-activate btn-primary"
                   data-bs-toggle="modal"
                   data-bs-target="#{{ $user->id}}"
                 >
@@ -466,21 +505,17 @@
                     </script>
                     @endforeach
                     
-<script src="assets/js/main.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-       
+   
 
+     
+       
+                          <!-- This js is for activate and reject  -->
     <script
-      defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://kit.fontawesome.com/fae056ab45.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="a/js/main.js"></script>
-            
+  
+
     </body>
 </html>

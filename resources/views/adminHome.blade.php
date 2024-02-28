@@ -7,11 +7,11 @@
         <title>Big Bike</title>
 
       <!-- Fonts -->
- <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://fonts.bunny.net">
 
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://fonts.bunny.net">
 
   <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
   <!-- bootsrap -->
@@ -47,9 +47,6 @@ href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
 rel="stylesheet"
 />
 
-        <!-- carousel -->
-        <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
         <script src="assets/js/main.js"></script>
 
 
@@ -76,6 +73,9 @@ rel="stylesheet"
         tbody th{
             border: 1px solid black;
             border-collapse: collapse;  
+        }
+        .user-ban{
+            margin:auto !important;
         }
         @media only screen and (min-width: 375px) and (max-width: 896px) {
             thead tr th{
@@ -108,8 +108,12 @@ rel="stylesheet"
         }
         .ban-user .btn{
            width: 120px !important;
-            
-            
+        }
+        .user-ban{
+            font-size: 1vh !important;
+            width:100% !important;
+            padding:2px !important;
+            border:none !important;
         }
         #searchForm {
            margin:auto !important;
@@ -274,17 +278,21 @@ rel="stylesheet"
                                             <td class="fw-bold">
                                                 <div class="d-flex flex-column d-sm-none">
                                                     <!-- <img src="images/profiles/{{ $user->profile_img}}" class="rounded-circle object-fit-cover" id="userImg" /> -->
-                                                    ID : {{ $user->id }}
+                                                    
+                                                    <!-- SINOBRA YA ID -->
+                                                    <!-- ID : {{ $user->id }} -->
                                                 </div>
                                                 {{ $user->name}}
                                             </td>
                                         <td>{{ $user->phone}}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#{{ $user->id }}userBackdrop">
+                                            <center>
+                                            <button type="button" class="btn user-ban btn-danger" data-bs-toggle="modal" data-bs-target="#{{ $user->id }}userBackdrop">
                                                 Ban User
                                             </button>
-                                            {{-- <a href="{{url('banUser')}}?id={{ $user->id}}" class="btn btn-outline-danger sm-title">Ban user</a> --}}
+                                            </center>
+                                            {{-- <a href="{{url('banUser')}}?id={{ $user->id}}" class="btn btn-danger sm-title">Ban user</a> --}}
                                             <div class="modal fade" id="{{ $user->id }}userBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
