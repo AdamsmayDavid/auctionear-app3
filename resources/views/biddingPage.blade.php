@@ -57,7 +57,7 @@
                         <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required>
                        <!-- Button trigger modal -->
                         <button type="button" class="btn btn-md btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
+                        Place bid
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
