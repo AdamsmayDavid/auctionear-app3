@@ -56,22 +56,22 @@
                         <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required>
                        <!-- Button trigger modal -->
                         <button type="button" class="btn btn-md btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
+                        Place bid
                         </button>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm your Bid</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Please review your bid before you confirm</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                               Confirm your bid
+                              <p>Post taya keni itang inimput nang bid</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-                                <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Save changes</button>
+                                <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Confirm</button>
                             </div>
                             </div>
                         </div>

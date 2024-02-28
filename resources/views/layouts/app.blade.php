@@ -11,7 +11,7 @@
 
     <!-- Fonts -->
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
+         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -91,19 +91,21 @@
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
               <a class="nav-link mx-2 active" aria-current="page" href="">Home</a>
             </li>
-            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#">How to start</a>
+            </li>
+            <div class="collapse navbar-collapse mx-2" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Vehicle
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-dark" style="background-color:#FF6C22;">
+                        <ul class="dropdown-menu dropdown-menu-dark bg-primary">
                             @foreach($autos as $auto)
                             <li><a class="dropdown-item" href="/biddersSedan">{{$auto->auto_type}}</a></li>
                             @endforeach
@@ -111,27 +113,26 @@
                     </li>
                 </ul>
             </div>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="#">How to start</a>
-            </li>
+           
+            
 
 
                 @if(auth()->user()->type == 'user')
-                <li class="logout nav-item dropdown">
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <li class="logout nav-item dropdown mx-1">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle border-color-white" style="color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       &nbsp;{{ Auth::user()->name }}
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-end" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item " href="{{ route('logout') }}"
+                      <a class="dropdown-item " href="/chats">
+                              {{ __('Message') }}
+                          </a>
+                      
+                            <a class="dropdown-item " href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                               {{ __('Logout') }}
-                          </a>
-                          <a class="dropdown-item " href="#">
-                              {{ __('Message') }}
-                          </a>
-
+                            </a>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                               @csrf
                           </form>
@@ -140,15 +141,15 @@
                 @endif
 
                 @if(auth()->user()->type == 'seller')
-                <li class="logout nav-item dropdown mt-1">
+                <li class="logout nav-item dropdown mt-1 mx-2">
                                 <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 &nbsp;{{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-light " href="#">
-                                        {{ __('Message') }}
-                                    </a>
+                                 <a class="dropdown-item " href="/chats">
+                                      {{ __('Message') }}
+                                  </a>
                                 
                                     <a class="dropdown-item text-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
