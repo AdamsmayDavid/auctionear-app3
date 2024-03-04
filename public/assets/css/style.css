@@ -131,12 +131,12 @@ background-color: #d66024;
 
     .intro{
       width: 200vh !important;
-      height: 80vh !important;
+      height: 60vh !important;
       
     }
     .bg-waves{
       background-image: url('/assets/images/waves.png');
-      height: 440vh !important;
+      height: 400vh !important;
       background-size: cover !important;
       background-repeat: no-repeat !important;
     }

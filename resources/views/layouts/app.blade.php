@@ -94,10 +94,7 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
-              <a class="nav-link mx-2 active" aria-current="page" href="">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="#">How to start</a>
+              <a class="nav-link mx-2 active" aria-current="page" href="/home">Home</a>
             </li>
             <div class="collapse navbar-collapse mx-2" id="navbarNavDropdown">
                 <ul class="navbar-nav">
