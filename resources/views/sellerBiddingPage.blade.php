@@ -91,7 +91,8 @@
                             </li>
           </ul>
         </nav>
-        <H1 class="text-center text-primary">AUCTION PAGE</H1>
+        <H1 class="text-center text-primary mt-4">AUCTION PAGE</H1>
+      
         <div class="container mt-5">
     <div id="biddingCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">

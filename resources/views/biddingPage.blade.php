@@ -10,11 +10,13 @@
 
 
         @if(auth()->user()->type == 'user')
-            <h1 class="text-center" style="color:#FF6C22;">AUCTION PAGE</h1>
+            <h1 class="text-center" style="color:#FF6C22;">PLACE A BID</h1>
+            <hr class="border-secondary col-3 m-auto">
         @endif
 
         @if(auth()->user()->type == 'seller')
-            <h1 class=" text-center text-primary">AUCTION PAGE</h1>
+            <h1 class=" text-center text-primary mt-5">VIEW AUCTION</h1>
+            <hr class="border-secondary col-3 m-auto">
         @endif
 <div class="container mt-5">
     <div id="biddingCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -85,7 +87,7 @@
             @endif -->
 
             
-
+            
             <li class="list-group-item">
                
             </li>
@@ -102,8 +104,33 @@
                   @endif
                 </ul>
             </li>
-        </ul>
+            <div class="p-3 m-auto">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                End Auction
+            </button>
+            </div>
 
+            <!-- Modal -->
+            <div style="margin-top:100px !important;" class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm end auction</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">End auction</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </ul>
+       
+       
         
                 <!-- 
                     @if(!empty($bids))            
