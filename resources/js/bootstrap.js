@@ -26,7 +26,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: import.meta.env.VITE_PUSHER_APP_KEY,
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
-    wsHost: '192.168.100.10', // Your domain
+    wsHost: '127.0.0.1', // Your domain
     encrypted: false,
     wsPort: 6001, // Yor http port
     disableStats: true, // Change this to your liking this disables statistics
