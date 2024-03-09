@@ -81,6 +81,9 @@
                 </li>
             @endif
 
+            
+          
+
             <!-- @if(auth()->user()->type == 'seller')`
                 <h1 class=" display-3 text-primary"> <b>Seller</b></h1>
                 <p class="text-dark" >Hello <span class="text-primary"> <b>{{ Auth::user()->name }}</b>  </span> welcome to auctionear <br>click button bellow to create a auction</p>
@@ -104,6 +107,7 @@
                   @endif
                 </ul>
             </li>
+            @if(auth()->user()->type == 'seller')
             <div class="p-3 m-auto">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 End Auction
@@ -123,11 +127,12 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">End auction</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Confirm</button>
                 </div>
                 </div>
             </div>
             </div>
+            @endif
         </ul>
        
        
