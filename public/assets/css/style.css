@@ -24,6 +24,42 @@ background-color: #d66024;
 background-color: #d66024;
 }
 
+.vision .row{
+  background-image: url('/assets/images/waves2.png') !important;
+  background-repeat: repeat-x !important;
+  background-size: 0vh !important;
+
+  
+ 
+}
+
+/* how to start section */
+
+.start .column img{
+  width: 60vh !important;
+  
+}
+
+
+/* how to start section end*/
+
+
+/* Vehicle available */
+.vehicle_avail .M .van_img img{
+  width: 70vh !important;
+}
+
+.vision .col{
+  background: rgba(255,255,255,0.5) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+backdrop-filter: blur(10px) !important;
+border: 1px solid rgba(255,255,255,0.25) !important;
+}
+/* vehicle column */
+
+#vehicle .card{
+ background-color: transparent !important;
+}
 /*Introduction*/
 
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
@@ -33,7 +69,7 @@ background-color: #d66024;
    background-repeat:repeat-y !important;
     
   }
-
+  
 
   .bg-cover{
     margin-top: 20px !important;
@@ -44,6 +80,7 @@ background-color: #d66024;
    scroll-behavior: smooth !important;
     
   }
+
  
   .vision {
     margin-top: 10 !important;
@@ -53,6 +90,27 @@ background-color: #d66024;
   .vision h1{
     padding-top: 20px !important;
   }
+
+
+  .start{
+    padding: 0 !important;
+    margin-top: -150px !important;
+  }
+
+  .start .float-end{
+    margin: 0 !important;
+    padding: 3px !important;
+    position: relative;
+    bottom: 100px !important;
+
+    
+  }
+  .start .col img{
+   width: 50vh !important;
+   justify-content: center;
+   margin-top: none !important;
+  }
+
   .w-xs-50 {
     width: 50% !important;
   }
@@ -136,7 +194,6 @@ background-color: #d66024;
     }
     .bg-waves{
       background-image: url('/assets/images/waves.png');
-      height: 400vh !important;
       background-size: cover !important;
       background-repeat: no-repeat !important;
     }
@@ -174,7 +231,7 @@ background-color: #d66024;
 
 /* start media */
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
-  .start
+  /* .start
   {
     padding: 0 !important;
     margin-top: -80px !important;
@@ -182,7 +239,7 @@ background-color: #d66024;
   .start h1
   {
     padding-top: 20px !important;
-  }
+  } */
   }
 
   /* about  */
@@ -251,23 +308,17 @@ background-color: #d66024;
 
 /* Style the counter cards */
 .vehicle .card {
-  box-shadow:2px 2px 6px 0#2B3499;
   padding: 0px;
   text-align: center;
+  border: none !important;
+  background-color: none !important;
   /* color: #0275d8;     */
-  border-radius: 0 !important;
   transition: transform .2s;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.vehicle .card:hover{
-  box-shadow:0;
-  padding: 0px;
-  text-align: center;  
-  border-radius: 0 !important;
-  transform: scale(1.5);
-}
+
 
 /* .bg-image{
   background-color: white !important;

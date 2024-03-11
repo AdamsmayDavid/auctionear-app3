@@ -126,20 +126,24 @@
            
 
             <!-- columns -->
-                <div style="margin-top:100px;" class="vision container text-center shadow p-5 ">
-                <h1 class="text-light">OUR VALUES</h1>
-                  <div class="row align-items-start container mx-auto">
-                      <div class="col bg-light p-5 shadow m-3" data-aos="fade-right">
-                        <h2 class="" style="color:#FF6C22;" >Mission</h2>
-                          <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
+                <div style="margin-top:100px;" class="vision container text-center p-5 " >
+                <h1 class="fw-bolder" style="color:#FF6C22; font-size:5vh;" >WHY AUCTIONEAR</h1>
+                <hr class="border-light col-5 m-auto"> 
+                  <div class="row align-items-start text-start container mx-auto">
+                      <div class="col bg-light p-5  m-3" data-aos="fade-right">
+                        <h2 class="" style="color:#FF6C22;" >Flexibility</h2>
+                        <hr class="border-dark"> 
+                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
-                      <div class="col bg-light p-5  shadow m-3" data-aos="fade-up">
-                        <h2 class="" style="color:#FF6C22;" >Vision</h2>
-                          <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
+                      <div class="col bg-light p-5   m-3" data-aos="fade-up">
+                        <h2 class="" style="color:#FF6C22;" >Secured</h2>
+                        <hr class="border-dark">
+                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
-                      <div class="col bg-light p-5 m-3 shadow" data-aos="fade-left">
-                        <h2 class="" style="color:#FF6C22;">Goal</h2>
-                          <p class="color-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</p>
+                      <div class="col bg-light p-5 m-3 " data-aos="fade-left">
+                        <h2 class="" style="color:#FF6C22;">Easy to use</h2>
+                        <hr class="border-dark">
+                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                   </div>
                 </div>
@@ -148,59 +152,81 @@
 
 
               <!-- start an auction -->
-              <div id="start" style="margin-top:80px; z-index:;" class="start container text-center shadow p-5">
-                  <div class="row  mx-auto container mx-auto">
-                          <div style="background-color:#FF6C22;" class="col p-5 shadow m-3" data-aos="fade-right">
-                          <h1 class="text-light" >HOW TO START</h1>
-                          <p class="text-light mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
+
+              <div class="start container text-center " >
+                  <div class="row align-items-start text-start container">
+                      <div class="col float-start " data-aos="fade-right">
+                       <img src="/assets/images/motor1.png" alt="">
+                      </div>
+                      <div class="col p-5 float-end" data-aos="fade-up">
+                        <h2 class="" style="color:#FF6C22;" >How to start</h2>
+                        <hr class="border-dark">
+                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                      </div>
+                  </div>
+                </div>
+              <!-- <div id="start" style=" z-index:;" class="start container">
+                  <div class=" container mx-auto">
+                          <div class="column float-start" data-aos="fade-right">
+                              <img src="/assets/images/motor1.png" class="" alt="">
+                          </div>
+                          <div  class="column float-end text-start mt-5" data-aos="fade-right">
+                                <h1 class="fw-bolder text-primary" style=" font-size:6vh">HOW TO  START</h1>
+                                <small class="text-dark fw-normal" style="font-size:2vh">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                  Quod illum voluptate tempora consequatur dolore voluptatem
+                                  magni assumenda minus nam, cumque corporis facilis, maiores saepe c
+                                  ommodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor</small>
                           </div>
                   </div>
-              </div>
+              </div> -->
 
                  <!-- start an auction end -->
 
 
-            <!--Types Vehicle -->
-            <section id="vehicle" style="margin-top:80px;" class="bg-image img-responsive vehicle container p-5 shadow" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
-            <div class="pad-about row container mx-auto p-5">
-              <h1 class="text-center" style="color:#FF6C22" >AVAILABLE VEHICLE</h1>
-              <h6 class="text-center mb-5 text-warning" >Click to view every vehicle descriptions !</h6>
-            <div class="column"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
+            
+  <section id="vehicle" class="bg-image img-responsive vehicle container p-5 mt-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
+            <div class="pad-about row container">
+              <h1 class="fw-bolder text-center text-primary" style=" font-size:6vh; !important">AVAILABLE VEHICLE</h1>
+             
+              <!-- <h6 class="text-center mb-5 text-dark" >Click to view every vehicle descriptions !</h6> -->
+            <div class="column"  data-aos-easing="linear" data-aos-duration="400">
               <div class="card ">
-                <img src="assets/images/motor1.png" alt="">
+                <img src="assets/images/nmax.png" alt="">
                 <p class=" mt-3 text-dark" >MOTORCYCLE</p>
               </div>
             </div>
 
             <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">
               <div class="card">
-               <img src="assets/images/sedan.png" alt="">
+               <img src="assets/images/vios.png" alt="">
                <p class=" mt-3">SEDAN</p>
               </div>
             </div>
             
             <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="800">
               <div class="card">
-               <img src="assets/images/suv.png" alt="">
+               <img src="assets/images/fortuner.png" alt="">
                <p class=" mt-3" >SUV</p>
               </div>
             </div>
             
             <div class="column" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
               <div class="card">
-               <img src="assets/images/van.png" alt="">
+               <img src="assets/images/hiace.png" alt="">
                <p class=" mt-3 " >VAN</p>
               </div>
             </div>
           </div>
           </section>
+      
 
+           
 
              <!-- Vehicle end-->
 
                 <!-- about -->
 
-                <div id="about" style="margin-top:80px;"  class="about container text-center shadow p-5">
+                <div id="about" style="margin-top:80px;"  class="about container text-center p-5 shadow">
               <div class="row  mx-auto container mx-auto">
                       <div style="background-color:#FF6C22;" class="col p-5 shadow" data-aos="fade-right">
                       <h1 class="text-light">ABOUT US</h1>
@@ -293,6 +319,7 @@
             <script>
               AOS.init();
             </script>
+
         
      
     </body>
