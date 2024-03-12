@@ -32,6 +32,10 @@ background-color: #d66024;
   
  
 }
+.about .col img{
+  width: 80vh !important;
+  margin-top: 100px !important;
+}
 
 /* how to start section */
 
@@ -59,6 +63,20 @@ border: 1px solid rgba(255,255,255,0.25) !important;
 
 #vehicle .card{
  background-color: transparent !important;
+}
+
+/* contact */
+#contact .animate img{
+  width: 40vh !important;
+  z-index: inherit !important; 
+}
+
+#contact .form{
+  background: rgba(255,255,255,0.5) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+backdrop-filter: blur(10px) !important;
+border: 1px solid rgba(255,255,255,0.25) !important;
+ 
 }
 /*Introduction*/
 
@@ -110,6 +128,32 @@ border: 1px solid rgba(255,255,255,0.25) !important;
    justify-content: center;
    margin-top: none !important;
   }
+
+  .about{
+      margin-top: 0 !important;
+      position: relative;
+      top: -100px !important;
+  }
+  .about .col img{
+    width: 50vh !important;
+    justify-content: center;
+    margin-top: -10px !important;
+
+   
+   }
+   .about .col .float-end{
+    padding: 3px !important;
+    font-size: small !important;
+   }
+   .about .col small{
+    font-size: medium;
+   }
+
+   #contact .form{
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin-top: -100px;
+   }
 
   .w-xs-50 {
     width: 50% !important;

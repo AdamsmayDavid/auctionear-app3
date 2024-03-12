@@ -158,10 +158,10 @@
                       <div class="col float-start " data-aos="fade-right">
                        <img src="/assets/images/motor1.png" alt="">
                       </div>
-                      <div class="col p-5 float-end" data-aos="fade-up">
-                        <h2 class="" style="color:#FF6C22;" >How to start</h2>
+                      <div class="col float-end mt-5" data-aos="fade-up">
+                        <h1 class="text-primary fs-1" >How to start</h1>
                         <hr class="border-dark">
-                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="dark fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                   </div>
                 </div>
@@ -184,9 +184,9 @@
 
 
             
-  <section id="vehicle" class="bg-image img-responsive vehicle container p-5 mt-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
+  <section id="vehicle" class="bg-image img-responsive vehicle container p-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
             <div class="pad-about row container">
-              <h1 class="fw-bolder text-center text-primary" style=" font-size:6vh; !important">AVAILABLE VEHICLE</h1>
+              <h1 class="fw-bolder text-center " style=" font-size:5vh; margin-bottom:50px !important; color:#FF6C22;">AVAILABLE VEHICLE</h1>
              
               <!-- <h6 class="text-center mb-5 text-dark" >Click to view every vehicle descriptions !</h6> -->
             <div class="column"  data-aos-easing="linear" data-aos-duration="400">
@@ -224,59 +224,66 @@
 
              <!-- Vehicle end-->
 
-                <!-- about -->
+             
+                    <!-- about -->
 
-                <div id="about" style="margin-top:80px;"  class="about container text-center p-5 shadow">
-              <div class="row  mx-auto container mx-auto">
-                      <div style="background-color:#FF6C22;" class="col p-5 shadow" data-aos="fade-right">
-                      <h1 class="text-light">ABOUT US</h1>
-                          <p class="text-light mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo ex iure similique necessitatibus porro tempora esse omnis 
-                          incidunt nemo ad possimus quisquam tenetur impedit nam. Repellat optio, odio, neque aliquam assumenda nobis sint dolor in aperiam, quaerat voluptatem!  veritatis amet, obcaecati quibusdam non officia illo enim quod! Fugit, quam. Quam.</p>
+                    <div class="about container text-center " >
+                  <div class="row align-items-start text-start container">
+                      <div class="col mt-5 float-start" data-aos="fade-up">
+                        <h1 class="text-primary fs-1" >Know About Us</h1>
+                        <hr class="border-dark">
+                          <small class="dark fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
-      
+                      <div class="col float-end z-n1" data-aos="fade-right">
+                       <img src="/assets/images/about.png" alt="">
+                      </div>
                   </div>
                 </div>
              
             <!-- about-end -->
 
+
+
             <!-- contact form -->
               <!-- Wrapper container -->
-              <div id="contact" style="margin-top:80px;" class="container py-4 bg-light shadow" data-aos="fade-up">
-                          <H1 class="text-center" style="color: #FF6C22; margin-top:40px;">CONTACT US</H1>
+              <div id="contact" style="margin-top:80px;" class="container-fluid py-4">  
                     <!-- Bootstrap 5 starter form -->
-                    <form id="contactForm" class="m-1 p-5">
-
-                      <!-- Name input -->
-                      <div class="contact mb-3 col-md-7 m-auto">
-                        <label class="form-label " for="name">Name</label>
-                        <input class="form-control border-primary-subtle" id="name" type="text"  />
+                    <div class="container form p-5 ">
+                      <H1 class="text-center" style="color: #FF6C22;">CONTACT US</H1>
+                    <!-- FORM -->
+                    <form class="" action="https://api.web3forms.com/submit" method="POST">
+                          <div class="row gy-4 gy-xl-5 p-xl-5 justify-content-center">
+                            <input type="hidden" name="access_key" value="8bdd62a2-c4f5-4441-88b3-d332b3f97342">
+                            <div class="col-12 col-md-7">
+                              <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
+                              <input id="name"  type="text" class="form-control" name="name" value="" required>
+                            </div>
+                            <div class="col-12 col-md-7">
+                              <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                              <div class="input-group">
+                                <span class="input-group-text">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                  </svg>
+                                </span>
+                                <input  type="email" class="form-control" id="email" name="email" value="" required>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-7">
+                            <div class="col-12">
+                              <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                              <textarea id="body" class="form-control" id="message" name="message" rows="3" required></textarea>
+                            </div>
+                            <div class="col-12">
+                              <div class="d-grid mt-3">
+                                <button id="btnsubmit" style="background-color:#FF6C22;" class="btn btn-lg text-light" type="submit" onclick="sendEmail()" value="Send an Email">Send Message</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
                       </div>
 
-                      <!-- Email address input -->
-                      <div class="contact mb-3 col-md-7 m-auto">
-                        <label class="form-label" for="emailAddress">Email Address</label>
-                        <input class="form-control border-primary-subtle" id="emailAddress" type="email" />
-                      </div>
-
-                      <!-- Contact input -->
-                        <div class="contact mb-3 col-md-7 m-auto">
-                        <label class="form-label" for="message">Contact Number</label>
-                        <input class="form-control border-primary-subtle" id="message" type="number"></input>
-                      </div>
-
-                      <!-- Message input -->
-                      <div class="contact mb-3 col-md-7 m-auto">
-                        <label class="form-label" for="message">Message</label>
-                        <textarea class="form-control border-primary-subtle" id="message" type="text"  style="height: 10rem;"></textarea>
-                      </div>
-
-                      <!-- Form submit button -->
-                      <div class="contact d-grid  col-md-7 m-auto">
-                        <button class="btn btn-lg" type="submit">Submit</button>
-                      </div>
-
-                    </form>
-
+                  </div>
               </div>
 
             <!-- contact form end-->
