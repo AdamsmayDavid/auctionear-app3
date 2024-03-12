@@ -153,7 +153,7 @@
 
               <!-- start an auction -->
 
-              <div class="start container text-center " >
+              <div id="start" class="start container text-center " >
                   <div class="row align-items-start text-start container">
                       <div class="col float-start " data-aos="fade-right">
                        <img src="/assets/images/motor1.png" alt="">
@@ -227,7 +227,7 @@
              
                     <!-- about -->
 
-                    <div class="about container text-center " >
+                    <div id="about"  class="about container text-center " >
                   <div class="row align-items-start text-start container">
                       <div class="col mt-5 float-start" data-aos="fade-up">
                         <h1 class="text-primary fs-1" >Know About Us</h1>

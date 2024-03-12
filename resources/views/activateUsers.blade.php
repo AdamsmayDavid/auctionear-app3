@@ -378,21 +378,21 @@
                     </div>
                     <div class="modal-body">
                       <p class="sm-title">
-                        Name: <span class="text-success">{{ $user->name}}</span>
+                        Name: <span class="text-primary">{{ $user->name}}</span>
                       </p>
                       <p class="sm-title">
                         Contact Number:
-                        <span class="text-success">{{ $user->phone}}</span>
+                        <span class="text-primary">{{ $user->phone}}</span>
                       </p>
                       <p class="sm-title">
                         Email:
-                        <span class="text-success">{{ $user->email}}</span>
+                        <span class="text-primary">{{ $user->email}}</span>
                       </p>
                       <a
                         target="_blank"
                         
                         onclick="viewCredentials{{ $user->id}}()"
-                        class="btn btn-success fs-3"
+                        class="btn btn-md  btn-primary fs-3"
                       >
                         View Credentials
                       </a>
@@ -405,7 +405,7 @@
                       >
                         Close
                       </button>
-                      <a href="{{ url('activate')}}?id={{ $user->id}}" class="btn btn-success fs-2">
+                      <a href="{{ url('activate')}}?id={{ $user->id}}" class="btn btn-md btn-primary fs-2">
                         Activate User
                       </a>
                     </div>
@@ -480,7 +480,6 @@
                         // Replace the following with the actual user information
                         var name = '{{ $user->name}}';
                         var address = '123 Main St, Cityville';
-                        var age = 25;
                         var email = '{{ $user->email}}';
                         var contactNumber = '+1 555-1234';
                         var validIdUrl = 'assets/images/red.jpg'; // Replace with the actual URL
@@ -488,7 +487,6 @@
                         var credentials = `
                             <p><strong>Name:</strong> ${name}</p>
                             <p><strong>Address:</strong> ${address}</p>
-                            <p><strong>Age:</strong> ${age}</p>
                             <p><strong>Email:</strong> ${email}</p>
                             <p><strong>Contact Number:</strong> ${contactNumber}</p>
                             <p><strong>Valid ID:</strong> <a href="${validIdUrl}" target="_blank">View Valid ID</a></p>
