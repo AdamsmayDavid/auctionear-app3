@@ -86,7 +86,7 @@
                                 <div class="card-header text-light" style="background-color:#FF6C22 ;">{{ __('Sign-up') }}</div>
 
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="row mb-3">
@@ -173,11 +173,11 @@
                                             </div>
                                         </div>
                                             <!-- Valid Id 1-->
-                                            <section class="container">
-                                            <div class="row mb-3 ">
+                                            <!-- <section class="container">
+                                            <div class="row mb-3 "> -->
                                             <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
-                                            <div class="col-md-6 ">
+                                            <!-- <div class="col-md-6 ">
                                             <div class="mb-2 d-flex justify-content-center">
                                                 <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
                                                 alt="example placeholder" style="width: 200px;" />
@@ -185,7 +185,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <div class="btn btn-primary btn-rounded">
                                                     <label class="form-label text-white m-1" for="customFile">Valid Id</label>
-                                                    <input type="file" class="form-control d-none" id="customFile" onchange="displaySelectedImage(event, 'selectedImage')" required>
+                                                    <input name="img1" type="file" class="form-control d-none" id="customFile" onchange="displaySelectedImage(event, 'selectedImage')" required>
                                                 </div>
                                                 
                                             </div>
@@ -196,13 +196,13 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                    
+                                     -->
 
                                                  <!-- Valid Id 2-->
                                             
                                             <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
-                                            <div class="col-md-6 mb-3">
+                                            <!-- <div class="col-md-6 mb-3">
                                             <div class="mb-2 d-flex justify-content-center">
                                                 <img id="selectedFile" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
                                                 alt="example placeholder" style="width: 200px;" />
@@ -210,7 +210,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <div class="btn btn-primary btn-rounded">
                                                     <label class="form-label text-white m-1" for="customFile1">Valid Id</label>
-                                                    <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedFile(event, 'selectedFile')" required>
+                                                    <input name="img2" type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedFile(event, 'selectedFile')" required>
                                                 </div>
                                                 
                                             </div>
@@ -221,7 +221,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                </section>
+                                </section> -->
                                             <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('ValidId2') }}</label> -->
 
                                             <!-- <div class="col-md-6">
@@ -244,7 +244,28 @@
                                                 @enderror
                                             </div>
                                         </div>
-                         -->
+                                        -->
+                                        <!-- image upload -->
+
+                                        <div class="row file_row">
+                                            <div class="col mb-3">
+                                                <label
+                                                    for="credentials"
+                                                    class="form-label"
+                                                    id="credentials-label"
+                                                    >Upload File:
+                                                </label>
+                                            <input
+                                                type="file"
+                                                class="form-control"
+                                                id="credentials"
+                                                
+                                                name="img1"
+                                                value=""
+                                        
+                                            />
+                                            </div>
+                                        </div>
 
                                             
                                             <!-- for password -->
