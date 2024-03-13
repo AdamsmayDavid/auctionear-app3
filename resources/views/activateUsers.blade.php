@@ -244,7 +244,7 @@
             <!-- <li class="nav-item">
               <a class="nav-link mx-0" href="#">How to sell</a>
             </li> -->
-            <li class="logout nav-item dropdown mt-1">
+            <li class="logout nav-item dropdown mt-1 z-index-2">
                                 <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light bg-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 &nbsp;{{ Auth::user()->name }}
                                 </a>
@@ -268,7 +268,7 @@
                             </li>
           </ul>
         </nav>
-                    <section class="container mt-5">
+                    <section class="container mt-5 z-index-n1">
                                 <nav class="navbar bg-light ">
                                     <div class="container bg-light ">
                                         <div class="activate-user">
@@ -284,7 +284,7 @@
                                 </nav>
                             <table class="table">
                                 <thead>
-                                    <tr> <th colspan="6" class="shadow bg-warning pt-4 p-3 border-light text-center"> <h2>ACTIVATE USERS</h2></th> </tr>     
+                                    <tr> <th colspan="6" class="shadow bg-primary text-light pt-4 p-3 border-light text-center"> <h2>ACTIVATE USERS</h2></th> </tr>     
                                 </thead>
                                 <thead>
                                     <tr class>
