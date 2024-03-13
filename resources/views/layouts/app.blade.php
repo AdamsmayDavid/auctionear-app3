@@ -23,6 +23,8 @@
         <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
         <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
         <script src="assets/js/main.js"></script>
+        <!-- fafa icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Scripts -->
@@ -85,7 +87,7 @@
             </div>
         </nav> -->
                  <!-- nav -->
-      <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-4 shadow">
+      <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-trans bg-warning z-index-5 shadow">
       <div class="container">
         <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,7 +106,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark bg-primary">
                             @foreach($autos as $auto)
-                            <li><a class="dropdown-item" href="/biddersSedan">{{$auto->auto_type}}</a></li>
+                            <li><a class="dropdown-item" href="/biddersSedan"><i class="fa fa-car" aria-hidden="true"></i> {{$auto->auto_type}} </a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -115,20 +117,20 @@
 
 
                 @if(auth()->user()->type == 'user')
-                <li class="logout nav-item dropdown mx-1">
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle border-color-white" style="color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <li class="logout nav-item dropdown">
+                      <a id="navbarDropdown" class="btn btn-sm dropdown-toggle text-light" style="background-color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       &nbsp;{{ Auth::user()->name }}
                       </a>
 
-                      <div class="dropdown-menu dropdown-menu-end" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">
+                      <div class="dropdown-menu dropdown-menu" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item " href="/chats">
-                              {{ __('Message') }}
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i> {{ __('Message') }} 
                           </a>
                       
                             <a class="dropdown-item " href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
+                              <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
                             </a>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                               @csrf
@@ -145,13 +147,13 @@
 
                                 <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
                                  <a class="dropdown-item " href="/chats">
-                                      {{ __('Message') }}
+                                 <i class="fa fa-paper-plane" aria-hidden="true"></i> {{ __('Message') }}
                                   </a>
                                 
                                     <a class="dropdown-item text-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>{{ __('Logout') }}
                                     </a>
                 
 

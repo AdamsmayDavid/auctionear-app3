@@ -35,11 +35,19 @@
       <div class="container mt-5">
         
             @if(auth()->user()->type == 'user')
+            <nav class=" container bg-body-tertiary ">
+                    <div class="container">
                     <h1 class="text-center" style="color:#FF6C22;" >
                         <span style="text-transform:uppercase;">
                             {{$auto_type->auto_type}}
                         </span>
                     </h1>
+                        <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="btn_sel" class="btn btn-outline-primary btn-md" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
             @endif
 
             @if(auth()->user()->type == 'seller')

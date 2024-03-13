@@ -34,7 +34,7 @@
     <body class="bg-waves"> 
                       
                 <!-- nav -->
-      <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-light bg-warning p-2 shadow">
+      <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-light bg-warning shadow">
       <div class="container-md ">
         <a class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

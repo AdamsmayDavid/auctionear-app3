@@ -48,6 +48,8 @@
           href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
           rel="stylesheet"
           />
+          <!-- fafa icon -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
                   <script src="assets/js/main.js"></script>
 
@@ -245,14 +247,14 @@
               <a class="nav-link mx-0" href="#">How to sell</a>
             </li> -->
             <li class="logout nav-item dropdown mt-1 z-index-2">
-                                <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light bg-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light bg-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 &nbsp;{{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-light2" href="#">
+                                    <!-- <a class="dropdown-item text-light2" href="/chats">
                                         {{ __('Message') }}
-                                    </a>
+                                    </a> -->
                                 
                                     <a class="dropdown-item text-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

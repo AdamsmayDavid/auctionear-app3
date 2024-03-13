@@ -245,9 +245,9 @@ rel="stylesheet"
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-light2" href="/chats">
+                                    <!-- <a class="dropdown-item text-light2" href="/chats">
                                         {{ __('Message') }}
-                                    </a>
+                                    </a> -->
                                 
                                     <a class="dropdown-item text-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
