@@ -7,11 +7,13 @@ use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\WebSocketController;
+use App\Http\Controllers\SmsController;
 
 Route::get('/', function () {
+   App\Jobs\SlowJob::dispatch();
+   
     return view('welcome');
 });
-
 Route::get('/waitingUser', function () {
    return view('waitingUser');
 });
