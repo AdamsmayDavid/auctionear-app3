@@ -32,19 +32,19 @@
            
         </style>
       
-      <div class="container mt-5">
+      <div class="container mt-5" style="margin-top:100px !important">
         
             @if(auth()->user()->type == 'user')
-            <nav class=" container bg-body-tertiary ">
+            <nav class=" container">
                     <div class="container">
                     <h1 class="text-center" style="color:#FF6C22;" >
                         <span style="text-transform:uppercase;">
                             {{$auto_type->auto_type}}
                         </span>
                     </h1>
-                        <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="btn_sel" class="btn btn-outline-primary btn-md" type="submit">Search</button>
+                        <form class="d-flex" role="search" type="get" action="">
+                        <input class="form-control m-1" type="search" placeholder="You can do a search for the desired vehicle." style="" aria-label="Search">
+                        <button id="btn_sel" class="btn btn-outline-primary btn-md m-1" type="submit">Search</button>
                         </form>
                     </div>
                 </nav>

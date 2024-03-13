@@ -87,7 +87,7 @@
             </div>
         </nav> -->
                  <!-- nav -->
-      <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-trans bg-warning z-index-5 shadow">
+      <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-trans bg-warning p-3 z-index-5 shadow">
       <div class="container">
         <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
