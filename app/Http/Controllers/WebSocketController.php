@@ -10,6 +10,25 @@ use App\Models\messages;
 use App\Models\conversations;
 use Illuminate\Support\Facades\Auth;
 
+
+use App\Events\demandBids_send;
+use App\Models\auctions;
+use App\Models\crops;
+use App\Models\demandAuctions;
+use App\Models\User;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Database\QueryException;
+
+use App\Events\NewMessageEvent;
+use Illuminate\Support\Carbon;
+
+use Illuminate\Support\Facades\DB;
+use App\Models\bids;
+use App\Models\demand_bids;
+use App\Services\ValidationService; // Import the ValidationService
+
+
+
 class WebSocketController extends Controller
 {
     public function send_bid(Request $request)
@@ -18,7 +37,61 @@ class WebSocketController extends Controller
         $bidder = $request->bidder;
         $channel = $request->channel;
 
-        event(new bidSocket($bid_price, $bidder, $channel));
+
+        $website_info = bids::where([
+            ['bid_amount', '=' ,$bid_price],
+            ['auction_id', '=', $channel]
+        ])->first();
+
+        $bids = bids::where('auction_id', $channel)->get();
+        $bid_max = $bids->max('bid_amount');
+        
+        $base_price = auctions::where('auction_id', $channel)->first('starting_price');
+        $auto_type = auctions::where('auction_id', $channel)->first('auto_id');
+
+        if ($website_info != null || $bid_price <= $bid_max || $bid_price <= $base_price->starting_price) 
+        {
+            return response()->json([0]);
+        } else {
+            
+            $user = Auth::user();
+            $now = Carbon::now();
+            $on_time = Carbon::parse($now)->format('g:i A');
+            
+            //return response()->json([$bid_price, $bidder, $channel, $user['id'], $on_time]);
+
+
+
+                $bids = bids::create(
+                [
+                'bid_amount' => $bid_price,
+                'bidder_id' => $user['id'],
+                'auction_id' => $channel,
+                'auto_type' => $auto_type->auto_id,
+                'on_time' => $on_time,
+                ],
+            );
+            //return ['status' => 'Message Sent!'];
+            if($bids)
+            {
+		        //event(new NewMessageEvent($message, $channel, $user['name'], $profile_img, $on_time));
+                event(new bidSocket($bid_price, $bidder, $channel));
+              
+		        return response()->json([$bid_price => true]);
+	
+            }
+            else
+            {
+                return response()->json(['Bid Not Sent' => true]);
+            }
+    
+
+            
+        }
+       
+            
+
+        //event(new bidSocket($bid_price, $bidder, $channel));
 
     }
 

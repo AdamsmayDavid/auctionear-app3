@@ -99,6 +99,7 @@ class AuctionController extends Controller
             'bids.on_time',
             'users.name as creator_name',
             'auctions.auto_id',
+            'auctions.auctionImage',
             'bids.bid_amount',
             DB::raw('COALESCE(MAX(bids.bid_amount), auctions.starting_price) as latest_bid_price')
         )
@@ -116,6 +117,7 @@ class AuctionController extends Controller
                         'auctions.auto_id', 
                         'bids.bid_amount',
                         'auctions.end_time',
+                        'auctions.auctionImage',
                     )
             ->get();
 

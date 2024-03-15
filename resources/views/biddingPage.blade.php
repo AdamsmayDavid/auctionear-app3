@@ -7,6 +7,11 @@
         
 
         <!-- Fonts -->
+@if(!empty($auctionData))
+    @foreach($auctionData as $auction)
+    
+    @endforeach
+@endif
 
 
         @if(auth()->user()->type == 'user')
@@ -22,16 +27,16 @@
     <div id="biddingCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/images/red.jpg" class="d-block w-100" alt="Bidding Item Image 1">
+                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
             </div>
             <div class="carousel-item">
-                <img src="assets/images/red.jpg" class="d-block w-100" alt="Bidding Item Image 2">
+                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
             </div>
             <div class="carousel-item">
-                <img src="assets/images/red.jpg" class="d-block w-100" alt="Bidding Item Image 3">
+                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
             </div>
             <div class="carousel-item">
-                <img src="assets/images/red.jpg" class="d-block w-100" alt="Bidding Item Image 4">
+                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#biddingCarousel" data-bs-slide="prev">
@@ -44,10 +49,11 @@
         </button>
     </div>
 
+
     <div class="card mt-3">
         <div class="card-body">
-            <h5 class="card-title">ITEM NAME</h5>
-            <p class="card-text">Description of the bidding item goes here. You can provide details about the item and any other relevant information.</p>
+            <h5 class="card-title">{{ $auction->auction_id }}</h5>
+            <p class="card-text">{{ $auction->description }}</p>
         </div>
         <ul class="list-group list-group-flush">
 
@@ -97,6 +103,11 @@
             <li class="list-group-item">
                 <p class="mb-0">Bidding Ends: January 31, 2024</p>
             </li>
+            
+            <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
+                <div id="validation-errors1"  role="alert">                    
+                </div>       
+            </div>
             <li class="list-group-item">
                 <p class="mb-0">Bidders:</p>
                 <ul id="bids_here">
@@ -113,6 +124,8 @@
                 End Auction
             </button>
             </div>
+            
+
 
             <!-- Modal -->
             <div style="margin-top:100px !important;" class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -188,8 +201,7 @@
                         
     
 
-@if(!empty($auctionData))            
-    @foreach($auctionData as $auction) 
+
             
     <script>
       $(document).ready(function() {
@@ -214,14 +226,14 @@
                             // Handle success if needed
                             console.log('Message Response: ', response);
 
-                            if (response == 'failed') {
+                            if (response == 0) {
                                 // Log or display validation errors
 
 
                                 const errors = response;
 
                                 // Clear any existing error messages
-                                const validationErrorsDiv = document.getElementById('validation-errors2');
+                                const validationErrorsDiv = document.getElementById('validation-errors1');
                                 validationErrorsDiv.innerHTML = '';
                                 
 
@@ -232,7 +244,10 @@
                                         const errorMessages = errors.join('<br>'); // Combine multiple error messages for the field
                                         const errorMessageElement = document.createElement('div');
                                         errorMessageElement.classList.add("new");
-                                        errorMessageElement.innerHTML = `<div class="alert alert-danger"><h2>Please Provide Higher Bid</2></div>`;
+                                        errorMessageElement.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                                            <p class="fs-3 fw-bold text-center">Please Provide Higher Bid</p>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                        </div>`;
                                         validationErrorsDiv.appendChild(errorMessageElement);
                                     }
                                 }
@@ -298,8 +313,6 @@
     */
 </script>
 
-@endforeach
-@endif
 
 <!-- Testing create element 
 <script>

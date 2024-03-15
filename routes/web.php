@@ -10,7 +10,7 @@ use App\Http\Controllers\WebSocketController;
 use App\Http\Controllers\SmsController;
 
 Route::get('/', function () {
-   App\Jobs\SlowJob::dispatch();
+   //App\Jobs\SlowJob::dispatch();
    
     return view('welcome');
 });
