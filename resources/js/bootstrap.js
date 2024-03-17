@@ -32,7 +32,7 @@ window.Echo = new Echo({
     wsPort: 80, // Yor http port
     disableStats: true, // Change this to your liking this disables statistics
     forceTLS: false,
-    enabledTransports: ['ws', 'wss'],
+    enabledTransports: 'ws',
     disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming'] // Can be removed
 });
 
