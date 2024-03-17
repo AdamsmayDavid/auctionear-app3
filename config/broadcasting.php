@@ -47,6 +47,7 @@ return [
                           CURLOPT_SSL_VERIFYPEER => 0,
                        ],
                    ],
+	],
     // 'connections' => [
     //     'pusher' => [
     //                'driver' => 'pusher',
