@@ -14,9 +14,8 @@
         <!-- Styles -->
 
         <!-- carousel -->
-        <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-        <script src="assets/js/main.js"></script>
+        <!-- <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css"> -->
+        <!-- <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> -->
         
         <style>
             #btn_bid{
@@ -98,8 +97,8 @@
 
       
      <!-- script file -->
-     <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
+     <!-- <script src="assets/js/jquery.min.js"></script> -->
+            <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
             <script src="assets/js/main.js"></script>
 
     

@@ -16,8 +16,8 @@
         <!-- Styles -->
 
         <!-- carousel -->
-        <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+        <!-- <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css"> -->
+        <!-- <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> -->
         <script src="assets/js/main.js"></script>
         
         <style>
@@ -157,8 +157,10 @@
         </div>
     </div>
 </div>
-<script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- <script src="assets/js/jquery.min.js"></script> -->
+            <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
             <script src="assets/js/main.js"></script>
         
      
