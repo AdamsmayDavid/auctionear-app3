@@ -29,6 +29,16 @@
         <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- <script src="assets/js/jquery.min.js"></script> -->
+<script src="assets/js/main.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
     <!-- Scripts -->
     <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
 </head>
@@ -177,13 +187,7 @@
     </div>
 
       <!-- script file -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-            <!-- <script src="assets/js/jquery.min.js"></script> -->
-            <script src="assets/js/main.js"></script>
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-            
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+ 
            
 </body>
 </html>
