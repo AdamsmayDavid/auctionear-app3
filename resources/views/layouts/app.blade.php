@@ -118,7 +118,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark bg-primary">
                             @foreach($autos as $auto)
-                            <li><a class="dropdown-item" href="/auctionPage?type={{$auto->id}}"><i class="fa fa-car" aria-hidden="true"></i>{{$auto->auto_type}} </a></li>
+                            <li><a class="dropdown-item" href="/auctionPage?type={{$auto->id}}"><i class="fa fa-car" aria-hidden="true"></i> {{$auto->auto_type}} </a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -187,7 +187,7 @@
     </div>
 
       <!-- script file -->
-      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       @vite(['resources/sass/app.scss', 'resources/js/app.js'])
  
            
