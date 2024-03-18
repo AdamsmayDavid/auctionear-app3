@@ -20,18 +20,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import Echo from 'laravel-echo';
 
 import Pusher from 'pusher-js';
-//window.Pusher = Pusher;
+window.Pusher = Pusher;
 
 // If using http connection use this
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: import.meta.env.VITE_PUSHER_APP_KEY,
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
+    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
     wsHost: 'auctionear.shop', // Your domain
-    encrypted: false,
+    encrypted: true,
     wssPort: 443, // Yor http port
     disableStats: true, // Change this to your liking this disables statistics
-    forceTLS: false,
+    forceTLS: true,
     enabledTransports: ['ws', 'wss'],
     disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming'] // Can be removed
 });
