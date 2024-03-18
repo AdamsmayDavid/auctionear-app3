@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
         <!-- Styles -->
 
         <!-- carousel -->
@@ -133,17 +134,17 @@
                 <hr class="border-light col-5 m-auto"> 
                   <div class="row align-items-start text-start container mx-auto">
                       <div class="col bg-light p-5  m-3" data-aos="fade-right">
-                        <h2 class="" style="color:#FF6C22;" >Flexibility</h2>
+                        <h2 class="" style="color:#FF6C22;" >Flexibility <i class="fa fa-map-marker" aria-hidden="true"></i></h2>
                         <hr class="border-dark"> 
                           <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col bg-light p-5   m-3" data-aos="fade-up">
-                        <h2 class="" style="color:#FF6C22;" >Secured</h2>
+                        <h2 class="" style="color:#FF6C22;" >Secured <i class="fa fa-solid fa-shield"></i></h2>
                         <hr class="border-dark">
                           <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col bg-light p-5 m-3 " data-aos="fade-left">
-                        <h2 class="" style="color:#FF6C22;">Easy to use</h2>
+                        <h2 class="" style="color:#FF6C22;">Easy to use <i class="fa fa-solid fa-eye"></i></h2>
                         <hr class="border-dark">
                           <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
@@ -161,7 +162,7 @@
                        <img src="/assets/images/motor1.png" alt="">
                       </div>
                       <div class="col float-end mt-5" data-aos="fade-up">
-                        <h1 class="text-primary fs-1" >How to start</h1>
+                        <h1 class="text-primary fs-1" >How to start <i class="fa fa-motorcycle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
                           <small class="dark fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
@@ -188,7 +189,8 @@
             
   <section id="vehicle" class="bg-image img-responsive vehicle container p-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
             <div class="pad-about row container">
-              <h1 class="fw-bolder text-start " style=" font-size:5vh; !important; color:#FF6C22;">AVAILABLE VEHICLE</h1> <hr>onsectetur adipisicing elit. Harum sint quod est quas consequuntur, animi voluptas quisquam, pariatur ipsa facere aspernatur, magni neque amet necessitatibus officiis obcaecati nisi itaque quo?</small>
+              <h1 class="fw-bolder text-start " style=" font-size:5vh; !important; color:#FF6C22;">AVAILABLE VEHICLE <i class="fa fa-car" aria-hidden="true"></i></h1> <hr>
+              <small style=" margin-bottom:50px" class="text-start">e a impedit aut explicabo molestiae expedita repellendus est. Harum perferendis qui minima modi quia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sint quod est quas consequuntur, animi voluptas quisquam, pariatur ipsa facere aspernatur, magni neque amet necessitatibus officiis obcaecati nisi itaque quo?</small>
              
               <!-- <h6 class="text-center mb-5 text-dark" >Click to view every vehicle descriptions !</h6> -->
             <div class="column"  data-aos-easing="linear" data-aos-duration="400">
@@ -232,7 +234,7 @@
                     <div id="about"  class="about container text-center " >
                   <div class="row align-items-start text-start container">
                       <div class="col mt-5 float-start" data-aos="fade-up">
-                        <h1 class="text-primary fs-1" >Know About Us</h1>
+                        <h1 class="text-primary fs-1" >Know About Us <i class="fa fa-info-circle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
                           <small class="dark fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
@@ -253,7 +255,7 @@
                     <div class="container form p-5 ">
     
           
-                      <H1 class="text-center" style="color: #FF6C22;">CONTACT US</H1>
+                      <H1 class="text-center" style="color: #FF6C22;">Contact Us <i class="fa fa-address-book" aria-hidden="true"></i></H1>
                       
                     <!-- FORM -->
                     <form class="" action="https://api.web3forms.com/submit" method="POST">

@@ -35,7 +35,7 @@
                 @endif
 
                 @if(auth()->user()->type == 'seller')
-                  <h1 class=" display-3 text-primary"> <b>Seller</b></h1>
+                  <h1 class=" display-3 text-primary" style="margin-top:100px;"> <b>Auctioneer</b></h1>
                   <p class="text-dark" >Hello <span class="text-primary"> <b>{{ Auth::user()->name }}</b>  </span> welcome to auctionear <br>click button bellow to create a auction</p>
                 @endif
 

@@ -25,8 +25,8 @@
            
         </style>
 
-                <div class="container mt-5">
-                    <h2 class=" text-primary">Create Auction</h2>
+                <div class="container" style="margin-top:100px;">
+                    <h1 class=" text-primary">Create Auction</h1> 
 
                     <form id="auctionForm" action="{{ route('newAuction') }}" method="POST" enctype="multipart/form-data">
                         @csrf

@@ -59,10 +59,10 @@
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid">
                         <a id="btn_sel" class="btn btn-outline-primary btn-lg" href="/createAuction">Create Auction</a>
-                        <form class="d-flex" role="search">
+                        <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button id="btn_sel" class="btn btn-outline-primary btn-md" type="submit">Search</button>
-                        </form>
+                        </form> -->
                     </div>
                 </nav>
                 <!-- creation btn for seller end-->

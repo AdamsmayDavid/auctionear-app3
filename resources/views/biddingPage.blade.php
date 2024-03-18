@@ -20,7 +20,7 @@
         @endif
 
         @if(auth()->user()->type == 'seller')
-            <h1 class=" text-center text-primary mt-5">VIEW AUCTION</h1>
+            <h1 class=" text-center text-primary" style="margin-top:100px;">VIEW AUCTION</h1>
             <hr class="border-secondary col-3 m-auto">
         @endif
 <div class="container mt-5">
