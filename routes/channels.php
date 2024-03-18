@@ -21,6 +21,6 @@ use Illuminate\Support\Facades\Broadcast;
 //     return $user->id == $id;
 // });
 
-Broadcast::channel('messageSender.user.{id}', function($user, $id){
-    return $user->id == $id;
-});
+// Broadcast::channel('messageSender.user.{id}', function($user, $id){
+//     return $user->id == $id;
+// });

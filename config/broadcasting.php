@@ -38,9 +38,9 @@ return [
                    'app_id' => env('PUSHER_APP_ID'),
                    'options' => [
                        'cluster' => env('PUSHER_APP_CLUSTER'),
-                       'encrypted' => true, // true if using HTTPS else false
-                       'host' => 'auctionear.shop', // Change this to your domain  
-                       'port' => 443, // Change this whatever port you are serving your website from 
+                       'encrypted' => false, // true if using HTTPS else false
+                       'host' => env('PUSHER_HOST'), // Change this to your domain  
+                       'port' => env('PUSHER_PORT'), // Change this whatever port you are serving your website from 
                        'scheme' => env('PUSHER_APP_SCHEME'),
                        'curl_options' => [
                            CURLOPT_SSL_VERIFYHOST => 0,
