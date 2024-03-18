@@ -15,7 +15,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Styles -->
 
@@ -101,7 +101,7 @@
                  <!-- nav -->
       <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-trans bg-warning p-3 z-index-5 shadow">
       <div class="container">
-        <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
+        <a class="navbar-brand text-primary" href=""> <img src="/assets/images/LOGO2.png" alt="logo"><b>Auctio<span style="color:#FF6C22;">ne<i class="fas fa-location"></i>r</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -130,8 +130,8 @@
 
                 @if(auth()->user()->type == 'user')
                 <li class="logout nav-item dropdown">
-                      <a id="navbarDropdown" class="btn btn-sm dropdown-toggle text-light" style="background-color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      &nbsp;{{ Auth::user()->name }}
+                      <a id="navbarDropdown" class="btn btn-sm dropdown-toggle text-light mt-1" style="background-color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
                       </a>
 
                       <div class="dropdown-menu dropdown-menu" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">
