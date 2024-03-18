@@ -28,10 +28,11 @@ window.Echo = new Echo({
     key: import.meta.env.VITE_PUSHER_APP_KEY,
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
     wsHost: 'auctionear.shop', // Your domain
-    encrypted: false,
+    encrypted: true,
+   //wsPort: 80,
     wssPort: 443, // Yor http port
     disableStats: true, // Change this to your liking this disables statistics
-    forceTLS: false,
+    forceTLS: true,
     enabledTransports: ['ws', 'wss'],
     disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming'] // Can be removed
 });
