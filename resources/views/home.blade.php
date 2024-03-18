@@ -30,7 +30,7 @@
         <section class="container text-center mt-5">
 
                 @if(auth()->user()->type == 'user')
-                  <h1 class=" display-3" style="color:#FF6C22;"> <b>Bidders</b></h1>
+                  <h1 class=" display-3" style="color:#FF6C22; margin-top:100px !important;"> <b>Bidders</b></h1>
                   <p class="text-dark" >Hello <span class="" style="color:#FF6C22;"> <b>{{ Auth::user()->name }}</b>  </span> welcome to auctionear <br>click button bellow to place a bid</p>
                 @endif
 

@@ -32,6 +32,7 @@ background-color: #d66024;
   
  
 }
+
 .about .col img{
   width: 80vh !important;
   margin-top: 100px !important;
@@ -72,7 +73,7 @@ border: 1px solid rgba(255,255,255,0.25) !important;
 }
 
 #contact .form{
-  background: rgba(255,255,255,0.5) !important;
+  background: rgba(255, 255, 255, 0.144) !important;
   -webkit-backdrop-filter: blur(10px) !important;
 backdrop-filter: blur(10px) !important;
 border: 1px solid rgba(255,255,255,0.25) !important;
@@ -150,7 +151,7 @@ border: 1px solid rgba(255,255,255,0.25) !important;
    }
 
    #contact .form{
-    padding: 0 !important;
+    padding: 3 !important;
     box-shadow: none !important;
     margin-top: -100px;
    }
@@ -199,28 +200,23 @@ border: 1px solid rgba(255,255,255,0.25) !important;
   .w-md-85 {
     width: 85% !important;
   }
-
-  #introduction {
-    background-image: url("https://svgshare.com/i/JsH.svg") !important;
-    background-repeat: no-repeat;
-    background-position: 8% 112%;
-  }
-  
-
-  #intro-img-holder {
-    top: -13% !important;
-    left: 20% !important;
-    height: 100% !important;
-  }
-
-  #intro-img {
-    height: 110% !important;
-  }
-
-  .auctionearTittle h1{
-    margin-top: 8vh !important;
+  .bg-waves{
+    background-image: url('/assets/images/waves.png');
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
   }
 }
+  
+
+@media only screen and (min-width: 469px) and (max-width: 1000px) {
+  .bg-waves{
+    background-image: url('/assets/images/waves.png');
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+
+}
+
 @media only screen and (min-width: 1200px) {
   
   .w-md-50 {
@@ -242,7 +238,6 @@ border: 1px solid rgba(255,255,255,0.25) !important;
       background-repeat: no-repeat !important;
     }
   #introduction {
-   
     background-repeat: no-repeat !important;
     background-position: 11% 112% !important;
     
@@ -255,7 +250,7 @@ border: 1px solid rgba(255,255,255,0.25) !important;
   }
 
   #intro-img {
-    height: 120% !important;
+    height: 110% !important;
   }
 
  .auctionearTittle h1{
@@ -296,9 +291,6 @@ border: 1px solid rgba(255,255,255,0.25) !important;
     .about h1
     {
       padding-top: 20px !important;
-    }
-    .about .col{
-     
     }
     
   }
