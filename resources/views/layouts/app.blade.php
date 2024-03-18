@@ -40,7 +40,7 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
 </head>
 <body>
     
@@ -188,6 +188,7 @@
 
       <!-- script file -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      @vite(['resources/sass/app.scss', 'resources/js/app.js'])
  
            
 </body>
