@@ -29,7 +29,7 @@ window.Echo = new Echo({
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
     wsHost: 'auctionear.shop', // Your domain
     encrypted: false,
-    wsPort: 80, // Yor http port
+    wssPort: 443, // Yor http port
     disableStats: true, // Change this to your liking this disables statistics
     forceTLS: false,
     enabledTransports: ['ws', 'wss'],
