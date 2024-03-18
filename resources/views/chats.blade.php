@@ -17,10 +17,10 @@
         <link rel="stylesheet" href="assets/css/chatStyling.css">
         <title>Chat</title>
     
-    <!-- script file -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
     <!-- start: Chat -->
         
  
@@ -150,10 +150,13 @@
 
 
             <!-- script file -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
+            <!-- <script src="assets/js/jquery.min.js"></script> -->
+            <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
             <script src="assets/js/main.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+               <!-- script file -->
+     
 
 @foreach($conversations as $conversation)
 <script>
