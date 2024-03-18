@@ -15,7 +15,7 @@
 
 
         @if(auth()->user()->type == 'user')
-            <h1 class="text-center" style="color:#FF6C22;">PLACE A BID</h1>
+            <h1 class="text-center" style="color:#FF6C22; margin-top:100px !important">PLACE A BID</h1>
             <hr class="border-secondary col-3 m-auto">
         @endif
 

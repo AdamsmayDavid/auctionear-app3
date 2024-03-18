@@ -41,10 +41,7 @@
                             {{$auto_type->auto_type}}
                         </span>
                     </h1>
-                        <form class="d-flex" role="search" type="get" action="">
-                        <input class="form-control m-1" type="search" placeholder="You can do a search for the desired vehicle." style="" aria-label="Search">
-                        <button id="btn_sel" class="btn btn-outline-primary btn-md m-1" type="submit">Search</button>
-                        </form>
+                       
                     </div>
                 </nav>
             @endif
