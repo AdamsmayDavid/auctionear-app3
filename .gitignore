@@ -17,3 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/config/broadcasting.php
+/config/websockets.php
+/resources/js/bootstrap.js
+.env
