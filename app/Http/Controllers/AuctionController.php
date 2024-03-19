@@ -46,8 +46,8 @@ class AuctionController extends Controller
             $auto_id = $request->auto_id;
             $description = $request->description;
             $starting_price = $request->starting_price;
-            $auc_date = $request->auc_date;
-            $auc_time = $request->auc_time;
+            //$auc_date = $request->auc_date;
+            //$auc_time = $request->auc_time;
             $user = Auth::user();
             $dateNow = time();
     
@@ -60,11 +60,13 @@ class AuctionController extends Controller
                 'description' => $description,
                 'starting_price' => $starting_price,
                 'creator_id' => $user['id'],
-                //'auction_date' => $auc_date,
-                //'auction_time' => $auc_time,
-                'auctionImage' => $AutoImgLoc,
                 'status' => 'active',
                 'end_time' => Carbon::now()->addHours(24), //addMinutes(1) or addHours(6)
+                'auctionImage' => $AutoImgLoc,
+                //'auction_date' => $auc_date,
+                //'auction_time' => $auc_time,                
+                
+                
             ]);
 
             return redirect()->back()->withSuccess('Upload image successful')
