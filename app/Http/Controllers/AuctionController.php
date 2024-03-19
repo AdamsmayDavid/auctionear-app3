@@ -140,7 +140,19 @@ class AuctionController extends Controller
 
         $close_auction = auctions::where('auction_id', $thisAuction_id)->update(['status' => 'closed']);
 
-        if($close_auction)
+         $bidder_list = bids::orderBy('bid_amount', 'DESC')->where('auction_id', $thisAuction_id)->first();
+         $bidder = $bidder_list->bidder_id;
+
+         $seller = auctions::where('auction_id', $thisAuction_id)->first('creator_id');
+
+         $creat_convo = conversations::create([
+                 'user_one' => $seller->creator_id,
+                 'user_two' => $bidder,
+            ]);
+
+
+
+        if($close_auction && $creat_convo)
         {
             return back(); //->with('closed', 'Auction is now closed');
         }

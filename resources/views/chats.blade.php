@@ -51,7 +51,7 @@
                                     <li>
                                         <a href="#" data-conversation="#conversation-{{$conversation->con_id}}">
                                             <span class="content-message-info">
-                                                 <span class="content-message-name">{{ Auth::user()->name }} {{$conversation->con_id}}</span> <!--user 2 -->
+                                                 <span class="content-message-name">{{ Auth::user()->name }} to bidder id : {{$conversation->user_two}} | convo id :{{$conversation->con_id}}</span> <!--user 2 -->
                                                 <!-- <span class="content-message-text">Lorem ipsum dolor sit amet consectetur.</span> -->
                                             </span>
                                             <span class="content-message-more">
