@@ -37,61 +37,69 @@ class WebSocketController extends Controller
         $bidder = $request->bidder;
         $channel = $request->channel;
 
+        $active_auction = auctions::where('auction_id', $channel)
+                                  ->where('status', 'active')->first('auction_id');
 
-        $website_info = bids::where([
-            ['bid_amount', '=' ,$bid_price],
-            ['auction_id', '=', $channel]
-        ])->first();
-
-        $bids = bids::where('auction_id', $channel)->get();
-        $bid_max = $bids->max('bid_amount');
-        
-        $base_price = auctions::where('auction_id', $channel)->first('starting_price');
-        $auto_type = auctions::where('auction_id', $channel)->first('auto_id');
-
-        if ($website_info != null || $bid_price <= $bid_max || $bid_price <= $base_price->starting_price) 
+        if($active_auction)
         {
+            $website_info = bids::where([
+                ['bid_amount', '=' ,$bid_price],
+                ['auction_id', '=', $active_auction]
+            ])->first();
+
+            $bids = bids::where('auction_id', $active_auction)->get();
+            $bid_max = $bids->max('bid_amount');
+            
+            $base_price = auctions::where('auction_id', $active_auction)->first('starting_price');
+            $auto_type = auctions::where('auction_id', $active_auction)->first('auto_id');
+
+            if ($website_info != null || $bid_price <= $bid_max || $bid_price <= $base_price->starting_price) 
+            {
+                return response()->json([0]);
+            } else {
+                
+                $user = Auth::user();
+                $now = Carbon::now();
+                $on_time = Carbon::parse($now)->format('g:i A');
+                
+                //return response()->json([$bid_price, $bidder, $active_auction, $user['id'], $on_time]);
+
+
+
+                    $bids = bids::create(
+                    [
+                    'bid_amount' => $bid_price,
+                    'bidder_id' => $user['id'],
+                    'auction_id' => $active_auction,
+                    'auto_type' => $auto_type->auto_id,
+                    'on_time' => $on_time,
+                    ],
+                );
+                //return ['status' => 'Message Sent!'];
+                if($bids)
+                {
+                    //event(new NewMessageEvent($message, $active_auction, $user['name'], $profile_img, $on_time));
+                    event(new bidSocket($bid_price, $bidder, $active_auction));
+                
+                    return response()->json([$bid_price => true]);
+        
+                }
+                else
+                {
+                    return response()->json(['Bid Not Sent' => true]);
+                }
+        
+
+                
+            }
+        }else{
             return response()->json([0]);
-        } else {
-            
-            $user = Auth::user();
-            $now = Carbon::now();
-            $on_time = Carbon::parse($now)->format('g:i A');
-            
-            //return response()->json([$bid_price, $bidder, $channel, $user['id'], $on_time]);
-
-
-
-                $bids = bids::create(
-                [
-                'bid_amount' => $bid_price,
-                'bidder_id' => $user['id'],
-                'auction_id' => $channel,
-                'auto_type' => $auto_type->auto_id,
-                'on_time' => $on_time,
-                ],
-            );
-            //return ['status' => 'Message Sent!'];
-            if($bids)
-            {
-		        //event(new NewMessageEvent($message, $channel, $user['name'], $profile_img, $on_time));
-                event(new bidSocket($bid_price, $bidder, $channel));
-              
-		        return response()->json([$bid_price => true]);
-	
-            }
-            else
-            {
-                return response()->json(['Bid Not Sent' => true]);
-            }
-    
-
-            
         }
+               
        
             
 
-        //event(new bidSocket($bid_price, $bidder, $channel));
+        //event(new bidSocket($bid_price, $bidder, $active_auction));
 
     }
 

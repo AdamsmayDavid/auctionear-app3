@@ -94,7 +94,7 @@ class AuctionController extends Controller
             'auctions.starting_price',
             //'auctions.end_time',
             //'auctions.crop_name',
-            //'auctions.status',
+            'auctions.status',
             'auctions.creator_id', //'auctions.creator_id',
             'bids.on_time',
             'users.name as creator_name',
@@ -130,105 +130,62 @@ class AuctionController extends Controller
             return view('biddingPage', compact('auctionData', 'bids', 'autos'))->with('success', 'highest bid fetched');
 
 
+    }
 
-
-
-
-        // $autos = autos::all();
-
-        // $on_auction = $request->auction_id;
-        // $auction = auctions::where('auction_id', $on_auction)->first('auction_id');
-
-        // $auto_type = autos::where('id', $request->type)->first('auto_type');
-             
-        // //new
-        // $bids = bids::where('auction_id', $on_auction)->orderBy('bid_amount', 'desc')->get();
-
-
-
-
-        /*
-   
-        public function selectAuction(Request $request)
+    public function manual_close(Request $request)
     {
-        $on_auction = $request->input('auction_id');
+        $thisAuction_id = $request->input('auction_id');
 
+        $openAuctions = auctions::where('auction_id', $thisAuction_id)->first();
 
-        $auctionData = demandAuctions::select(
-            'demand_auctions.auction_id',
-            'demand_auctions.crop_volume',
-            'demand_auctions.starting_price',
-            'demand_auctions.pick_up_date',
-            'demand_auctions.end_time',
-            //'demand_auctions.crop_name',
-            'demand_auctions.starting_price',
-            'demand_auctions.status',
-            'demand_auctions.creator_id',
-            'demand_bids.on_time',
-            'users.name as creator_name',
-            'users.profile_img',
-            'demand_auctions.crop_name',
-            'demand_bids.bid_amount',
-            DB::raw('COALESCE(MAX(demand_bids.bid_amount), demand_auctions.starting_price) as latest_bid_price')
-        )
-            ->join('users', 'demand_auctions.creator_id', '=', 'users.id')
-            ->leftJoin('demand_bids', 'demand_auctions.auction_id', '=', 'demand_bids.auction_id')
-            ->where('demand_auctions.auction_id', $on_auction)
-            ->groupBy(
-                        'demand_auctions.auction_id', 
-                        'demand_auctions.crop_volume', 
-                        'demand_auctions.starting_price', 
-                        'demand_auctions.pick_up_date', 
-                        //'demand_auctions.crop_name',
-                        'demand_auctions.starting_price',
-                        'demand_auctions.status',
-                        'demand_auctions.creator_id',
-                        'demand_bids.on_time',
-                        'users.name', 
-                        'users.profile_img',
-                        'demand_auctions.crop_name', 
-                        'demand_bids.bid_amount',
-                        'demand_auctions.end_time',
-                    )
-            ->get();
+        $close_auction = auctions::where('auction_id', $thisAuction_id)->update(['status' => 'closed']);
+        
+        $thesebids = bids::where('auction_id', $thisAuction_id)->get();
+        
+        $bidders = bids::where('auction_id', $thisAuction_id)->pluck('user_id');
+        $farmer = auctions::where('auction_id', $thisAuction_id)->pluck('user_id');
+        
+        //$toNotify = $bidders->merge($farmer)->unique();
+        $toNotify = $bidders->merge($farmer)->unique()->toArray();
 
-            $bids = demand_bids::select('demand_bids.bid_id', 'users.name', 'demand_bids.bid_amount','users.profile_img', 'demand_bids.on_time')
-            ->join('users', 'demand_bids.bidder_id', '=', 'users.id')
-            ->where('demand_bids.auction_id', $on_auction)
-            ->orderBy('bid_amount', 'asc')
-            ->get();
+        $user = User::whereIn('id', $toNotify)->get();
+        
+            foreach($thesebids as $bid)
+            {
+                $auction_id = $openAuctions->auction_id;
+                $crop_id = $openAuctions->crop_id;
+                $creator_id = $openAuctions->user_id;
+                $bidder_id =  $bid->user_id;    
+                $phase = 1;      
+      
+            }
+            farmerNotif::create([
+                'auction_id' => $auction_id,
+                'crop_id' => $crop_id,
+                'creator_id' => $creator_id,
+            ]); 
+            
+            consNotif::create([
+                'auction_id' => $auction_id,
+                'crop_id' => $crop_id,
+                'bidder_id' => $bidder_id,
+            ]);
 
-            return view('demandBidding', compact('auctionData', 'bids'))->with('success', 'highest bid fetched');
+            //send notification on websocket
+            event(new notifier($auction_id, $crop_id, $creator_id, $bidder_id ));
+            event(new end_auction($auction_id, $crop_id, $creator_id, $bidder_id ));
 
+            //save the notifiaction on database
+            Notification::send($user, new UserNotification($auction_id, $creator_id, $bidder_id, $phase));
 
-
-
-
-
-
-        /*
-        $bids = demand_bids::select(
-            'demand_bids.bid_id', 
-            'demand_bids.crop_name', 
-            'users.name', 
-            'demand_bids.bid_amount',
-            'users.profile_img', 
-            'demand_bids.on_time'
-            )
-        ->join('users', 'demand_bids.bidder_id', '=', 'users.id')
-        ->where('demand_bids.auction_id', $on_auction)
-        ->orderBy('bid_amount', 'desc')
-        ->get();
-
-        $auctions = demandAuctions::where('auction_id', $on_auction)->get();
-        $highestbid = demand_bids::where('auction_id', $on_auction)->get('bid_amount')->max();
-        foreach($auctions as $auction)
+        if($close_auction)
         {
-            $creator = User::where('id', $auction->user_id)->get();
-            $crop = crops::where('crop_id', $auction->crop_id)->first();
+            return back()->with('closed', 'Auction is now closed');
         }
-        return view('demandBidding', compact('bids','auctions', 'highestbid', 'creator', 'crop'))->with('success', 'highest bid fetched');
-        */
+        return back()->with('active', 'Failed to close');
+        
+
+        
     }
     
 

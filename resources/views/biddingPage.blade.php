@@ -70,40 +70,47 @@
 
     <div class="card mt-3">
         <div class="card-body">
-            <h5 class="card-title">{{ $auction->auction_id }}</h5>
+            <h5 class="card-title">Auction ID : {{ $auction->auction_id }}</h5>
             <p class="card-text">{{ $auction->description }}</p>
         </div>
         <ul class="list-group list-group-flush">
 
-            @if(auth()->user()->type == 'user')
-                <li class="list-group-item">
-                    <div class="input-group">
-                        <span class="input-group-text">Your Bid:</span>
-                        <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required>
-                       <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-md btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Place bid
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Please review your bid before you confirm</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        @if($auction->status == 'closed')
+              <div class="alert alert-primary w-100 h-100 text-center fs-3">This auction is completed!</div>
+         @else
+                @if(auth()->user()->type == 'user')
+                    <li class="list-group-item">
+                        <div class="input-group">
+                            <span class="input-group-text">Your Bid:</span>
+                            <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required>
+                        <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-md btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Place bid
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please review your bid before you confirm</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                <p>Post taya keni itang inimput nang bid</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+                                    <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Confirm</button>
+                                </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                              <p>Post taya keni itang inimput nang bid</p>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-                                <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Confirm</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                </li>
-            @endif
+                    </li>
+                @endif
+        @endif  <!--  $farmer->id -->
+
+          
 
             
           
@@ -136,33 +143,51 @@
                   @endif
                 </ul>
             </li>
-            @if(auth()->user()->type == 'seller')
-            <div class="p-3 m-auto">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                End Auction
-            </button>
-            </div>
+
             
+          
+            @if(auth()->user()->type == 'seller')
+
+                    @if($auction->status == 'closed')
+                        <h5 class="text-center">Auction Ended</h5>
+                    @else
+                        
+                        <div class="p-3 m-auto">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            End Auction
+                        </button>
+                        </div>
+                        
+
+                        <!-- Modal -->
+                        <div style="margin-top:100px !important;" class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">End Acution</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to end the Auction?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <a
+                                    type="button"
+                                    class="btn btn-primary"
+                                    
+                                    href="{{ url('manual_close')}}?auction_id={{ $auction->auction_id }}"
+                                >
+                                    Confirm
+                                </a>
+                                <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Confirm</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    @endif  <!--  $farmer->id -->
 
 
-            <!-- Modal -->
-            <div style="margin-top:100px !important;" class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm end auction</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Confirm</button>
-                </div>
-                </div>
-            </div>
-            </div>
             @endif
         </ul>
        
