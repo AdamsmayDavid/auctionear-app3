@@ -139,50 +139,62 @@ class AuctionController extends Controller
         $openAuctions = auctions::where('auction_id', $thisAuction_id)->first();
 
         $close_auction = auctions::where('auction_id', $thisAuction_id)->update(['status' => 'closed']);
-        
-        $thesebids = bids::where('auction_id', $thisAuction_id)->get();
-        
-        $bidders = bids::where('auction_id', $thisAuction_id)->pluck('user_id');
-        $farmer = auctions::where('auction_id', $thisAuction_id)->pluck('user_id');
-        
-        //$toNotify = $bidders->merge($farmer)->unique();
-        $toNotify = $bidders->merge($farmer)->unique()->toArray();
-
-        $user = User::whereIn('id', $toNotify)->get();
-        
-            foreach($thesebids as $bid)
-            {
-                $auction_id = $openAuctions->auction_id;
-                $crop_id = $openAuctions->crop_id;
-                $creator_id = $openAuctions->user_id;
-                $bidder_id =  $bid->user_id;    
-                $phase = 1;      
-      
-            }
-            farmerNotif::create([
-                'auction_id' => $auction_id,
-                'crop_id' => $crop_id,
-                'creator_id' => $creator_id,
-            ]); 
-            
-            consNotif::create([
-                'auction_id' => $auction_id,
-                'crop_id' => $crop_id,
-                'bidder_id' => $bidder_id,
-            ]);
-
-            //send notification on websocket
-            event(new notifier($auction_id, $crop_id, $creator_id, $bidder_id ));
-            event(new end_auction($auction_id, $crop_id, $creator_id, $bidder_id ));
-
-            //save the notifiaction on database
-            Notification::send($user, new UserNotification($auction_id, $creator_id, $bidder_id, $phase));
 
         if($close_auction)
         {
-            return back()->with('closed', 'Auction is now closed');
+            return back(); //->with('closed', 'Auction is now closed');
         }
-        return back()->with('active', 'Failed to close');
+        return back(); //->with('active', 'Failed to close');
+        
+
+        //------------------Working--------------
+        // $thesebids = bids::where('auction_id', $thisAuction_id)->get();
+        
+        // $bidders = bids::where('auction_id', $thisAuction_id)->pluck('bidder_id');
+        // $farmer = auctions::where('auction_id', $thisAuction_id)->pluck('creator_id');
+        
+        // //$toNotify = $bidders->merge($farmer)->unique();
+        // $toNotify = $bidders->merge($farmer)->unique()->toArray();
+
+        // $user = User::whereIn('id', $toNotify)->get();
+        //-------------------Working----------------
+        
+
+        //------------------Not working---------------
+        //     foreach($thesebids as $bid)
+        //     {
+        //         $auction_id = $openAuctions->auction_id;
+        //         $crop_id = $openAuctions->crop_id;
+        //         $creator_id = $openAuctions->user_id;
+        //         $bidder_id =  $bid->user_id;    
+        //         $phase = 1;      
+      
+        //     }
+        //     farmerNotif::create([
+        //         'auction_id' => $auction_id,
+        //         'crop_id' => $crop_id,
+        //         'creator_id' => $creator_id,
+        //     ]); 
+            
+        //     consNotif::create([
+        //         'auction_id' => $auction_id,
+        //         'crop_id' => $crop_id,
+        //         'bidder_id' => $bidder_id,
+        //     ]);
+
+        //     //send notification on websocket
+        //     event(new notifier($auction_id, $crop_id, $creator_id, $bidder_id ));
+        //     event(new end_auction($auction_id, $crop_id, $creator_id, $bidder_id ));
+
+        //     //save the notifiaction on database
+        //     Notification::send($user, new UserNotification($auction_id, $creator_id, $bidder_id, $phase));
+
+        // if($close_auction)
+        // {
+        //     return back()->with('closed', 'Auction is now closed');
+        // }
+        // return back()->with('active', 'Failed to close');
+        //-----------------------Not working-------------------
         
 
         

@@ -40,18 +40,20 @@ class WebSocketController extends Controller
         $active_auction = auctions::where('auction_id', $channel)
                                   ->where('status', 'active')->first('auction_id');
 
+
+
         if($active_auction)
         {
             $website_info = bids::where([
                 ['bid_amount', '=' ,$bid_price],
-                ['auction_id', '=', $active_auction]
+                ['auction_id', '=', $active_auction->auction_id]
             ])->first();
 
-            $bids = bids::where('auction_id', $active_auction)->get();
+            $bids = bids::where('auction_id', $active_auction->auction_id)->get();
             $bid_max = $bids->max('bid_amount');
             
-            $base_price = auctions::where('auction_id', $active_auction)->first('starting_price');
-            $auto_type = auctions::where('auction_id', $active_auction)->first('auto_id');
+            $base_price = auctions::where('auction_id', $active_auction->auction_id)->first('starting_price');
+            $auto_type = auctions::where('auction_id', $active_auction->auction_id)->first('auto_id');
 
             if ($website_info != null || $bid_price <= $bid_max || $bid_price <= $base_price->starting_price) 
             {
@@ -62,7 +64,7 @@ class WebSocketController extends Controller
                 $now = Carbon::now();
                 $on_time = Carbon::parse($now)->format('g:i A');
                 
-                //return response()->json([$bid_price, $bidder, $active_auction, $user['id'], $on_time]);
+                //return response()->json([$bid_price, $bidder, $active_auction->auction_id, $user['id'], $on_time]);
 
 
 
@@ -70,7 +72,7 @@ class WebSocketController extends Controller
                     [
                     'bid_amount' => $bid_price,
                     'bidder_id' => $user['id'],
-                    'auction_id' => $active_auction,
+                    'auction_id' => $active_auction->auction_id,
                     'auto_type' => $auto_type->auto_id,
                     'on_time' => $on_time,
                     ],
@@ -78,8 +80,8 @@ class WebSocketController extends Controller
                 //return ['status' => 'Message Sent!'];
                 if($bids)
                 {
-                    //event(new NewMessageEvent($message, $active_auction, $user['name'], $profile_img, $on_time));
-                    event(new bidSocket($bid_price, $bidder, $active_auction));
+                    //event(new NewMessageEvent($message, $active_auction->auction_id, $user['name'], $profile_img, $on_time));
+                    event(new bidSocket($bid_price, $bidder, $active_auction->auction_id));
                 
                     return response()->json([$bid_price => true]);
         
@@ -93,13 +95,13 @@ class WebSocketController extends Controller
                 
             }
         }else{
-            return response()->json([0]);
+            return response()->json([1]);
         }
                
        
             
 
-        //event(new bidSocket($bid_price, $bidder, $active_auction));
+        //event(new bidSocket($bid_price, $bidder, $active_auction->auction_id));
 
     }
 

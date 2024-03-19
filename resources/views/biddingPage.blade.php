@@ -297,8 +297,28 @@
 
                                 
 
-                            } else {
-                                // Handle other errors
+                            } else if(response == 1) {
+                                const errors = response;
+
+                                // Clear any existing error messages
+                                const validationErrorsDiv = document.getElementById('validation-errors1');
+                                validationErrorsDiv.innerHTML = '';
+
+
+                                // Create and append error messages
+                                for (const field in errors) {
+                                    if (errors.hasOwnProperty(field)) {
+                                        //const errorMessages = errors[field].join('<br>'); or 
+                                        const errorMessages = errors.join('<br>'); // Combine multiple error messages for the field
+                                        const errorMessageElement = document.createElement('div');
+                                        errorMessageElement.classList.add("new");
+                                        errorMessageElement.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                                            <p class="fs-3 fw-bold text-center">This Auction is ended, kindly refresh your browser.</p>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                        </div>`;
+                                        validationErrorsDiv.appendChild(errorMessageElement);
+                                    }
+                                }
                             }
                         },
                         error: function(xhr, status, error) {
