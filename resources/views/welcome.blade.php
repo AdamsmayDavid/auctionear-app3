@@ -195,7 +195,7 @@
   <section id="vehicle" class="bg-image img-responsive vehicle container p-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
             <div class="pad-about row container">
               <h1 class="fw-bolder text-start " style=" font-size:5vh; !important; color:#FF6C22;">AVAILABLE VEHICLE <i class="fa fa-car" aria-hidden="true"></i></h1> <hr>
-              <small style=" margin-bottom:50px" class="text-start">e a impedit aut explicabo molestiae expedita repellendus est. Harum perferendis qui minima modi quia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sint quod est quas consequuntur, animi voluptas quisquam, pariatur ipsa facere aspernatur, magni neque amet necessitatibus officiis obcaecati nisi itaque quo?</small>
+              <small style=" margin-bottom:50px" class="text-start text-secondary">e a impedit aut explicabo molestiae expedita repellendus est. Harum perferendis qui minima modi quia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sint quod est quas consequuntur, animi voluptas quisquam, pariatur ipsa facere aspernatur, magni neque amet necessitatibus officiis obcaecati nisi itaque quo?</small>
              
               <!-- <h6 class="text-center mb-5 text-dark" >Click to view every vehicle descriptions !</h6> -->
             <div class="column"  data-aos-easing="linear" data-aos-duration="400">
@@ -241,7 +241,7 @@
                       <div class="col mt-5 float-start" data-aos="fade-up">
                         <h1 class="text-primary fs-1" >Know About Us <i class="fa fa-info-circle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
-                          <small class="dark fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="dark fs-4 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col float-end z-n1" data-aos="fade-right">
                        <img src="/assets/images/about.png" alt="">
