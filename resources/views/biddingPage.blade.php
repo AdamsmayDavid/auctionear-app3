@@ -349,7 +349,7 @@
         // let on_time = data.bid_on;
 
         let list = document.createElement("li");
-        list.innerText = `${bidder_id}-₱` + bid_price;
+        list.innerText = `${bidder_id}- ₱` + bid_price;
 
         // row.appendChild(price);
 
