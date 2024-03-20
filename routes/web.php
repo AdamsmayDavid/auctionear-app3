@@ -42,6 +42,7 @@ Route::post('/send_message', [WebSocketController::class, 'send_message']);
 //Bidder Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/userFeedback' ,[HomeController::class , 'userFeedback']);
     
 });
 

@@ -124,11 +124,16 @@
 
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link mx-2" href="/chats">
+                                            <a target="_blank" class="nav-link mx-2" href="/chats">
                                                 <i class="fa fa-paper-plane" aria-hidden="true" style="font-size:13px"></i> {{ __('Message') }} 
                                             </a>
-
                                         </li>
+                                        <!-- feedback link -->
+                                        @if(auth()->user()->type == 'user')
+                                            <a target="_blank" class="nav-link mx-2 " href="/userFeedback">
+                                            <i class="fa fa-solid fa-comments"></i> Feedback
+                                            </a>
+                                            @endif
                                         <div class="collapse navbar-collapse mx-2" id="navbarNavDropdown">
                                             <ul class="navbar-nav">
                                                 <li class="nav-item dropdown">
@@ -150,7 +155,7 @@
                                         @if(auth()->user()->type == 'user')
                                         <li class="logout nav-item dropdown">
                                             <a id="navbarDropdown" class="btn btn-sm dropdown-toggle text-light mt-1" style="background-color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
+                                            <i class="fa fa-user" aria-hidden="true"></i> Logout
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">
