@@ -331,10 +331,7 @@
 
 
   });
-</script>
 
-
-<script>
     setTimeout(() => {
         //window.Echo.channel for public
         //window.Echo.private for private
