@@ -138,7 +138,7 @@
                 <ul id="bids_here">
                     @if(!empty($bids))            
                     @foreach($bids as $bid) 
-                        <li>{{ $bid->name }}- ${{ $bid->bid_amount }}</li>
+                        <li>{{ $bid->name }}- ₱{{ $bid->bid_amount }}</li>
                     @endforeach
                   @endif
                 </ul>
@@ -332,6 +332,9 @@
 
   });
 
+
+  ///Websoket Listening
+
     setTimeout(() => {
         //window.Echo.channel for public
         //window.Echo.private for private
@@ -346,7 +349,7 @@
         // let on_time = data.bid_on;
 
         let list = document.createElement("li");
-        list.innerText = `${bidder_id}-$` + bid_price;
+        list.innerText = `${bidder_id}-₱` + bid_price;
 
         // row.appendChild(price);
 
