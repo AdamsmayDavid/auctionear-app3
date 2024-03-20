@@ -41,155 +41,160 @@
             <h1 class=" text-center text-primary" style="margin-top:100px;">VIEW AUCTION</h1>
             <hr class="border-secondary col-3 m-auto">
         @endif
-<div class="container mt-5">
-    <div id="biddingCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+
+    <section class=" container" >
+        <div class="container mt-5">
+            <div id="biddingCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#biddingCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#biddingCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <div class="carousel-item">
-                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
-            </div>
-            <div class="carousel-item">
-                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
-            </div>
-            <div class="carousel-item">
-                <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#biddingCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#biddingCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
 
 
-    <div class="card mt-3">
-        <div class="card-body">
-            <h5 class="card-title">Auction ID : {{ $auction->auction_id }}</h5>
-            <p class="card-text">{{ $auction->description }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Auction ID : {{ $auction->auction_id }}</h5>
+                    <p class="card-text">{{ $auction->description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
 
 
-        @if($auction->status == 'closed')
-              <div class="alert alert-primary w-100 h-100 text-center fs-3">This auction is completed!</div>
-         @else
-                @if(auth()->user()->type == 'user')
+                @if($auction->status == 'closed')
+                    <div class="alert alert-primary w-100 h-100 text-center fs-3">This auction is completed!</div>
+                @else
+                        @if(auth()->user()->type == 'user')
+                            <li class="list-group-item">
+                                <div class="input-group">
+                                
+                                    <!-- <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required> -->
+                                <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-md btn-primary col-12 rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" required>
+                                    Place bid
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Please review your bid before you confirm</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="inputValue" class="form-label">Enter Value:</label>
+                                            <input type="number" class="form-control" id="bid_price" placeholder="₱">
+                                        </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+                                            <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Confirm</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                            </li>
+                        @endif
+                @endif  <!--  $farmer->id -->
+
+                
+
+                    
+                
+
+                    <!-- @if(auth()->user()->type == 'seller')`
+                        <h1 class=" display-3 text-primary"> <b>Seller</b></h1>
+                        <p class="text-dark" >Hello <span class="text-primary"> <b>{{ Auth::user()->name }}</b>  </span> welcome to auctionear <br>click button bellow to create a auction</p>
+                    @endif -->
+
+                    
+                    
                     <li class="list-group-item">
-                        <div class="input-group">
-                            <span class="input-group-text">Your Bid:</span>
-                            <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required>
-                        <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-md btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Place bid
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please review your bid before you confirm</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                <p>Post taya keni itang inimput nang bid</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-                                    <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Confirm</button>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                    
                     </li>
-                @endif
-        @endif  <!--  $farmer->id -->
+                    <li class="list-group-item">
+                        <p class="mb-0">Bidding Ends: January 31, 2024</p>
+                    </li>
+                    
+                    <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
+                        <div id="validation-errors1"  role="alert">                    
+                        </div>       
+                    </div>
+                    <li class="list-group-item">
+                        <p class="mb-0">Bidders:</p>
+                        <ul id="bids_here">
+                            @if(!empty($bids))            
+                            @foreach($bids as $bid) 
+                                <li>{{ $bid->name }}- ₱{{ $bid->bid_amount }}</li>
+                            @endforeach
+                        @endif
+                        </ul>
+                    </li>
 
-          
+                    </section>     
+                
+                    @if(auth()->user()->type == 'seller')
 
-            
-          
+                            @if($auction->status == 'closed')
+                                <h5 class="text-center">Auction Ended</h5>
+                            @else
+                                
+                                <div class="p-3 m-auto">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    End Auction
+                                </button>
+                                </div>
+                                
 
-            <!-- @if(auth()->user()->type == 'seller')`
-                <h1 class=" display-3 text-primary"> <b>Seller</b></h1>
-                <p class="text-dark" >Hello <span class="text-primary"> <b>{{ Auth::user()->name }}</b>  </span> welcome to auctionear <br>click button bellow to create a auction</p>
-            @endif -->
+                                <!-- Modal -->
+                                <div style="margin-top:100px !important;" class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">End Acution</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to end the Auction?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <a
+                                            type="button"
+                                            class="btn btn-primary"
+                                            
+                                            href="{{ url('manual_close')}}?auction_id={{ $auction->auction_id }}"
+                                        >
+                                            Confirm
+                                        </a>
+                                        <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Confirm</button> -->
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            @endif  <!--  $farmer->id -->
 
-            
-            
-            <li class="list-group-item">
-               
-            </li>
-            <li class="list-group-item">
-                <p class="mb-0">Bidding Ends: January 31, 2024</p>
-            </li>
-            
-            <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
-                <div id="validation-errors1"  role="alert">                    
-                </div>       
-            </div>
-            <li class="list-group-item">
-                <p class="mb-0">Bidders:</p>
-                <ul id="bids_here">
-                    @if(!empty($bids))            
-                    @foreach($bids as $bid) 
-                        <li>{{ $bid->name }}- ₱{{ $bid->bid_amount }}</li>
-                    @endforeach
-                  @endif
+
+                    @endif
                 </ul>
-            </li>
-
-            
-          
-            @if(auth()->user()->type == 'seller')
-
-                    @if($auction->status == 'closed')
-                        <h5 class="text-center">Auction Ended</h5>
-                    @else
-                        
-                        <div class="p-3 m-auto">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            End Auction
-                        </button>
-                        </div>
-                        
-
-                        <!-- Modal -->
-                        <div style="margin-top:100px !important;" class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">End Acution</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure you want to end the Auction?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <a
-                                    type="button"
-                                    class="btn btn-primary"
-                                    
-                                    href="{{ url('manual_close')}}?auction_id={{ $auction->auction_id }}"
-                                >
-                                    Confirm
-                                </a>
-                                <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick = "clearText()">Confirm</button> -->
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    @endif  <!--  $farmer->id -->
-
-
-            @endif
-        </ul>
        
        
         
