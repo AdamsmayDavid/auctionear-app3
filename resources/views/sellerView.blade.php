@@ -89,7 +89,7 @@
           </ul>
         </nav>
         <h1 class="text-center">View page <br>
-        alikepa agawa eke itanamung keka tapus edit kunemu salamat</h1>
+        </h1>
        
         <!-- <h3 class="text-light"> <span class="text-warning">{{ Auth::user()->name }}</span></h3> -->
    <!-- <div class="container mt-4"> -->

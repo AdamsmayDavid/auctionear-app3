@@ -134,6 +134,13 @@ class HomeController extends Controller
 
         return view('createAuction', compact('autos'));
     }
+    // feedback
+    public function userFeedback()
+    {
+
+        return view('userFeedback');
+    }
+    //feddback end
     public function chats()
     {
         $autos = autos::all();

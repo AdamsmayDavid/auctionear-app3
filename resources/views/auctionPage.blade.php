@@ -31,14 +31,15 @@
            
         </style>
       
-      <div class="container mt-5" style="margin-top:100px !important">
-        
+      <div class="container mt-5 bg-light p-2" style="margin-top:100px !important">
+      <section class="bg-light shadow p-3 rounded">
             @if(auth()->user()->type == 'user')
             <nav class=" container">
                     <div class="container">
-                    <h1 class="text-center" style="color:#FF6C22;" >
+                    <h1 class="text-center p-2" style="color:#FF6C22;" >
                         <span style="text-transform:uppercase;">
                             {{$auto_type->auto_type}}
+                            <hr class="col-5 m-auto ">
                         </span>
                     </h1>
                        
@@ -47,18 +48,18 @@
             @endif
 
             @if(auth()->user()->type == 'seller')
-                    <h1 class="text-center text-primary">
+                    <h1 class="text-center text-primary p-2">
                         <span style="text-transform:uppercase;">
                             {{$auto_type->auto_type}}
+                            <hr class="col-5 m-auto ">
                         </span>
                     </h1>
             @endif
-
             @if(auth()->user()->type == 'seller')
                 <!-- creation btn for seller -->
-                <nav class="navbar bg-body-tertiary">
+                <nav class="container p-3 bg-primary rounded">
                     <div class="container-fluid">
-                        <a id="btn_sel" class="btn btn-outline-primary btn-lg" href="/createAuction">Create Auction</a>
+                        <a id="btn_sel" class="btn btn-outline-light btn-lg" href="/createAuction">Create Auction</a>
                         <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button id="btn_sel" class="btn btn-outline-primary btn-md" type="submit">Search</button>
@@ -67,7 +68,8 @@
                 </nav>
                 <!-- creation btn for seller end-->
             @endif
-
+            <section class=" p-3 rounded">
+            <h5 CLASS="text-dark p-1">VEHICLE LIST</h5>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                     
             @foreach($auctions as $auction)
@@ -91,8 +93,8 @@
                     </div>
                 </div>
             @endforeach
-
-      
+            </section>
+            </section>
      <!-- script file -->
      <!-- <script src="assets/js/jquery.min.js"></script> -->
             <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
