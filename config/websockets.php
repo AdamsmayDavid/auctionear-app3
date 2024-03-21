@@ -30,7 +30,11 @@ return [
             'path' => env('PUSHER_APP_PATH'),
             'capacity' => null,
             'enable_client_messages' => false,
+<<<<<<< HEAD
             'enable_statistics' => false,
+=======
+            'enable_statistics' => true,
+>>>>>>> parent of 25bd571 (remove nav)
         ],
     ],
 

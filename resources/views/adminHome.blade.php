@@ -265,7 +265,7 @@ rel="stylesheet"
         </nav>
 
         <section  class="container p- mt-5">
-                    <nav class=" bg-light ">
+                    <nav class="navbar bg-light ">
                         <div class="container bg-light">
                             <div class="ban-user">
                             <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Users</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Active Users</a></h1>
