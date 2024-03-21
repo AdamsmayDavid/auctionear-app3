@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
+class ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -423,8 +423,8 @@ class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -3684,6 +3684,7 @@ class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
         'Nette\\Utils\\ImageColor' => __DIR__ . '/..' . '/nette/utils/src/Utils/ImageColor.php',
         'Nette\\Utils\\ImageException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
         'Nette\\Utils\\ImageType' => __DIR__ . '/..' . '/nette/utils/src/Utils/ImageType.php',
+        'Nette\\Utils\\Iterables' => __DIR__ . '/..' . '/nette/utils/src/Utils/Iterables.php',
         'Nette\\Utils\\Json' => __DIR__ . '/..' . '/nette/utils/src/Utils/Json.php',
         'Nette\\Utils\\JsonException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
         'Nette\\Utils\\ObjectHelpers' => __DIR__ . '/..' . '/nette/utils/src/Utils/ObjectHelpers.php',
@@ -5507,6 +5508,7 @@ class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
         'RingCentral\\Psr7\\StreamDecoratorTrait' => __DIR__ . '/..' . '/ringcentral/psr7/src/StreamDecoratorTrait.php',
         'RingCentral\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/ringcentral/psr7/src/StreamWrapper.php',
         'RingCentral\\Psr7\\Uri' => __DIR__ . '/..' . '/ringcentral/psr7/src/Uri.php',
+        'SQLite3Exception' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/SQLite3Exception.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',
@@ -6934,9 +6936,9 @@ class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23::$classMap;
 
         }, null, ClassLoader::class);
     }
