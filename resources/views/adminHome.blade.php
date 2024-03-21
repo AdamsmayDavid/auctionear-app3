@@ -211,7 +211,7 @@ rel="stylesheet"
               <!-- nav -->
               <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-4 ">
       <div class="container">
-        <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
+        <a class="navbar-brand text-primary" href=""> <img src="/assets/images/LOGO2.png" alt="logo"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -270,19 +270,29 @@ rel="stylesheet"
                             <div class="ban-user">
                             <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Users</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Active Users</a></h1>
                             </div>
-                            <form id="searchForm">
+                            <!-- <form id="searchForm">
                               <div class="input-group ">
-                                <input type="text" class="form-control shadow" id="searchInput" placeholder="Search for...">
-                                <button class="btn btn-primary" type="button" onclick="search()">Search</button>
+                                <input type="search" class="form-control shadow" aria-label="Search" placeholder="Search for...">
+                                <button  class="btn btn-primary" type="button"  id="myInput"  onkeyup="myFunction()">Search</button>
                               </div>
+                            </form> -->
+                            <form class="d-flex gap-2">
+                            <input
+                                class="form-control mr-sm-2"
+                                type="search"
+                                placeholder="Search Name"
+                                aria-label="Search"
+                                id="myInput"
+                                onkeyup="myFunction()"
+                            />
                             </form>
                         </div>
                     </nav>
 
 
-                        <table class="table">
+                        <table class="table" id="myTable">
                                     <thead>
-                                        <tr> <th colspan="5" class="shadow bg-primary text-light pt-4 border-light"> <h2>BAN USER</h2></th> </tr>
+                                        <tr> <th colspan="6" class="shadow bg-primary text-light pt-4 border-light"> <h2>BAN USER</h2></th> </tr>
                                     
                                     </thead>
                                 <thead>
@@ -292,6 +302,9 @@ rel="stylesheet"
                                     <th scope="col" class="table-primary">Contact Number</th>
                                     <th scope="col" class="table-primary">email</th>
                                     <th scope="col" class="table-primary text-center">Ban user</th>
+                                    <th scope="col" class="table-primary text-center">Change role</th>
+                                 
+                                 
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -333,11 +346,32 @@ rel="stylesheet"
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
                                                             <a class="btn btn-outline-danger fs-2" href="{{url('banUser')}}?id={{ $user->id}}">Ban User</a>
+                                                
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
+                                        <!-- CHANGE ROLE -->
+                                       
+                                        <td>
+                                        <center>
+                                        <div class="dropdown">
+                                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                               Change role
+                                            </a>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">1 admin</a></li>
+                                                <li><a class="dropdown-item" href="#">2 auctioneer</a></li>
+                                                <li><a class="dropdown-item" href="#">0 Bidder</a></li>
+                                            </ul>
+                                        </div>
+                                        </center>
+                                        </td>
+                                       
+                                        
+                                        
                                     </tr>
                                     @endforeach
                                     
@@ -387,6 +421,7 @@ rel="stylesheet"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"
         ></script>
+        <script src="/assets/js/tableSearch.js"></script>
             
     </body>
 </html>

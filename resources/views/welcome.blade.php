@@ -22,6 +22,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/style.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
         <!-- Styles -->
 
         <!-- carousel -->
@@ -36,7 +38,7 @@
                 <!-- nav -->
       <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-light bg-warning shadow">
       <div class="container-md ">
-        <a class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
+        <a class="navbar-brand text-primary"  href=""> <img src="/assets/images/LOGO2.png" alt="logo"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon "></span>
         </button>
@@ -44,19 +46,24 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
-              <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
+              <a class="nav-link mx-2 active" aria-current="page" href="#">
+              <i class="fa fa-home" aria-hidden="true" style="font-size:15px"></i> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#vehicle">Vehicle</a>
+              <a class="nav-link mx-2" href="#vehicle">
+              <i class="fa fa-car" aria-hidden="true"  style="font-size:15px"></i> Vehicle</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#start">How to start</a>
+              <a class="nav-link mx-2" href="#start">
+              <i class="fa fa-hourglass-start" aria-hidden="true" style="font-size:15px"></i> How to start</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#about">About Us</a>
+              <a class="nav-link mx-2" href="#about">
+              <i class="fa fa-info-circle" aria-hidden="true"  style="font-size:15px"></i> About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#contact">Contact Us</a>
+              <a class="nav-link mx-2" href="#contact">
+              <i class="fa fa-address-book" aria-hidden="true" style="font-size:15px"></i> Contact Us</a>
             </li>
           </ul>
           
@@ -67,11 +74,11 @@
                                     @auth
                                         <a  href="{{ route('home') }}" class="text-decoration-none text-warning">Dashboard</a>
                                     @else
-                                        <p><a  style="" href="{{ route('login') }}" type="button" class="btn btn-log text-light btn-md rounded-1">Login</a>
+                                        <p><a  style="" href="{{ route('login') }}" type="button" class="btn btn-log text-light btn-md rounded-1"> Login</a>
                                             
                                     @if (Route::has('register'))
                                                 
-                                        <a  style="" href="{{ route('register') }}" type="button" class="btn btn-log text-light btn-md m-1 rounded-1">Sign-up</a></p>
+                                        <a  style="" href="{{ route('register') }}" type="button" class="btn btn-log text-light btn-md m-1 rounded-1">Sign-up </a></p>
 
                                     @endif 
 
@@ -87,7 +94,7 @@
       
             <!--front page -->
                <!-- Intro Starts -->
-               <div style="margin-top:100px;" class="bg-cover cover-responsive">
+               <div style="margin-top:150px;" class="bg-cover cover-responsive">
                   <div class="intro d-flex container-fluid flex-direction-column flex-direction-md-row flex-wrap flex-wrap-md-nowrap">
                     <div id="introduction" class="container-fluid-md  w-md-50 order-md-2 overflow-hidden">
                       <div id="intro-img-holder" class="col-11 row justify-content-center m-0 p-0">
@@ -97,8 +104,8 @@
                     </div>
                     <div class="auctionearTittle container-md w-md-50 d-md-flex justify-content-center align-items-center flex-column">
                       <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-0 double-gutter-md-left-padding "  data-aos="fade-right">
-                          <h1 class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near</span></b></h1>
-                          <p class="text-quote text-start  text-md-left text-dark">"Welcome to our online auction! Explore, bid, and win your favorite items from the comfort of your home. Start bidding now and discover exciting treasures awaiting you!"</p>
+                          <h1 class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near </span></b></h1>
+                          <p class="text-quote text-start  text-md-left text-secondary">"Welcome to our online auction! Explore, bid, and win your favorite items from the comfort of your home. Start bidding now and discover exciting treasures awaiting you!"</p>
                           <a style="text-decoration:none;" href="{{ route('register') }}"><button id="request-invite-btn" type="button" class="btn btn-lg text-white align-item-center">Register now</button> </a>
                       </div>
                         
@@ -126,24 +133,25 @@
            
 
             <!-- columns -->
-                <div style="margin-top:100px;" class="vision container text-center p-5 " >
-                <h1 class="fw-bolder" style="color:#FF6C22; font-size:5vh;" >WHY AUCTIONEAR</h1>
+                <div style="margin-top:50px;" class="vision container text-center p-5 " >
+                <!-- <img src="/assets/images/logo.png" alt="" class=""> -->
+                <h1 class="fw-bolder " style="color:#FF6C22; font-size:5vh;" >WHY AUCTIONEAR</h1>
                 <hr class="border-light col-5 m-auto"> 
                   <div class="row align-items-start text-start container mx-auto">
                       <div class="col bg-light p-5  m-3" data-aos="fade-right">
-                        <h2 class="" style="color:#FF6C22;" >Flexibility</h2>
+                        <h2 class="" style="color:#FF6C22;" >Flexibility <i class="fa fa-map-marker" aria-hidden="true"></i></h2>
                         <hr class="border-dark"> 
-                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col bg-light p-5   m-3" data-aos="fade-up">
-                        <h2 class="" style="color:#FF6C22;" >Secured</h2>
+                        <h2 class="" style="color:#FF6C22;" >Secured <i class="fa fa-solid fa-shield"></i></h2>
                         <hr class="border-dark">
-                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col bg-light p-5 m-3 " data-aos="fade-left">
-                        <h2 class="" style="color:#FF6C22;">Easy to use</h2>
+                        <h2 class="" style="color:#FF6C22;">Easy to use <i class="fa fa-solid fa-eye"></i></h2>
                         <hr class="border-dark">
-                          <small class="dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                   </div>
                 </div>
@@ -159,9 +167,9 @@
                        <img src="/assets/images/motor1.png" alt="">
                       </div>
                       <div class="col float-end mt-5" data-aos="fade-up">
-                        <h1 class="text-primary fs-1" >How to start</h1>
+                        <h1 class="text-primary fs-1" >How to start <i class="fa fa-motorcycle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
-                          <small class="dark fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="dark fs-4 text-secondary" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                   </div>
                 </div>
@@ -186,7 +194,8 @@
             
   <section id="vehicle" class="bg-image img-responsive vehicle container p-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
             <div class="pad-about row container">
-              <h1 class="fw-bolder text-center " style=" font-size:5vh; margin-bottom:50px !important; color:#FF6C22;">AVAILABLE VEHICLE</h1>
+              <h1 class="fw-bolder text-start " style=" font-size:5vh; !important; color:#FF6C22;">AVAILABLE VEHICLE <i class="fa fa-car" aria-hidden="true"></i></h1> <hr>
+              <small style=" margin-bottom:50px" class="text-start text-secondary">e a impedit aut explicabo molestiae expedita repellendus est. Harum perferendis qui minima modi quia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sint quod est quas consequuntur, animi voluptas quisquam, pariatur ipsa facere aspernatur, magni neque amet necessitatibus officiis obcaecati nisi itaque quo?</small>
              
               <!-- <h6 class="text-center mb-5 text-dark" >Click to view every vehicle descriptions !</h6> -->
             <div class="column"  data-aos-easing="linear" data-aos-duration="400">
@@ -230,9 +239,9 @@
                     <div id="about"  class="about container text-center " >
                   <div class="row align-items-start text-start container">
                       <div class="col mt-5 float-start" data-aos="fade-up">
-                        <h1 class="text-primary fs-1" >Know About Us</h1>
+                        <h1 class="text-primary fs-1" >Know About Us <i class="fa fa-info-circle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
-                          <small class="dark fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="dark fs-4 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col float-end z-n1" data-aos="fade-right">
                        <img src="/assets/images/about.png" alt="">
@@ -249,7 +258,10 @@
               <div id="contact" style="margin-top:80px;" class="container-fluid py-4">  
                     <!-- Bootstrap 5 starter form -->
                     <div class="container form p-5 ">
-                      <H1 class="text-center" style="color: #FF6C22;">CONTACT US</H1>
+    
+          
+                      <H1 class="text-center" style="color: #FF6C22;">Contact Us <i class="fa fa-address-book" aria-hidden="true"></i></H1>
+                      
                     <!-- FORM -->
                     <form class="" action="https://api.web3forms.com/submit" method="POST">
                           <div class="row gy-4 gy-xl-5 p-xl-5 justify-content-center">
@@ -310,10 +322,12 @@
 
           
             <!-- script file -->
-            <script src="assets/js/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            <!-- <script src="assets/js/jquery.min.js"></script> -->
             <script src="assets/js/main.js"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-            <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+            <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
            
             
