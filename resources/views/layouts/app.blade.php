@@ -175,7 +175,7 @@
     </div>
 
       <!-- script file -->
-            <script src="assets/js/jquery.min.js"></script>
+            <!-- <script src="assets/js/jquery.min.js"></script> -->
             <script src="assets/js/main.js"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
