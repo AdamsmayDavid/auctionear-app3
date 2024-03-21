@@ -3,12 +3,12 @@
 @section('content')
 
         <!-- Fonts -->
-        @vite('resources/js/app.js')
+        <!-- @vite('resources/js/app.js') -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Styles -->
 
@@ -19,10 +19,12 @@
     
  
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
     <!-- start: Chat -->
         
  
-    <section class="chat-section">
+    <section class="chat-section" style="margin-top:100px !important;">
         <div class="chat-container bg-warning shadow">
             <!-- start: Sidebar -->
             
@@ -49,7 +51,7 @@
                                     <li>
                                         <a href="#" data-conversation="#conversation-{{$conversation->con_id}}">
                                             <span class="content-message-info">
-                                                 <span class="content-message-name">{{ Auth::user()->name }} {{$conversation->con_id}}</span> <!--user 2 -->
+                                                 <span class="content-message-name">{{ Auth::user()->name }} to bidder id : {{$conversation->user_two}} | convo id :{{$conversation->con_id}}</span> <!--user 2 -->
                                                 <!-- <span class="content-message-text">Lorem ipsum dolor sit amet consectetur.</span> -->
                                             </span>
                                             <span class="content-message-more">
@@ -148,10 +150,13 @@
 
 
             <!-- script file -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
+            <!-- <script src="assets/js/jquery.min.js"></script> -->
+            <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
             <script src="assets/js/main.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+               <!-- script file -->
+     
 
 @foreach($conversations as $conversation)
 <script>

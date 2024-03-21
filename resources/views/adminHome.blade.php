@@ -59,8 +59,8 @@ rel="stylesheet"
         color: white;
         } */
 
-        thead tr th{
-            border: 1px solid black;
+        thead th{
+            border: 1px solid black ;
             border-collapse: collapse;
             text-align:center !important;
             padding:15px !important;
@@ -68,23 +68,25 @@ rel="stylesheet"
         }
 
          tbody td{
-            border: 1px solid black;
-            border-collapse: collapse;  
+            border: 1px solid black !important;
+            border-collapse: collapse !important;  
+            
         }
         tbody th{
             border: 1px solid black;
             border-collapse: collapse;  
         }
-        .user-ban{
-            margin:auto !important;
+        .navbar{
+            Z-index:10 !important;
         }
+
         @media only screen and (min-width: 375px) and (max-width: 896px) {
-            thead tr th{
+            thead th{
             border: 1px solid black ;
             border-collapse: collapse;
             text-align:center !important;
-            padding:0px !important;
-            font-size:2vh !important;
+            padding:0 !important;
+            font-size:1.5vh !important;
 
         }
     
@@ -92,36 +94,46 @@ rel="stylesheet"
             border: 1px solid black;
             border-collapse: collapse;  
             padding: 0 !important;
-            font-size:1.4vh !important;
-            margin: 0 !important;
-        }
-        tbody th{
-            border: 1px solid black;
-            border-collapse: collapse;  
-            padding: 0 !important;
             font-size:1vh !important;
             margin: 0 !important;
         }
-        .ban-user{
-            margin:auto !important;
-            
-            
+        tbody tr th{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0px !important;
+            font-size:10px !important;
+            margin: 0 !important;
         }
-        .ban-user .btn{
-           width: 120px !important;
+        /* tbody .btn{
+           padding:5px !important;
+           color:blue !important;
+        }
+        tbody .btn:hover{
+           color:white !important;
+        } */
+        .activate-user{
+            margin:auto !important; 
+        }
+
+        .activate-user .btn{
+           width: 150px !important;
         }
         .user-ban{
-            font-size: 1vh !important;
-            width:100% !important;
-            padding:2px !important;
-            border:none !important;
+          text-decoration:none !important;
+          font-size:1vh !important;
+          height: 30px !important;
+          
+        }
+
+      
+        .btn-g{
+          padding:2px !important;
         }
         #searchForm {
            margin:auto !important;
-           padding-bottom:5px !important;
         }
         #searchForm #searchInput{
-            width:240px !important;
+            width:210px !important;
         }
         #searchForm .btn{
             width:110px !important;
@@ -130,48 +142,62 @@ rel="stylesheet"
             
         }
         @media only screen and (min-width: 360px) and (max-width: 740px) {
-                thead th{
-                border: 1px solid black ;
-                border-collapse: collapse;
-                text-align:center !important;
-                padding:0 !important;
-                font-size:1.5vh !important;
+            thead th{
+            border: 1px solid black ;
+            border-collapse: collapse;
+            text-align:center !important;
+            padding:0 !important;
+            font-size:1.5vh !important;
 
-            }
-                
-                tbody tr td{
-                border: 1px solid black !important;
-                border-collapse: collapse;  
-                padding: 0px !important;
-                font-size:1.8vh !important;
-                margin: 0 !important;
-            }
-                tbody tr th{
-                border: 1px solid black;
-                border-collapse: collapse;  
-                padding: 0px !important;
-                font-size:2vh !important;
-                margin: 0 !important;
-            }
-                .ban-user{
-                margin:auto !important;
-                }
-                .ban-user .btn{
-                width: 120px !important;
-                    
-                    
-                }
-                #searchForm {
-                margin:auto !important;
-                padding-bottom:5px !important;
-                }
-                #searchForm #searchInput{
-                    width:200px !important;
-                }
-                #searchForm .btn{
-                    width:100px !important;
+        }
+    
+        tbody td{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0px !important;
+            font-size:1vh !important;
+            margin: 0 !important;
+        }
+        tbody th{
+            border: 1px solid black;
+            border-collapse: collapse;  
+            padding: 0px !important;
+            font-size:1.8vh !important;
+            margin: 0 !important;
+        }
+        /* tbody .btn{
+           padding:5px !important;
+           color:blue !important;
+        }
+        tbody .btn:hover{
+           color:white !important;
+        }
+        .activate-user{
+            margin:auto !important;
+            
+            
+        } */
 
-                }
+        .ban-user .btn{
+           width: 140px !important;
+            
+            
+        }
+        #searchForm {
+           margin:auto !important;
+        }
+        #searchForm #searchInput{
+            width:210px !important;
+        }
+        #searchForm .btn{
+            width:110px !important;
+
+        }
+            
+        }
+
+        .logout #navbarDropdown {
+          z-index: 10000000 !important;
         }
 
         
@@ -185,7 +211,7 @@ rel="stylesheet"
               <!-- nav -->
               <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-4 ">
       <div class="container">
-        <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
+        <a class="navbar-brand text-primary" href=""> <img src="/assets/images/LOGO2.png" alt="logo"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -219,9 +245,9 @@ rel="stylesheet"
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-light2" href="/chats">
+                                    <!-- <a class="dropdown-item text-light2" href="/chats">
                                         {{ __('Message') }}
-                                    </a>
+                                    </a> -->
                                 
                                     <a class="dropdown-item text-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -244,19 +270,29 @@ rel="stylesheet"
                             <div class="ban-user">
                             <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Users</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Active Users</a></h1>
                             </div>
-                            <form id="searchForm">
+                            <!-- <form id="searchForm">
                               <div class="input-group ">
-                                <input type="text" class="form-control shadow" id="searchInput" placeholder="Search for...">
-                                <button class="btn btn-primary" type="button" onclick="search()">Search</button>
+                                <input type="search" class="form-control shadow" aria-label="Search" placeholder="Search for...">
+                                <button  class="btn btn-primary" type="button"  id="myInput"  onkeyup="myFunction()">Search</button>
                               </div>
+                            </form> -->
+                            <form class="d-flex gap-2">
+                            <input
+                                class="form-control mr-sm-2"
+                                type="search"
+                                placeholder="Search Name"
+                                aria-label="Search"
+                                id="myInput"
+                                onkeyup="myFunction()"
+                            />
                             </form>
                         </div>
                     </nav>
 
 
-                        <table class="table">
+                        <table class="table" id="myTable">
                                     <thead>
-                                        <tr> <th colspan="5" class="shadow bg-warning pt-4 border-light"> <h2>BAN USER</h2></th> </tr>
+                                        <tr> <th colspan="6" class="shadow bg-primary text-light pt-4 border-light"> <h2>BAN USER</h2></th> </tr>
                                     
                                     </thead>
                                 <thead>
@@ -266,6 +302,9 @@ rel="stylesheet"
                                     <th scope="col" class="table-primary">Contact Number</th>
                                     <th scope="col" class="table-primary">email</th>
                                     <th scope="col" class="table-primary text-center">Ban user</th>
+                                    <th scope="col" class="table-primary text-center">Change role</th>
+                                 
+                                 
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -307,11 +346,32 @@ rel="stylesheet"
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
                                                             <a class="btn btn-outline-danger fs-2" href="{{url('banUser')}}?id={{ $user->id}}">Ban User</a>
+                                                
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
+                                        <!-- CHANGE ROLE -->
+                                       
+                                        <td>
+                                        <center>
+                                        <div class="dropdown">
+                                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                               Change role
+                                            </a>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">1 admin</a></li>
+                                                <li><a class="dropdown-item" href="#">2 auctioneer</a></li>
+                                                <li><a class="dropdown-item" href="#">0 Bidder</a></li>
+                                            </ul>
+                                        </div>
+                                        </center>
+                                        </td>
+                                       
+                                        
+                                        
                                     </tr>
                                     @endforeach
                                     
@@ -361,6 +421,7 @@ rel="stylesheet"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"
         ></script>
+        <script src="/assets/js/tableSearch.js"></script>
             
     </body>
 </html>

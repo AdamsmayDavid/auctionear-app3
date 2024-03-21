@@ -13,11 +13,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Styles -->
 
         <!-- carousel -->
-        <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+        <!-- <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css"> -->
+        <!-- <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> -->
         <script src="/assets/js/main.js"></script>
         
         <style>
@@ -30,7 +31,7 @@
                 <!-- nav -->
       <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-2 shadow">
       <div class="container">
-        <a class="navbar-brand text-primary" href="/#"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
+        <a class="navbar-brand text-primary" href="/#"> <img src="/assets/images/LOGO2.png" alt="logo"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,22 +39,8 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav mx-auto ">
             <li class="nav-item">
-              <a class="nav-link mx-2 active" aria-current="page" href="/#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="#">Vehicle</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="#">How to start</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Company
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">About Us</a></li>
-                <li><a class="dropdown-item" href="#">Contact us</a></li>
-              </ul>
+              <a class="nav-link mx-2 active" aria-current="page" href="/#">
+              <i class="fa fa-home" aria-hidden="true" style="font-size:15px"></i> Home</a>
             </li>
           </ul>
           
@@ -86,7 +73,7 @@
                                 <div class="card-header text-light" style="background-color:#FF6C22 ;">{{ __('Sign-up') }}</div>
 
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="row mb-3">
@@ -173,11 +160,11 @@
                                             </div>
                                         </div>
                                             <!-- Valid Id 1-->
-                                            <section class="container">
-                                            <div class="row mb-3 ">
+                                            <!-- <section class="container">
+                                            <div class="row mb-3 "> -->
                                             <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
-                                            <div class="col-md-6 ">
+                                            <!-- <div class="col-md-6 ">
                                             <div class="mb-2 d-flex justify-content-center">
                                                 <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
                                                 alt="example placeholder" style="width: 200px;" />
@@ -185,7 +172,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <div class="btn btn-primary btn-rounded">
                                                     <label class="form-label text-white m-1" for="customFile">Valid Id</label>
-                                                    <input type="file" class="form-control d-none" id="customFile" onchange="displaySelectedImage(event, 'selectedImage')" required>
+                                                    <input name="img1" type="file" class="form-control d-none" id="customFile" onchange="displaySelectedImage(event, 'selectedImage')" required>
                                                 </div>
                                                 
                                             </div>
@@ -196,13 +183,13 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                    
+                                     -->
 
                                                  <!-- Valid Id 2-->
                                             
                                             <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
-                                            <div class="col-md-6 mb-3">
+                                            <!-- <div class="col-md-6 mb-3">
                                             <div class="mb-2 d-flex justify-content-center">
                                                 <img id="selectedFile" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
                                                 alt="example placeholder" style="width: 200px;" />
@@ -210,7 +197,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <div class="btn btn-primary btn-rounded">
                                                     <label class="form-label text-white m-1" for="customFile1">Valid Id</label>
-                                                    <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedFile(event, 'selectedFile')" required>
+                                                    <input name="img2" type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedFile(event, 'selectedFile')" required>
                                                 </div>
                                                 
                                             </div>
@@ -221,7 +208,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                </section>
+                                </section> -->
                                             <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('ValidId2') }}</label> -->
 
                                             <!-- <div class="col-md-6">
@@ -244,7 +231,28 @@
                                                 @enderror
                                             </div>
                                         </div>
-                         -->
+                                        -->
+                                        <!-- image upload -->
+
+                                        <div class="row file_row">
+                                            <div class="col mb-3">
+                                                <label
+                                                    for="credentials"
+                                                    class="form-label"
+                                                    id="credentials-label"
+                                                    >Upload File:
+                                                </label>
+                                            <input
+                                                type="file"
+                                                class="form-control"
+                                                id="credentials"
+                                                
+                                                name="img1"
+                                                value=""
+                                        
+                                            />
+                                            </div>
+                                        </div>
 
                                             
                                             <!-- for password -->
@@ -295,8 +303,10 @@
                         </div>
                     </div>
                 </div>
-                <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                <!-- <script src="assets/js/jquery.min.js"></script> -->
+            <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
             <script src="assets/js/main.js"></script>
             
         

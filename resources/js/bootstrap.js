@@ -22,10 +22,12 @@ import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 window.Pusher = Pusher;
 
+// If using http connection use this
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: import.meta.env.VITE_PUSHER_APP_KEY,
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+<<<<<<< HEAD
     wsHost: import.meta.env.VITE_PUSHER_HOST,
     wsPort: import.meta.env.VITE_PUSHER_PORT,
     //wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
@@ -48,7 +50,16 @@ window.Echo = new Echo({
 
     
 // });
-
+=======
+    wsHost: 'auctionear.shop', // Your domain
+    encrypted: true,
+    wsPort: 443, // Yor http port
+    disableStats: true, // Change this to your liking this disables statistics
+    forceTLS: true,
+    enabledTransports: ['ws', 'wss'],
+    disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming'] // Can be removed
+});
+>>>>>>> 1923eb4b9fa424c9c26acbb41028c0fbe7bde433
 
 // wsHost: window.location.hostname,       //import.meta.env.VITE_PUSHER_HOST ?? `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
 //     wsPort: 6001,       //import.meta.env.VITE_PUSHER_PORT ?? 80,

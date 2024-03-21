@@ -48,6 +48,8 @@
           href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
           rel="stylesheet"
           />
+          <!-- fafa icon -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
                   <script src="assets/js/main.js"></script>
 
@@ -216,7 +218,7 @@
               <!-- nav -->
               <nav id="NavBar" class="navbar sticky-top navbar-expand-lg navbar-trans bg-warning p-4 ">
       <div class="container">
-        <a class="navbar-brand text-primary" href=""><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
+        <a class="navbar-brand text-primary" href=""> <img src="/assets/images/LOGO2.png" alt="logo"><b>Auctio<span style="color:#FF6C22;">near</span></b> </a>
         <button id="TogglerIcon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -244,15 +246,15 @@
             <!-- <li class="nav-item">
               <a class="nav-link mx-0" href="#">How to sell</a>
             </li> -->
-            <li class="logout nav-item dropdown mt-1">
-                                <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light bg-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <li class="logout nav-item dropdown mt-1 z-index-2">
+            <a id="navbarDropdown" class="btn btn-primary btn-sm dropdown-toggle text-light bg-primary"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 &nbsp;{{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end  bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-light2" href="#">
+                                    <!-- <a class="dropdown-item text-light2" href="/chats">
                                         {{ __('Message') }}
-                                    </a>
+                                    </a> -->
                                 
                                     <a class="dropdown-item text-light" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -268,23 +270,33 @@
                             </li>
           </ul>
         </nav>
-                    <section class="container mt-5">
+                    <section class="container mt-5 z-index-n1">
                                 <nav class="navbar bg-light ">
                                     <div class="container bg-light ">
                                         <div class="activate-user">
                                         <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Users</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Active Users</a></h1>
                                         </div>
-                                        <form id="searchForm">
+                                        <!-- <form id="searchForm">
                                         <div class="input-group ">
                                             <input type="text" class="form-control shadow" id="searchInput" placeholder="Search for...">
                                             <button class="btn btn-primary" type="button" onclick="search()">Search</button>
                                         </div>
+                                        </form> -->
+                                        <form class="d-flex gap-2">
+                                            <input
+                                                class="form-control mr-sm-2"
+                                                type="search"
+                                                placeholder="Search Name"
+                                                aria-label="Search"
+                                                id="myInput"
+                                                onkeyup="myFunction()"
+                                            />
                                         </form>
                                     </div>
                                 </nav>
-                            <table class="table">
+                            <table class="table" id="myTable">
                                 <thead>
-                                    <tr> <th colspan="6" class="shadow bg-warning pt-4 p-3 border-light text-center"> <h2>ACTIVATE USERS</h2></th> </tr>     
+                                    <tr> <th colspan="6" class="shadow bg-primary text-light pt-4 p-3 border-light text-center"> <h2>ACTIVATE USERS</h2></th> </tr>     
                                 </thead>
                                 <thead>
                                     <tr class>
@@ -513,7 +525,7 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-  
+    <script src="/assets/js/tableSearch.js"></script>
 
     </body>
 </html>

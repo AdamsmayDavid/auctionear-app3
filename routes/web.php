@@ -7,11 +7,13 @@ use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\WebSocketController;
+use App\Http\Controllers\SmsController;
 
 Route::get('/', function () {
+   //App\Jobs\SlowJob::dispatch();
+   
     return view('welcome');
 });
-
 Route::get('/waitingUser', function () {
    return view('waitingUser');
 });
@@ -40,6 +42,7 @@ Route::post('/send_message', [WebSocketController::class, 'send_message']);
 //Bidder Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/userFeedback' ,[HomeController::class , 'userFeedback']);
     
 });
 
@@ -49,6 +52,7 @@ Route::middleware(['auth', 'user-access:seller'])->group(function () {
     Route::get('/seller/home', [HomeController::class, 'index'])->name('seller.home');
     Route::get('/createAuction', [HomeController::class, 'createAuction']);
     Route::post('/newAuction' ,[AuctionController::class , 'newAuction'])->name('newAuction');
+    Route::get('/manual_close' ,[AuctionController::class , 'manual_close']);
    });
 
 //Admin Routes List

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
+class ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -651,6 +651,7 @@ class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
         'App\\Http\\Middleware\\UserAccess' => __DIR__ . '/../..' . '/app/Http/Middleware/UserAccess.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Jobs\\SlowJob' => __DIR__ . '/../..' . '/app/Jobs/SlowJob.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\auctions' => __DIR__ . '/../..' . '/app/Models/auctions.php',
         'App\\Models\\autos' => __DIR__ . '/../..' . '/app/Models/autos.php',
@@ -6933,9 +6934,9 @@ class ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit0348947c7c96baaa2b99e6ebdf39bdd4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitffe9bd9c25fa440962b8ffe3670d4d23::$classMap;
 
         }, null, ClassLoader::class);
     }
