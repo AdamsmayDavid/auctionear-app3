@@ -209,19 +209,18 @@
         
 
       <!-- script file -->
-<<<<<<< HEAD
+
             <!-- <script src="assets/js/jquery.min.js"></script> -->
             <script src="assets/js/main.js"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-=======
+
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
       @vite(['resources/sass/app.scss', 'resources/js/app.js'])
  
->>>>>>> e5e2476d1a4fd4e809aacbfd404fea75c169e4f3
            
 </body>
 </html>
