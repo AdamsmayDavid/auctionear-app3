@@ -25,17 +25,29 @@ window.Pusher = Pusher;
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: import.meta.env.VITE_PUSHER_APP_KEY,
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
-    wsHost: '127.0.0.1', // Your domain
-    encrypted: false,
-    wsPort: 6001, // Yor http port
-    disableStats: true, // Change this to your liking this disables statistics
-    forceTLS: false,
+    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+    wsHost: import.meta.env.VITE_PUSHER_HOST,
+    wsPort: import.meta.env.VITE_PUSHER_PORT,
+    //wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
+    forceTLS: false,//important forceTLS is important! do not remove it.
+    disableStats: true,
     enabledTransports: ['ws', 'wss'],
-    disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming'] // Can be removed
+});
+
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: import.meta.env.VITE_PUSHER_APP_KEY,
+//     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
+//     wsHost: '127.0.0.1', // Your domain
+//     encrypted: false,
+//     wsPort: 6001, // Yor http port
+//     disableStats: true, // Change this to your liking this disables statistics
+//     forceTLS: false,
+//     enabledTransports: ['ws', 'wss'],
+//     disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming'] // Can be removed
 
     
-});
+// });
 
 
 // wsHost: window.location.hostname,       //import.meta.env.VITE_PUSHER_HOST ?? `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
