@@ -73,7 +73,7 @@
             <div class="card mt-3">
                 <div class="card-body">
                     <h5 class="card-title">Auction ID : {{ $auction->auction_id }}</h5>
-                    <p class="card-text">{{ $auction->description }}</p>
+                    <p class="card-text">Vehicle Description : {{ $auction->description }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
 
@@ -134,13 +134,17 @@
                     @endif -->
 
                     
-                    
                     <li class="list-group-item">
                     
                     </li>
-                    <li class="list-group-item">
-                        <p class="mb-0">Bidding Ends: January 31, 2024</p>
-                    </li>
+                    @if(!empty($auctionData))
+                        @foreach($auctionData as $auction)
+                            <li class="list-group-item">
+                                <p class="mb-0">Starting price : ₱{{ $auction->starting_price }}</p>
+                            </li>
+                        @endforeach
+                    @endif
+                   
                     
                     <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
                         <div id="validation-errors1"  role="alert">                    

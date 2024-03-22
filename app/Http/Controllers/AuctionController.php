@@ -40,7 +40,7 @@ class AuctionController extends Controller
                 'starting_price' => 'required',
                 //'auc_date' => 'required',
                 //'auc_time' => 'required',
-                'auc_image' => 'required', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
+                'auc_image' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:4096', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
             ]);
 
             $auto_id = $request->auto_id;
@@ -69,8 +69,10 @@ class AuctionController extends Controller
                 
             ]);
 
-            return redirect()->back()->withSuccess('Upload image successful')
-            ->with('success', 'New Auction has been added');
+            return redirect('/seller_home')->withSuccess('Upload image successful');
+
+            // return redirect()->back()->withSuccess('Upload image successful')
+            // ->with('success', 'New Auction has been added');
         }
         else
         {
@@ -94,6 +96,7 @@ class AuctionController extends Controller
         $auctionData = auctions::select(
             'auctions.auction_id',
             'auctions.starting_price',
+            'auctions.description',
             //'auctions.end_time',
             //'auctions.crop_name',
             'auctions.status',
@@ -120,6 +123,7 @@ class AuctionController extends Controller
                         'bids.bid_amount',
                         'auctions.end_time',
                         'auctions.auctionImage',
+                        'auctions.description',
                     )
             ->get();
 

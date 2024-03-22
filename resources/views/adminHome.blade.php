@@ -268,7 +268,10 @@ rel="stylesheet"
                     <nav class="navbar bg-light ">
                         <div class="container bg-light">
                             <div class="ban-user">
-                            <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Ban user</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Activate User</a></h1>
+                                <h1>
+                                    <a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Ban User</a>
+                                    <a class="btn btn-primary mx-3 shadow" href="/activateUsers">Activate User</a>
+                                </h1>
                             </div>
                             <!-- <form id="searchForm">
                               <div class="input-group ">
