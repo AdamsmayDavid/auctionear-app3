@@ -268,7 +268,7 @@ rel="stylesheet"
                     <nav class="navbar bg-light ">
                         <div class="container bg-light">
                             <div class="ban-user">
-                            <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Users</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Active Users</a></h1>
+                            <h1><a class="btn btn-outline-primary text-light active shadow" href="/admin/home">Ban user</a><a class="btn btn-primary mx-3 shadow" href="/activateUsers">Activate User</a></h1>
                             </div>
                             <!-- <form id="searchForm">
                               <div class="input-group ">
@@ -292,7 +292,7 @@ rel="stylesheet"
 
                         <table class="table" id="myTable">
                                     <thead>
-                                        <tr> <th colspan="6" class="shadow bg-primary text-light pt-4 border-light"> <h2>BAN USER</h2></th> </tr>
+                                        <tr> <th colspan="5" class="shadow bg-primary text-light pt-4 border-light"> <h2>BAN USER</h2></th> </tr>
                                     
                                     </thead>
                                 <thead>
@@ -302,7 +302,8 @@ rel="stylesheet"
                                     <th scope="col" class="table-primary">Contact Number</th>
                                     <th scope="col" class="table-primary">email</th>
                                     <th scope="col" class="table-primary text-center">Ban user</th>
-                                    <th scope="col" class="table-primary text-center">Change role</th>
+                                    <!-- change role -->
+                                    <!-- <th scope="col" class="table-primary text-center">Change role</th> -->
                                  
                                  
                                     </tr>
@@ -354,8 +355,8 @@ rel="stylesheet"
                                         </td>
                                         <!-- CHANGE ROLE -->
                                        
-                                        <td>
-                                        <center>
+                                        <!-- <td> -->
+                                        <!-- <center>
                                         <div class="dropdown">
                                             <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                Change role
@@ -367,8 +368,8 @@ rel="stylesheet"
                                                 <li><a class="dropdown-item" href="#">0 Bidder</a></li>
                                             </ul>
                                         </div>
-                                        </center>
-                                        </td>
+                                        </center> -->
+                                        <!-- </td> -->
                                        
                                         
                                         
