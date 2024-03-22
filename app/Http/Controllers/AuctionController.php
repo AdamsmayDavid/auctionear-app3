@@ -205,19 +205,7 @@ class AuctionController extends Controller
          try {
 
             foreach ($bidderDetails as $aucBidder) {
-                if ($aucBidder['phone'] == $winnerPhone) {
-                    // Send winner message
-                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
-                        'headers' => [
-                            'x-api-key' => $apiKey,
-                        ],
-                        'json' => [
-                            'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
-                            'from' => "+639916406021",
-                            'to' => '+63'.$winnerPhone
-                        ]
-                    ]);
-                } else {
+                if ($aucBidder['phone'] =! $winnerPhone) {
                     // Send loser message
                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
                         'headers' => [
@@ -227,6 +215,20 @@ class AuctionController extends Controller
                             'content' => 'You lost the Auction',
                             'from' => "+639916406021",
                             'to' => '+63'.$aucBidder['phone']
+                        ]
+                    ]);
+                } else {
+                    
+
+                    // Send winner message
+                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
+                        'headers' => [
+                            'x-api-key' => $apiKey,
+                        ],
+                        'json' => [
+                            'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
+                            'from' => "+639916406021",
+                            'to' => '+63'.$winnerPhone
                         ]
                     ]);
                 }
