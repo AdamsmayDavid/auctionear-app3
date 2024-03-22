@@ -189,7 +189,9 @@ class AuctionController extends Controller
         //SMS
         //-------Get winner
         $winnerPhone = User::where('id', $bidder)->value('phone');
+
         $sellerPhone = User::where('id', $sellerId)->value('phone');
+        dd($sellerPhone);
 
 
 
@@ -204,23 +206,8 @@ class AuctionController extends Controller
 
             foreach ($bidderDetails as $aucBidder) {
                 if ($aucBidder['phone'] == $winnerPhone) {
-
-                     // Send loser message (magmulang ya)
-                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
-                        'headers' => [
-                            'x-api-key' => $apiKey,
-                        ],
-                        'json' => [
-                            'content' => 'You lost the Auction',
-                            'from' => "+639916406021",
-                            'to' => '+63'.$aucBidder['phone']
-                        ]
-                    ]);
-                   
-                } else {
-
-                     // Send winner message
-                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
+                    // Send winner message
+                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
                         'headers' => [
                             'x-api-key' => $apiKey,
                         ],
@@ -230,8 +217,18 @@ class AuctionController extends Controller
                             'to' => '+63'.$winnerPhone
                         ]
                     ]);
-
-                   
+                } else {
+                    // Send loser message
+                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
+                        'headers' => [
+                            'x-api-key' => $apiKey,
+                        ],
+                        'json' => [
+                            'content' => 'You lost the Auction',
+                            'from' => "+639916406021",
+                            'to' => '+63'.$aucBidder['phone']
+                        ]
+                    ]);
                 }
             }
                 
