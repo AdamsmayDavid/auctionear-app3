@@ -12,8 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use App\Models\conversations;
 use App\Models\User;
-// use Twilio\Rest\Client;
-use GuzzleHttp\Client;
+use Twilio\Rest\Client;
 
 class AuctionController extends Controller
 {
@@ -146,17 +145,18 @@ class AuctionController extends Controller
         $thisAuctionId = $request->input('auction_id');
 
         // Find and update the auction status to closed
-//$closeAuction = auctions::where('auction_id', $thisAuctionId)->update(['status' => 'closed']);
+        $closeAuction = auctions::where('auction_id', $thisAuctionId)->update(['status' => 'closed']);
 
-        // if (!$closeAuction) {
-        //     return back()->with('error', 'Failed to close the auction');
-        // }
+        if (!$closeAuction) {
+            return back()->with('error', 'Failed to close the auction');
+        }
 
         // Fetch the highest bidder for the auction
         $bidder = bids::orderBy('bid_amount', 'DESC')
                     ->where('auction_id', $thisAuctionId)
                     ->value('bidder_id');
-                     // Fetch the seller ID
+
+        // Fetch the seller ID
         $sellerId = auctions::where('auction_id', $thisAuctionId)->value('creator_id');
 
         // Create conversation between seller and highest bidder
@@ -164,114 +164,30 @@ class AuctionController extends Controller
             'user_one' => $sellerId,
             'user_two' => $bidder,
         ]);
-
-        // Fetch all bidders
-        $bidders = bids::where('auction_id', $thisAuctionId)->distinct()->pluck('bidder_id');
-
-        foreach($bidders as $bidder)
-        {
-            $user = User::where('id', $bidder)->first();
-
-            // If user exists, store their ID and phone number
-            if ($user) {
-                $bidderDetails[] = [
-                    'id' => $bidder,
-                    'phone' => $user->phone,
-                ];
-            }
-        }
-
-        // Dump the details of all bidders (including their IDs and phone numbers)
-       // dd($bidderDetails);
-
-       
         
         //SMS
         //-------Get winner
         $winnerPhone = User::where('id', $bidder)->value('phone');
-        $sellerPhone = User::where('id', $sellerId)->value('phone');
 
+        try{
+            $account_sid = env('TWILIO_SID');
+            $account_token = env('TWILIO_TOKEN');
+            $number = env('TWILIO_FROM');
 
-
-         // Initialize Guzzle client
-         $client = new Client();
-
-         // Specify API key directly
-         $apiKey = 'H6a46D1fu7sWpSUiBkoZuFJZKpGQXNBhMpoTmm5cRAPEWDHHvTb_X2mVU45qM_Cr';
- 
-         // Send HTTP POST request to send SMS
-         try {
-
-            foreach ($bidderDetails as $aucBidder) {
-                if ($aucBidder['phone'] == $winnerPhone) {
-                    // Send winner message
-                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
-                        'headers' => [
-                            'x-api-key' => $apiKey,
-                        ],
-                        'json' => [
-                            'content' => 'Congratulations! You won the Auction',
-                            'from' => "+639916406021",
-                            'to' => '+63'.$winnerPhone
-                        ]
-                    ]);
-                } else {
-                    // Send loser message
-                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
-                        'headers' => [
-                            'x-api-key' => $apiKey,
-                        ],
-                        'json' => [
-                            'content' => 'You lost the Auction',
-                            'from' => "+639916406021",
-                            'to' => '+63'.$aucBidder['phone']
-                        ]
-                    ]);
-                }
-            }
-                
-             $response2 = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
-                'headers' => [
-                    'x-api-key' => $apiKey,
-                ],
-                'json' => [
-                    'content' => 'Your Auction Ended',
-                    'from' => "+639916406021",
-                    'to' => '+63'.$sellerPhone
-                ]
+            $client = new Client($account_sid, $account_token);
+            $client->messages->create('+63'.$winnerPhone, [
+                'from'=>$number,
+                'body'=>'You Won the auction'
             ]);
- 
-            //  $body = $response->getBody()->getContents();
- 
-            //  return $body; // or process the response as needed
-         } catch (\GuzzleHttp\Exception\RequestException $e) {
-             // Handle request exceptions (e.g., connection error, server error)
-             return $e->getMessage();
-         }
 
-
-
-        // try{
-        //     $account_sid = env('TWILIO_SID');
-        //     $account_token = env('TWILIO_TOKEN');
-        //     $number = env('TWILIO_FROM');
-
-        //     $client = new Client($account_sid, $account_token);
-        //     $client->messages->create('+63'.$winnerPhone, [
-        //         'from'=>$number,
-        //         'body'=>'You Won the auction'
-        //     ]);
-
-        //     //return "Message sent ...";
-        //     //return response()->json(['SMS sent' => true]);
+            //return "Message sent ...";
+            //return response()->json(['SMS sent' => true]);
             
-        // } catch (\Exception $e){
-        //     return $e->getMessage();
-        // }
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
 
         //SMS
-
-
 
         if ($createConversation) {
             return back()->with('success', 'Auction is now closed');

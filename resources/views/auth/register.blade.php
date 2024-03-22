@@ -149,7 +149,7 @@
                                                 name="phone" 
                                                 required 
                                                 autocomplete="phone"
-                                                pattern="[0-9]{11}"
+                                                pattern="[0-9]{10}"
                                                 >
 
                                                 @error('phone')

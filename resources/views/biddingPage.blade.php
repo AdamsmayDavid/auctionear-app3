@@ -137,13 +137,11 @@
                     <li class="list-group-item">
                     
                     </li>
-                    @if(!empty($auctionData))
-                        @foreach($auctionData as $auction)
+                   
                             <li class="list-group-item">
                                 <p class="mb-0">Starting price : ₱{{ $auction->starting_price }}</p>
                             </li>
-                        @endforeach
-                    @endif
+                     
                    
                     
                     <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
