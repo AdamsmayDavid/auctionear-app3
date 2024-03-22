@@ -71,7 +71,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header text-light" style="background-color:#FF6C22 ;">{{ __('Sign-up') }}</div>
-
+                                        <h4 class="p-2 text-center text-secondary">Please fill-up this form base on your real identity</h4>
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                         @csrf
@@ -145,7 +145,7 @@
                                                 <input id="phone" 
                                                 type="tel" 
                                                 class="form-control @error('phone') is-invalid @enderror  border-primary-subtle"
-                                                placeholder="{{ __('phone 63+') }}" 
+                                                placeholder="{{ __('Please double check your number before you register') }}" 
                                                 name="phone" 
                                                 required 
                                                 autocomplete="phone"
@@ -240,7 +240,7 @@
                                                     for="credentials"
                                                     class="form-label"
                                                     id="credentials-label"
-                                                    >Upload File:
+                                                    >Upload Valid Id:
                                                 </label>
                                             <input
                                                 type="file"

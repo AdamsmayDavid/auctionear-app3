@@ -117,7 +117,7 @@
                                             @endif
 
                                             @if(auth()->user()->type == 'seller')
-                                            <a class="nav-link mx-2 active" aria-current="page" href="/seller/home">
+                                            <a class="nav-link mx-2 active" aria-current="page" href="/seller_home">
                                             <i class="fa fa-home" aria-hidden="true" style="font-size:15px"></i> Home
                                             </a>
                                             @endif

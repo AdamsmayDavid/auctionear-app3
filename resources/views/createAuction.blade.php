@@ -39,7 +39,7 @@
                         <select name="auto_id" class="form-select" aria-label="Default select example">
                             <option selected>What type of Vehicle is it?</option>
                                 @foreach($autos as $auto)
-                                    <option value="{{$auto->id}}">{{$auto->id}}</option>
+                                    <option value="{{$auto->id}}">{{$auto->auto_type}}</option>
                                 @endforeach
                         </select>
 

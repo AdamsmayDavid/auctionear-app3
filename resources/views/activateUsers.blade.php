@@ -494,7 +494,7 @@
                         var address = '{{ $user->address}}';
                         var email = '{{ $user->email}}';
                         var contactNumber = '{{ $user->phone}}';
-                        var validIdUrl = 'images/auctions/{{ $user->image_location}}'; // Replace with the actual URL
+                        var validIdUrl = 'images/id/{{ $user->image_location}}'; // Replace with the actual URL
 
                         var credentials = `
                             <p><strong>Name:</strong> ${name}</p>
