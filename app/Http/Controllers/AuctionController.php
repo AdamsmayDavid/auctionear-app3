@@ -146,11 +146,11 @@ class AuctionController extends Controller
         $thisAuctionId = $request->input('auction_id');
 
         // Find and update the auction status to closed
-        $closeAuction = auctions::where('auction_id', $thisAuctionId)->update(['status' => 'closed']);
+        // $closeAuction = auctions::where('auction_id', $thisAuctionId)->update(['status' => 'closed']);
 
-        if (!$closeAuction) {
-            return back()->with('error', 'Failed to close the auction');
-        }
+        // if (!$closeAuction) {
+        //     return back()->with('error', 'Failed to close the auction');
+        // }
 
         // Fetch the highest bidder for the auction
         $bidder = bids::orderBy('bid_amount', 'DESC')
@@ -183,13 +183,10 @@ class AuctionController extends Controller
 
         // Dump the details of all bidders (including their IDs and phone numbers)
        // dd($bidderDetails);
-
-       
+      
         
         //SMS
-        //-------Get winner
-        $winnerPhone = User::where('id', $bidder)->value('phone');
-
+       
         $sellerPhone = User::where('id', $sellerId)->value('phone');
         //dd($sellerPhone);
 
@@ -204,15 +201,20 @@ class AuctionController extends Controller
          // Send HTTP POST request to send SMS
          try {
 
+             //-------Get winner
+            $winnerPhone = User::where('id', $bidder)->value('phone');
+
             foreach ($bidderDetails as $aucBidder) {
                 if ($aucBidder['phone'] == $winnerPhone) {
+                   // dd($winnerPhone);
+
                     // Send winner message
                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
                         'headers' => [
                             'x-api-key' => $apiKey,
                         ],
                         'json' => [
-                            'content' => 'You lost the Auction',
+                            'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
                             'from' => "+639916406021",
                             'to' => '+63'.$winnerPhone
                         ]
@@ -224,7 +226,7 @@ class AuctionController extends Controller
                             'x-api-key' => $apiKey,
                         ],
                         'json' => [
-                            'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
+                            'content' => 'You lost the Auction',
                             'from' => "+639916406021",
                             'to' => '+63'.$aucBidder['phone']
                         ]
