@@ -322,7 +322,7 @@
                                     </tr> -->
 
 
-                                    @foreach($users as $user)
+        @foreach($users as $user)
           <tr>
             <!-- <td><img src="images/profiles/{{ $user->profile_img}}" class="rounded-circle object-fit-cover" id="userImg" /></td> -->
             <td class="fw-bold">{{ $user->id}}</td>
@@ -485,16 +485,16 @@
 
                         <!-- for credentials view -->
                         
-                        @foreach($users as $user)
+                  @foreach($users as $user)
        
                         <script>
                         function viewCredentials{{ $user->id}}() {
                         // Replace the following with the actual user information
                         var name = '{{ $user->name}}';
-                        var address = '123 Main St, Cityville';
+                        var address = '{{ $user->address}}';
                         var email = '{{ $user->email}}';
-                        var contactNumber = '+1 555-1234';
-                        var validIdUrl = 'assets/images/red.jpg'; // Replace with the actual URL
+                        var contactNumber = '{{ $user->phone}}';
+                        var validIdUrl = 'images/auctions/{{ $user->image_location}}'; // Replace with the actual URL
 
                         var credentials = `
                             <p><strong>Name:</strong> ${name}</p>
@@ -502,7 +502,7 @@
                             <p><strong>Email:</strong> ${email}</p>
                             <p><strong>Contact Number:</strong> ${contactNumber}</p>
                             <p><strong>Valid ID:</strong> <a href="${validIdUrl}" target="_blank">View Valid ID</a></p>
-                            <p><strong>Valid ID:</strong> <a href="${validIdUrl}" target="_blank">View Valid ID</a></p>
+                           
                         `;
 
                         var popupWindow = window.open('', '_blank', 'width=400,height=500,scrollbars=yes,resizable=yes');
@@ -513,8 +513,8 @@
                         popupWindow.document.close();
                         }
                     </script>
-                    @endforeach
-                    
+                  @endforeach
+                
    
 
      
