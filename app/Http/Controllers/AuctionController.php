@@ -153,7 +153,7 @@ class AuctionController extends Controller
         }
 
         // Fetch the highest bidder for the auction
-        $bidder = bids::orderBy('bid_amount', 'DESC')
+        $bidder = bids::orderBy('bid_amount', 'ASC')
                     ->where('auction_id', $thisAuctionId)
                     ->value('bidder_id');
                      // Fetch the seller ID
