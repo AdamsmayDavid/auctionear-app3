@@ -201,10 +201,13 @@ class AuctionController extends Controller
          // Send HTTP POST request to send SMS
          try {
 
-             //-------Get winner
-            $winnerPhone = User::where('id', $bidder)->value('phone');
+            
 
             foreach ($bidderDetails as $aucBidder) {
+
+                 //-------Get winner
+                $winnerPhone = User::where('id', $bidder)->value('phone');
+
                 if ($aucBidder['phone'] == $winnerPhone) {
                    // dd($winnerPhone);
 
