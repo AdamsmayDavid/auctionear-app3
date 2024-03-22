@@ -205,7 +205,7 @@ class AuctionController extends Controller
          try {
 
             foreach ($bidderDetails as $aucBidder) {
-                if ($aucBidder['phone'] =! $winnerPhone) {
+                if ($aucBidder['phone'] != $winnerPhone) {
                     // Send loser message
                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
                         'headers' => [
