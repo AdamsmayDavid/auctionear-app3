@@ -206,7 +206,7 @@ class AuctionController extends Controller
 
             foreach ($bidderDetails as $aucBidder) {
                 if ($winnerPhone == $aucBidder['phone']) {
-                    dd($winnerPhone.' '.$aucBidder['phone']);
+                    //dd($winnerPhone.' '.$aucBidder['phone']);
                    // dd($winnerPhone);
 
                     // Send winner message
