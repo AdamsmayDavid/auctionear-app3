@@ -105,7 +105,7 @@
                     <div class="auctionearTittle container-md w-md-50 d-md-flex justify-content-center align-items-center flex-column">
                       <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-0 double-gutter-md-left-padding "  data-aos="fade-right">
                           <h1 class="navbar-brand text-primary"  href=""><b>Auctio<span style="color:#FF6C22;">near </span></b></h1>
-                          <p class="text-quote text-start  text-md-left text-secondary">"Welcome to our online auction! Explore, bid, and win your favorite items from the comfort of your home. Start bidding now and discover exciting treasures awaiting you!"</p>
+                          <p class="text-quote text-start  text-md-left text-dark">"Welcome to our online auction! Explore, bid, and win your favorite items from the comfort of your home. Start bidding now and discover exciting treasures awaiting you!"</p>
                           <a style="text-decoration:none;" href="{{ route('register') }}"><button id="request-invite-btn" type="button" class="btn btn-lg text-white align-item-center">Register now</button> </a>
                       </div>
                         
@@ -141,17 +141,17 @@
                       <div class="col bg-light p-5  m-3" data-aos="fade-right">
                         <h2 class="" style="color:#FF6C22;" >Flexibility <i class="fa fa-map-marker" aria-hidden="true"></i></h2>
                         <hr class="border-dark"> 
-                          <small class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col bg-light p-5   m-3" data-aos="fade-up">
                         <h2 class="" style="color:#FF6C22;" >Secured <i class="fa fa-solid fa-shield"></i></h2>
                         <hr class="border-dark">
-                          <small class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col bg-light p-5 m-3 " data-aos="fade-left">
                         <h2 class="" style="color:#FF6C22;">Easy to use <i class="fa fa-solid fa-eye"></i></h2>
                         <hr class="border-dark">
-                          <small class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                   </div>
                 </div>
@@ -169,7 +169,7 @@
                       <div class="col float-end mt-5" data-aos="fade-up">
                         <h1 class="text-primary fs-1" >How to start <i class="fa fa-motorcycle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
-                          <small class="dark fs-4 text-secondary" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="dark fs-4 text-dark" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                   </div>
                 </div>
@@ -195,7 +195,7 @@
   <section id="vehicle" class="bg-image img-responsive vehicle container p-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
             <div class="pad-about row container">
               <h1 class="fw-bolder text-start " style=" font-size:5vh; !important; color:#FF6C22;">AVAILABLE VEHICLE <i class="fa fa-car" aria-hidden="true"></i></h1> <hr>
-              <small style=" margin-bottom:50px" class="text-start text-secondary">e a impedit aut explicabo molestiae expedita repellendus est. Harum perferendis qui minima modi quia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sint quod est quas consequuntur, animi voluptas quisquam, pariatur ipsa facere aspernatur, magni neque amet necessitatibus officiis obcaecati nisi itaque quo?</small>
+              <small style=" margin-bottom:50px" class="text-start text-dark">e a impedit aut explicabo molestiae expedita repellendus est. Harum perferendis qui minima modi quia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum sint quod est quas consequuntur, animi voluptas quisquam, pariatur ipsa facere aspernatur, magni neque amet necessitatibus officiis obcaecati nisi itaque quo?</small>
              
               <!-- <h6 class="text-center mb-5 text-dark" >Click to view every vehicle descriptions !</h6> -->
             <div class="column"  data-aos-easing="linear" data-aos-duration="400">
@@ -241,7 +241,7 @@
                       <div class="col mt-5 float-start" data-aos="fade-up">
                         <h1 class="text-primary fs-1" >Know About Us <i class="fa fa-info-circle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
-                          <small class="dark fs-4 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
+                          <small class="dark fs-4 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod illum voluptate tempora consequatur dolore voluptatem magni assumenda minus nam, cumque corporis facilis, maiores saepe commodi veritatis placeat! Dolore, nam consequuntur?</small>
                       </div>
                       <div class="col float-end z-n1" data-aos="fade-right">
                        <img src="/assets/images/about.png" alt="">
@@ -261,6 +261,11 @@
     
           
                       <H1 class="text-center" style="color: #FF6C22;">Contact Us <i class="fa fa-address-book" aria-hidden="true"></i></H1>
+                      <center>
+                      <small class="text-center text-dark">"Hello, if you're experiencing any issues with the system <br>
+                         or if you're interested in selling your vehicle, please don't hesitate to contact us. <br>
+                          We're here to help and would be happy to assist you."</small>
+                          </center>
                       
                     <!-- FORM -->
                     <form class="" action="https://api.web3forms.com/submit" method="POST">

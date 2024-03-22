@@ -113,6 +113,14 @@
                                     </div>
                             </li>
                         @endif
+                        @if(auth()->user()->type == 'seller')
+                         
+                        <div class="p-3">
+                                <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    End Auction
+                                </button>
+                                </div>
+                        @endif
                 @endif  <!--  $farmer->id -->
 
                 
@@ -156,13 +164,7 @@
                             @if($auction->status == 'closed')
                                 <h5 class="text-center">Auction Ended</h5>
                             @else
-                                
-                                <div class="p-3 m-auto">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    End Auction
-                                </button>
-                                </div>
-                                
+                
 
                                 <!-- Modal -->
                                 <div style="margin-top:100px !important;" class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
