@@ -204,20 +204,9 @@ class AuctionController extends Controller
 
             foreach ($bidderDetails as $aucBidder) {
                 if ($aucBidder['phone'] == $winnerPhone) {
-                    // Send winner message
-                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
-                        'headers' => [
-                            'x-api-key' => $apiKey,
-                        ],
-                        'json' => [
-                            'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
-                            'from' => "+639916406021",
-                            'to' => '+63'.$winnerPhone
-                        ]
-                    ]);
-                } else {
-                    // Send loser message
-                    $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
+
+                     // Send loser message (magmulang ya)
+                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
                         'headers' => [
                             'x-api-key' => $apiKey,
                         ],
@@ -227,6 +216,22 @@ class AuctionController extends Controller
                             'to' => '+63'.$aucBidder['phone']
                         ]
                     ]);
+                   
+                } else {
+
+                     // Send winner message
+                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
+                        'headers' => [
+                            'x-api-key' => $apiKey,
+                        ],
+                        'json' => [
+                            'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
+                            'from' => "+639916406021",
+                            'to' => '+63'.$winnerPhone
+                        ]
+                    ]);
+
+                   
                 }
             }
                 
