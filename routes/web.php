@@ -6,14 +6,31 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuctionController;
+use App\Http\Controllers\httpSMScontroller;
 use App\Http\Controllers\WebSocketController;
 use App\Http\Controllers\SmsController;
+use App\Http\Controllers\twilioCOntroller;
 
 Route::get('/', function () {
    //App\Jobs\SlowJob::dispatch();
    
     return view('welcome');
 });
+
+//Vonage
+// Route::get('/send_sms', [smscontroller::class, 'send_sms']);
+
+//httpSMS
+// Route::get('/sendhttp', [httpSMScontroller::class, 'sendhttp']);
+
+//Twilio
+// Route::get('/sms', function () {
+//    return view('sms');
+// });
+
+// Route::post('/sms', [twilioCOntroller::class, 'sendSMS']);
+
+
 Route::get('/waitingUser', function () {
    return view('waitingUser');
 });
