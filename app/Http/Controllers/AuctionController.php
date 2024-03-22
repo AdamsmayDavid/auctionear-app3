@@ -158,6 +158,8 @@ class AuctionController extends Controller
                     ->value('bidder_id');
                      // Fetch the seller ID
         $sellerId = auctions::where('auction_id', $thisAuctionId)->value('creator_id');
+        //-------Get winner
+        $winnerPhone = User::where('id', $bidder)->value('phone');
 
         // Create conversation between seller and highest bidder
         $createConversation = conversations::create([
@@ -201,8 +203,7 @@ class AuctionController extends Controller
          // Send HTTP POST request to send SMS
          try {
 
-             //-------Get winner
-            $winnerPhone = User::where('id', $bidder)->value('phone');
+             
 
             foreach ($bidderDetails as $aucBidder) {
                 if ($winnerPhone == $aucBidder['phone']) {
