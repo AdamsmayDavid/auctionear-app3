@@ -49,7 +49,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 //Seller Routes List
 Route::middleware(['auth', 'user-access:seller'])->group(function () {
 
-    Route::get('/seller/home', [HomeController::class, 'index'])->name('seller.home');
+    Route::get('/seller_home', [HomeController::class, 'index'])->name('seller.home');
     Route::get('/createAuction', [HomeController::class, 'createAuction']);
     Route::post('/newAuction' ,[AuctionController::class , 'newAuction'])->name('newAuction');
     Route::get('/manual_close' ,[AuctionController::class , 'manual_close']);
