@@ -191,7 +191,7 @@ class AuctionController extends Controller
         $winnerPhone = User::where('id', $bidder)->value('phone');
 
         $sellerPhone = User::where('id', $sellerId)->value('phone');
-        dd($sellerPhone);
+        //dd($sellerPhone);
 
 
 
