@@ -146,11 +146,11 @@ class AuctionController extends Controller
         $thisAuctionId = $request->input('auction_id');
 
         // Find and update the auction status to closed
-        $closeAuction = auctions::where('auction_id', $thisAuctionId)->update(['status' => 'closed']);
+        // $closeAuction = auctions::where('auction_id', $thisAuctionId)->update(['status' => 'closed']);
 
-        if (!$closeAuction) {
-            return back()->with('error', 'Failed to close the auction');
-        }
+        // if (!$closeAuction) {
+        //     return back()->with('error', 'Failed to close the auction');
+        // }
 
         // Fetch the highest bidder for the auction
         $bidder = bids::orderBy('bid_amount', 'DESC')
@@ -209,7 +209,7 @@ class AuctionController extends Controller
                 $winnerPhone = User::where('id', $bidder)->value('phone');
 
                 if ($aucBidder['phone'] == $winnerPhone) {
-                   // dd($winnerPhone);
+                    dd($winnerPhone.' '.$aucBidder['phone']);
 
                     // Send winner message
                     $response = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
