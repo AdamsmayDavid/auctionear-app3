@@ -37,9 +37,9 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'host' => 'auctionear.shop',      #env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
-                'port' => 443,         #env('PUSHER_PORT', 443),
-                'scheme' => 'https',         #env('PUSHER_SCHEME', 'https'),
+                'host' => '127.0.0.1',      #env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
+                'port' => 6001,         #env('PUSHER_PORT', 443),
+                'scheme' => 'http',         #env('PUSHER_SCHEME', 'https'),
                 'encrypted' => true,
                 'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
             ],
