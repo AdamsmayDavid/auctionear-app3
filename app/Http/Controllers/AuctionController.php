@@ -210,7 +210,7 @@ class AuctionController extends Controller
                             'x-api-key' => $apiKey,
                         ],
                         'json' => [
-                            'content' => 'Congratulations! You won the Auction',
+                            'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
                             'from' => "+639916406021",
                             'to' => '+63'.$winnerPhone
                         ]
