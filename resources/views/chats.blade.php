@@ -94,6 +94,26 @@
                     <ul class="conversation-wrapper" id="convo-{{$conversation->con_id}}">
                         <div class="coversation-divider"><span>Today</span></div>
 
+                  
+                        <div class="conversation-item">
+                            <div class="conversation-item-box m-auto">
+                                <div class="conversation-item-text bg-secondary">
+                                    <p class="text-light">
+                                        Congratulations! <br>
+                                        <br>
+                                        Please fill-up this form to start the transaction <br>
+                                       <b> FULLNAME:</b> ex.Juan Dela Cruz <br>
+                                        <b>MEETINF PLACE:</b> ex.Concepcion public market <br>
+                                        <b>PAYMENT METHOD:</b> ex.Gcash or Cash <br>
+
+                                
+                                    </p>
+                                    <div class="conversation-item-time">12:30</div>
+                                </div>
+                            </div>
+                        </div>
+    
+
                             @foreach($messages as $message)
                                 @if($message->con_id == $conversation->con_id)  
                                     @if($message->sender_id == Auth::id())                                                    

@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+/* Typography */
+body {
+    font-family: "Merriweather", serif;
+}
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+}
+.md-title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+}
+p {
+    font-size: 1.5rem;
+}
+.desc {
+    text-indent: 1.5rem;
+    font-size: 2.4rem;
+}
+.demand-text {
+    font-size: 10rem;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+}
+#brand {
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+}
+#nav-link {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+}
+
+/* Typography */
+
+/* Navigation Bar CSS */
+nav {
+    box-shadow: 1px 2px 5px #5d5b5b;
+}
+.nav-pic {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+}
+.logo-pic {
+    width: 15rem;
+    height: 15rem;
+}
+#dropdown-menu {
+    position: absolute !important;
+    left: -10rem !important;
+    top: 15.5rem !important;
+    width: 25rem !important;
+}
+#nav-link,
+#brand {
+    color: #6c9c82 !important;
+}
+/* Navigation Bar CSS */
+
+/* Bidding Main */
+.main-cont {
+    height: calc(100vh - 51.25px);
+}
+#bid-image {
+    width: 30rem;
+    height: 17rem;
+}
+#table-img {
+    width: 50px;
+    height: 50px;
+}
+tr td:nth-of-type(2) {
+    font-size: 2rem;
+    color: green !important;
+}
+tr td {
+    font-size: 1.5rem;
+}
+.image-row {
+    background-color: #6c9c82;
+}
+.web-img-cont {
+    height: 65vh;
+}
+.bids-row {
+    display: flex;
+    flex-direction: column;
+    height: 33rem !important;
+    overflow: scroll;
+}
+tbody {
+    overflow: scroll;
+}
+#inputPrice,
+#bid-btn {
+    width: 40%;
+    height: 4rem;
+}
+#inputPrice {
+    font-size: 1.2rem;
+}
+#bid-btn {
+    font-size: 2rem;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+/* Bidding Main */
+@media screen and (max-width: 576px) {
+    .logo-pic {
+        width: 50px;
+        height: 50px;
+    }
+    .title {
+        font-size: 3rem;
+    }
+    #nav-link {
+        font-size: 2rem;
+    }
+    .desc {
+        font-size: 2.5rem;
+    }
+    .md-title {
+        font-size: 2.5rem;
+    }
+    .demand-text {
+        font-size: 6rem;
+    }
+    .input-group input {
+        width: 15rem !important;
+        font-size: 2rem;
+    }
+    #bid-cta {
+        font-size: 2rem;
+    }
+    #bid-image {
+        width: 30rem;
+        height: 15rem;
+    }
+}

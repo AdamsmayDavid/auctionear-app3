@@ -476,4 +476,12 @@ color:#000000;
     border-color: red !important;
   }
 
-  
+  /* scroll div */
+
+
+  /* Custom styles for the scrollable div */
+  .scrollable-div {
+    height: 300px; /* Set the desired height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: add border for visual clarity */
+  }

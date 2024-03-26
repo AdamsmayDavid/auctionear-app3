@@ -132,7 +132,7 @@ class AuctionController extends Controller
             $bids = bids::select('bids.bid_id', 'users.name', 'bids.bid_amount', 'bids.on_time')
             ->join('users', 'bids.bidder_id', '=', 'users.id')
             ->where('bids.auction_id', $on_auction)
-            ->orderBy('bid_amount', 'asc')
+            ->orderBy('bid_amount', 'DESC')
             ->get();
 
             return view('biddingPage', compact('auctionData', 'bids', 'autos'))->with('success', 'highest bid fetched');

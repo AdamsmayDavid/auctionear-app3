@@ -9,6 +9,7 @@ use App\Models\conversations;
 use App\Models\messages;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
 
 // use Illuminate\Support\Facades\Crypt;
 // use Illuminate\Contracts\Encryption\DecryptException;
@@ -46,7 +47,7 @@ class HomeController extends Controller
     {
         $autos = autos::all();
 
-        $theseUsers = User::where('type', 0)->orWhere('type', 1)->get(); 
+        $theseUsers = User::where('type', 0)->orWhere('type', 2)->get(); 
         $users = array();
 
         foreach ($theseUsers as $user) 
@@ -106,6 +107,45 @@ class HomeController extends Controller
     {
         //when the admin activate the user it will change the user status to 1 on the database
         $activateUser = User::where("id", $request->id)->update(['status' => '1']);
+
+
+         //SMS
+       
+         $userAct = User::where('id', $request->id)->value('phone');
+         //dd($userAct);
+ 
+ 
+ 
+          // Initialize Guzzle client
+          $client = new Client();
+ 
+          // Specify API key directly
+          $apiKey = 'H6a46D1fu7sWpSUiBkoZuFJZKpGQXNBhMpoTmm5cRAPEWDHHvTb_X2mVU45qM_Cr';
+  
+          // Send HTTP POST request to send SMS
+          try {
+ 
+              $response2 = $client->request('POST', 'https://api.httpsms.com/v1/messages/send', [
+                 'headers' => [
+                     'x-api-key' => $apiKey,
+                 ],
+                 'json' => [
+                     'content' => "Your account is Activated. \n\nYou can now login your account \nand place your bid/s at auctionear(dot)shop",
+                     'from' => "+639916406021",
+                     'to' => '+63'.$userAct
+                 ]
+             ]);
+  
+             //  $body = $response->getBody()->getContents();
+  
+             //  return $body; // or process the response as needed
+          } catch (\GuzzleHttp\Exception\RequestException $e) {
+              // Handle request exceptions (e.g., connection error, server error)
+              return $e->getMessage();
+          }
+ 
+
+          
 
         return redirect()->back()->with("success","User Activated");
     }

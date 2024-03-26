@@ -12,6 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/scroll.css">
         <!-- Styles -->
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -144,18 +145,39 @@
                      
                    
                     
-                    <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
-                        <div id="validation-errors1"  role="alert">                    
-                        </div>       
-                    </div>
-                    <li class="list-group-item">
-                        <p class="mb-0">Bidders:</p>
-                        <ul id="bids_here">
-                            @if(!empty($bids))            
-                            @foreach($bids as $bid) 
-                                <li>{{ $bid->name }}- ₱{{ $bid->bid_amount }}</li>
-                            @endforeach
-                        @endif
+                            <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
+                                <div id="validation-errors1"  role="alert">                    
+                                </div>       
+                            </div>
+
+                            <p class="title text-start">Top Bidders</p>
+                            <div class="row bids-row bg-light-subtle mb-4">
+                            <div class="bids-table mt-2">
+                                <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Nickname</th>
+                                    <th scope="col">Bid Price</th>
+                                    <!-- <th scope="col">Date</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody1">
+                                
+                                @if(!empty($bids))            
+                                    @foreach($bids as $bid) 
+                                    <tr>
+                                        <td>{{ $bid->name }}</td>
+                                        <td>₱{{ $bid->bid_amount }}</td>
+                                        <!-- <td>{{ $bid->on_time }}</td> -->
+                                    </tr>                                 
+                                    @endforeach
+                                @endif
+
+                                </tbody>
+                                </table>
+                            </div>
+                            </div>
+
                         </ul>
                     </li>
 
@@ -341,31 +363,69 @@
 
   });
 
+   ///Websoket Listening
 
-  ///Websoket Listening
-
-    setTimeout(() => {
+   setTimeout(() => {
         //window.Echo.channel for public
         //window.Echo.private for private
         window.Echo.channel('myPrivateChannel.user.{{ $auction->auction_id }}')
         .listen('.private_msg', (data) => {
-            console.log(data.bid_price);
+            
+            
+        console.log(data.bid_price);
 
         // Update UI with received message
         let bid_price = data.bid_price;
         let bidder_id = data.bidder;
-        // let profile_img = data.profile_img;
-        // let on_time = data.bid_on;
 
-        let list = document.createElement("li");
-        list.innerText = `${bidder_id}- ₱` + bid_price;
+            let row = document.createElement("tr");
 
-        // row.appendChild(price);
+            let name = document.createElement("td");
+            name.innerText = `${bidder_id}`;
+            row.appendChild(name);
 
-        document.getElementById("bids_here").appendChild(list);
+            let price = document.createElement("td");
+            price.innerText = `₱ ${bid_price}`;
+            row.appendChild(price);
+
+            //const d = new Date();
+            // let date = document.createElement("td");
+            // date.innerText = `${on_time}`;
+            // row.appendChild(date);
+
+            //tbody1.append(row);
+            //tbody2.append(row);
+            $("tbody").prepend(row);
 
         })
     }, 200)
+    
+
+//   ///Websoket Listening
+
+//     setTimeout(() => {
+//         //window.Echo.channel for public
+//         //window.Echo.private for private
+//         window.Echo.channel('myPrivateChannel.user.{{ $auction->auction_id }}')
+//         .listen('.private_msg', (data) => {
+
+//             console.log(data.bid_price);
+
+//         // Update UI with received message
+//         let bid_price = data.bid_price;
+//         let bidder_id = data.bidder;
+//         // let profile_img = data.profile_img;
+//         // let on_time = data.bid_on;
+
+//         let list = document.createElement("li");
+//         list.innerText = `${bidder_id}- ₱` + bid_price;
+
+//         // row.appendChild(price);
+
+//         document.getElementById("bids_here").appendChild(list);
+
+//         })
+//     }, 200)
 
     // setTimeout(() => {
     //     window.Echo.private('myPrivateChannel.user.{{Auth::id()}}')
