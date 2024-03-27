@@ -125,11 +125,11 @@
                                     
                                         <!-- Nickname -->
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3"> -->
                                             
                                             <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
 
-                                            <div class="col-md-12">
+                                            <!-- <div class="col-md-12">
                                                 <input id="nickname" 
                                                 type="nickname" 
                                                 class="form-control @error('nickname') is-invalid @enderror  border-primary-subtle"
@@ -145,7 +145,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- address -->
                                         <div class="row mb-3">
                                             
@@ -169,11 +169,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3"> -->
                                             
                                             <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
 
-                                            <div class="col-md-12">
+                                            <!-- <div class="col-md-12">
                                                 <input id="address" 
                                                 type="address" 
                                                 class="form-control @error('address') is-invalid @enderror  border-primary-subtle"
@@ -189,7 +189,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <!-- for contact -->
                                         <div class="row mb-3">
