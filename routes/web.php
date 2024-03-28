@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes([
+   'verify' => true
+]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+
 //Vonage
 // Route::get('/send_sms', [smscontroller::class, 'send_sms']);
 
@@ -44,7 +51,6 @@ Route::get('/chatSystem', function () {
 Route::get('/chats', [HomeController::class, 'chats']);
 
  
-Auth::routes();
 
 
 //Tesing routes
