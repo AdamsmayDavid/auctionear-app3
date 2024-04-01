@@ -67,7 +67,14 @@
             </div>
         </nav>                 
                 <div class=" container mt-5">
-                    <div class="row justify-content-center">
+                <div class="row gy-3 gy-md-4 gy-lg-0 align-items-xl-center">
+                        <div class="col-12 col-lg-6">
+                            <img class="img-fluid rounde col-12 col-xl-12"  loading="lazy" src="/assets/images/reg.png"  alt="">
+                            <img class="img-fluid rounde col-12 col-xl-10"  loading="lazy" src="/assets/images/Content Image 1.png"  alt="">
+                            <h4 class="text-danger">Make sure your upload photo is like this and visible</h4>
+                            
+                        </div>
+                
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header text-light" style="background-color:#FF6C22 ;">{{ __('Sign-up') }}</div>
@@ -79,10 +86,10 @@
                                         <div class="row mb-3">
                                             <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <input id="name" 
                                                 type="text" class="form-control @error('name') is-invalid @enderror  border-primary-subtle" 
-                                                placeholder="{{ __('Name') }}" 
+                                                placeholder="{{ __('Full Name') }}" 
                                                 name="name" 
                                                 value="{{ old('name') }}" 
                                                 required autocomplete="name" 
@@ -94,12 +101,12 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                    
+                                            </div>
 
-                                     
+                                            <div class="row mb-3">
                                             <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <input id="email" 
                                                 type="email" 
                                                 class="form-control @error('email') is-invalid @enderror  border-primary-subtle" 
@@ -114,16 +121,41 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                        </div>
+                                            </div>
+                                    
+                                        <!-- Nickname -->
+
+                                        <!-- <div class="row mb-3"> -->
+                                            
+                                            <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
+
+                                            <!-- <div class="col-md-12">
+                                                <input id="nickname" 
+                                                type="nickname" 
+                                                class="form-control @error('nickname') is-invalid @enderror  border-primary-subtle"
+                                                placeholder="{{ __('Nickname This is for bidding name') }}" 
+                                                name="nickname" 
+                                                required 
+                                                autocomplete="nickname"
+                                                >
+
+                                                @error('phone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div> -->
                                         <!-- address -->
                                         <div class="row mb-3">
+                                            
                                             <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
 
                                             <div class="col-md-12">
                                                 <input id="address" 
                                                 type="address" 
                                                 class="form-control @error('address') is-invalid @enderror  border-primary-subtle"
-                                                placeholder="{{ __('Complete Address') }}" 
+                                                placeholder="{{ __(' Address') }}" 
                                                 name="address" 
                                                 required 
                                                 autocomplete="address"
@@ -137,6 +169,28 @@
                                             </div>
                                         </div>
 
+                                        <!-- <div class="row mb-3"> -->
+                                            
+                                            <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
+
+                                            <!-- <div class="col-md-12">
+                                                <input id="address" 
+                                                type="address" 
+                                                class="form-control @error('address') is-invalid @enderror  border-primary-subtle"
+                                                placeholder="{{ __('Street or Block and House number') }}" 
+                                                name="address" 
+                                                required 
+                                                autocomplete="address"
+                                                >
+
+                                                @error('phone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div> -->
+
                                         <!-- for contact -->
                                         <div class="row mb-3">
                                             <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> -->
@@ -145,7 +199,7 @@
                                                 <input id="phone" 
                                                 type="tel" 
                                                 class="form-control @error('phone') is-invalid @enderror  border-primary-subtle"
-                                                placeholder="{{ __('Please double check your number before you register') }}" 
+                                                placeholder="{{ __('Contact number:') }}" 
                                                 name="phone" 
                                                 required 
                                                 autocomplete="phone"
@@ -240,7 +294,7 @@
                                                     for="credentials"
                                                     class="form-label"
                                                     id="credentials-label"
-                                                    >Upload Valid Id:
+                                                    >Verification selfie with valid id:
                                                 </label>
                                             <input
                                                 type="file"
@@ -302,7 +356,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
                 <!-- <script src="assets/js/jquery.min.js"></script> -->

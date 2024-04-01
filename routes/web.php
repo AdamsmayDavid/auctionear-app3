@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 
+<<<<<<< HEAD
 
 
 
@@ -41,6 +42,13 @@ Route::middleware('web')->group(function () {
 // });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+=======
+Auth::routes([
+   'verify' => true
+]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+>>>>>>> 85ca0a65d78fb906767192e62e6bea3eec5cf30b
 
 //Vonage
 // Route::get('/send_sms', [smscontroller::class, 'send_sms']);
