@@ -155,7 +155,7 @@
                                         @if(auth()->user()->type == 'user')
                                         <li class="logout nav-item dropdown">
                                             <a id="navbarDropdown" class="btn btn-sm dropdown-toggle text-light mt-1" style="background-color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <i class="fa fa-user" aria-hidden="true"></i> Logout
+                                                <i class="fa fa-user" aria-hidden="true"></i> Logout
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">
