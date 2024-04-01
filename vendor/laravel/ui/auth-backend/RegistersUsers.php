@@ -49,17 +49,16 @@ trait RegistersUsers
 
         return $request->wantsJson()
                     ? new JsonResponse([], 201)
-<<<<<<< HEAD
                     : redirect('/waitingUser');
                     // : redirect($this->redirectPath());
 
         // return $request->wantsJson()
         //             ? new JsonResponse([], 201)
         //             : redirect($this->redirectPath());
-=======
- 		    : redirect('/waitingUser');
+
+ 		    // : redirect('/waitingUser');
                    // : redirect($this->redirectPath());
->>>>>>> 85ca0a65d78fb906767192e62e6bea3eec5cf30b
+
     }
 
     /**
