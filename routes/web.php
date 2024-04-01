@@ -10,12 +10,37 @@ use App\Http\Controllers\httpSMScontroller;
 use App\Http\Controllers\WebSocketController;
 use App\Http\Controllers\SmsController;
 use App\Http\Controllers\twilioCOntroller;
+use App\Http\Controllers\Auth\VerificationController;
+
+use Illuminate\Http\Request;
+
+// Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
+//     ->name('verification.verify');
 
 Route::get('/', function () {
    //App\Jobs\SlowJob::dispatch();
    
     return view('welcome');
 });
+
+
+
+
+
+
+Route::middleware('web')->group(function () {
+   Auth::routes(['verify' => true]);
+});
+
+// Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+
+
+
+// Route::group(['middleware' => ['throttle:6,1']], function () {
+//     Route::get('/email/verify/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+// });
+
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
 
 //Vonage
 // Route::get('/send_sms', [smscontroller::class, 'send_sms']);
@@ -44,7 +69,6 @@ Route::get('/chatSystem', function () {
 Route::get('/chats', [HomeController::class, 'chats']);
 
  
-Auth::routes();
 
 
 //Tesing routes
@@ -57,11 +81,17 @@ Route::post('/send_message', [WebSocketController::class, 'send_message']);
 
 
 //Bidder Routes List
-Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/userFeedback' ,[HomeController::class , 'userFeedback']);
+// Bidder Routes List
+// Route::middleware(['auth', 'user-access:user', 'verified'])->group(function () {
+//    Route::get('/home', [HomeController::class, 'index'])->name('home');
+//    Route::get('/userFeedback', [HomeController::class, 'userFeedback']);
+// });
+
+// Route::middleware(['auth', 'user-access:user'])->group(function () {
+//     Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+//     Route::get('/userFeedback' ,[HomeController::class , 'userFeedback']);
     
-});
+// });
 
 //Seller Routes List
 Route::middleware(['auth', 'user-access:seller'])->group(function () {

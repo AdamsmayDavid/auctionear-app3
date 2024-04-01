@@ -428,8 +428,8 @@ class ComposerStaticInite2856a00e8fb6ea483d2453d5d732ca3
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -645,6 +645,8 @@ class ComposerStaticInite2856a00e8fb6ea483d2453d5d732ca3
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\TestController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestController.php',
         'App\\Http\\Controllers\\WebSocketController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebSocketController.php',
+        'App\\Http\\Controllers\\smscontroller' => __DIR__ . '/../..' . '/app/Http/Controllers/smscontroller.php',
+        'App\\Http\\Controllers\\twilioCOntroller' => __DIR__ . '/../..' . '/app/Http/Controllers/twilioCOntroller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -5427,6 +5429,8 @@ class ComposerStaticInite2856a00e8fb6ea483d2453d5d732ca3
         'React\\Http\\Browser' => __DIR__ . '/..' . '/react/http/src/Browser.php',
         'React\\Http\\Client\\Client' => __DIR__ . '/..' . '/react/http/src/Client/Client.php',
         'React\\Http\\HttpServer' => __DIR__ . '/..' . '/react/http/src/HttpServer.php',
+        'React\\Http\\Io\\AbstractMessage' => __DIR__ . '/..' . '/react/http/src/Io/AbstractMessage.php',
+        'React\\Http\\Io\\AbstractRequest' => __DIR__ . '/..' . '/react/http/src/Io/AbstractRequest.php',
         'React\\Http\\Io\\BufferedBody' => __DIR__ . '/..' . '/react/http/src/Io/BufferedBody.php',
         'React\\Http\\Io\\ChunkedDecoder' => __DIR__ . '/..' . '/react/http/src/Io/ChunkedDecoder.php',
         'React\\Http\\Io\\ChunkedEncoder' => __DIR__ . '/..' . '/react/http/src/Io/ChunkedEncoder.php',
@@ -5452,6 +5456,7 @@ class ComposerStaticInite2856a00e8fb6ea483d2453d5d732ca3
         'React\\Http\\Message\\Response' => __DIR__ . '/..' . '/react/http/src/Message/Response.php',
         'React\\Http\\Message\\ResponseException' => __DIR__ . '/..' . '/react/http/src/Message/ResponseException.php',
         'React\\Http\\Message\\ServerRequest' => __DIR__ . '/..' . '/react/http/src/Message/ServerRequest.php',
+        'React\\Http\\Message\\Uri' => __DIR__ . '/..' . '/react/http/src/Message/Uri.php',
         'React\\Http\\Middleware\\LimitConcurrentRequestsMiddleware' => __DIR__ . '/..' . '/react/http/src/Middleware/LimitConcurrentRequestsMiddleware.php',
         'React\\Http\\Middleware\\RequestBodyBufferMiddleware' => __DIR__ . '/..' . '/react/http/src/Middleware/RequestBodyBufferMiddleware.php',
         'React\\Http\\Middleware\\RequestBodyParserMiddleware' => __DIR__ . '/..' . '/react/http/src/Middleware/RequestBodyParserMiddleware.php',
