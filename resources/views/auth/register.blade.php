@@ -102,7 +102,31 @@
                                                 @enderror
                                             </div>
                                             </div>
+                                              <!-- Nickname -->
 
+                                        <div class="row mb-3">
+                                            
+                                            <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
+
+                                            <div class="col-md-12">
+                                                <input id="nickname" 
+                                                type="nickname" 
+                                                class="form-control @error('nickname') is-invalid @enderror  border-primary-subtle"
+                                                placeholder="{{ __('Nickname This is for bidding name') }}" 
+                                                name="nickname" 
+                                                required 
+                                                autocomplete="nickname"
+                                                >
+
+                                                @error('nickname')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                                <!-- Email -->
                                             <div class="row mb-3">
                                             <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
@@ -123,29 +147,7 @@
                                             </div>
                                             </div>
                                     
-                                        <!-- Nickname -->
-
-                                        <!-- <div class="row mb-3"> -->
-                                            
-                                            <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label> -->
-
-                                            <!-- <div class="col-md-12">
-                                                <input id="nickname" 
-                                                type="nickname" 
-                                                class="form-control @error('nickname') is-invalid @enderror  border-primary-subtle"
-                                                placeholder="{{ __('Nickname This is for bidding name') }}" 
-                                                name="nickname" 
-                                                required 
-                                                autocomplete="nickname"
-                                                >
-
-                                                @error('phone')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div> -->
+                                      
                                         <!-- address -->
                                         <div class="row mb-3">
                                             
@@ -161,7 +163,7 @@
                                                 autocomplete="address"
                                                 >
 
-                                                @error('phone')
+                                                @error('address')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>

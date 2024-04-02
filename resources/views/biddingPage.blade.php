@@ -48,16 +48,16 @@
             <div id="biddingCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage1 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage2 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage3 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage4 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#biddingCarousel" data-bs-slide="prev">
@@ -80,7 +80,7 @@
 
 
                 @if($auction->status == 'closed')
-                    <div class="alert alert-primary w-100 h-100 text-center fs-3">This auction is completed!</div>
+                    <div class="alert alert-primary w-100 h-100 text-center fs-3">Item sold!</div>
                 @else
                         @if(auth()->user()->type == 'user')
                             <li class="list-group-item">
@@ -140,7 +140,7 @@
                     </li>
                    
                             <li class="list-group-item">
-                                <p class="mb-0">Starting price : ₱{{ $auction->starting_price }}</p>
+                                <p class="mb-0">Minimum price : ₱{{ $auction->starting_price }}</p>
                             </li>
                      
                    
@@ -156,7 +156,7 @@
                                 <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                    <th scope="col">Nickname</th>
+                                    <th scope="col">Bidders</th>
                                     <th scope="col">Bid Price</th>
                                     <!-- <th scope="col">Date</th> -->
                                     </tr>
@@ -166,7 +166,7 @@
                                 @if(!empty($bids))            
                                     @foreach($bids as $bid) 
                                     <tr>
-                                        <td>{{ $bid->name }}</td>
+                                        <td>{{ $bid->nickname }}</td>
                                         <td>₱{{ $bid->bid_amount }}</td>
                                         <!-- <td>{{ $bid->on_time }}</td> -->
                                     </tr>                                 
@@ -294,7 +294,7 @@
                           _token: '{{ csrf_token() }}',
                           message: bid_price,
                           channel: '{{ $auction->auction_id }}',
-                          bidder: "{{ Auth::user()['name'] }}",
+                          bidder: "{{ Auth::user()['nickname'] }}",//name
                         },
                         success: function(response) {
                             // Handle success if needed

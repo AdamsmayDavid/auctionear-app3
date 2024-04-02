@@ -50,7 +50,12 @@
                         <textarea name="description" class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb3">
+                        <label for="datetime">End Date and Time:</label>
+                        <input type="datetime-local" class="form-control" id="datetime" name="end_dt"  value="2024-04-04T15:40" required>
+                    </div>
+
+                    <div class="mb-3 mt-3">
                         <label for="startingPrice" class="form-label">Starting Price</label>
                         <input name="starting_price" type="number" class="form-control" id="startingPrice" placeholder="Enter starting price" required>
                     </div>
@@ -65,30 +70,72 @@
                         <input name="auc_time" type="time" class="form-control" id="auctionTime" required>
                     </div> -->
 
-                    <div class="mb-3">
-                        <label for="imageUpload" class="form-label">Upload Images (up to 4)</label>
-                        <input  accept="image/png, image/jpeg" name="auc_image" type="file" class="form-control" id="imageUpload" accept="image/*" multiple onchange="validateFileUpload()">
+
+                    <div class="container">
+                        <h2>Upload Images</h2>
+                        <div class="form-group m-3">
+                            <label for="image1">Image 1:</label>
+                            <input type="file" class="form-control-file" id="image1" name="auctionImage1" required>
+                        </div>
+                        <div class="form-group m-3">
+                            <label for="image2">Image 2:</label>
+                            <input type="file" class="form-control-file" id="image2" name="auctionImage2" required>
+                        </div>
+                        <div class="form-group m-3">
+                            <label for="image3">Image 3:</label>
+                            <input type="file" class="form-control-file" id="image3" name="auctionImage3" required>
+                        </div>
+                        <div class="form-group m-3">
+                            <label for="image4">Image 4:</label>
+                            <input type="file" class="form-control-file" id="image4" name="auctionImage4" required>
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-lg col-12 " >Post</button>
+                  
+
+                    <button type="submit" class="btn btn-primary btn-lg col-12" >Post</button>
                     </form>
                 </div>
 
                 <!-- for images only 4 can upload -->
-            <script>
-                function validateFileUpload() {
-                var input = document.getElementById('imageUpload');
-                var files = input.files;
+                <script>
+                $(document).ready(function() {
+                    $('#submitButton').click(function() {
+                    // Get the value of the datetime input
+                    var datetimeValue = $('#datetime').val();
 
-                if (files.length > 4) {
-                    alert('Please select up to 4 images.');
-                    input.value = '';
-                }
-                }
+                    // Split the date and time parts
+                    var parts = datetimeValue.split('T');
+                    var datePart = parts[0];
+                    var timePart = parts[1];
+
+                    // Reformat the date and time
+                    var formattedDateTime = datePart + ' ' + timePart + ':00';
+
+                    // Update the value of the datetime input
+                    $('#datetime').val(formattedDateTime);
+
+                    // Submit the form
+                    $('#submit').submit();
+                    });
+                });
+                </script>
+            <script>
+                // function validateFileUpload() 
+                // {
+                //     var input = document.getElementById('imageUpload');
+                //     var files = input.files;
+
+                //     if (files.length > 4) {
+                //         alert('Please select up to 4 images.');
+                //         input.value = '4';
+                //     }
+                //  }
             </script>
             <!-- script file -->
             <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/owlcarousel/owl.carousel.min.js"></script>
             <script src="assets/js/main.js"></script>
+            
 @endsection     
      
