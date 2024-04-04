@@ -38,9 +38,18 @@ class LoginController extends Controller
         
         // if ($users == null)
         // {
-            if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'], 'status' => 0)))
+            if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'],  'email_verified_at' => NULL)))
             {
+                 // Log the user out
+                // Auth::logout();
+
+                // // End the session
+                // session()->flush();
+                
                 return view('auth.verify');
+
+                //return view('auth.verify');
+
                 // if (auth()->user()->type == 'admin') {
                 //     return redirect()->route('admin.home');
                 // }else if (auth()->user()->type == 'seller') {
@@ -52,6 +61,16 @@ class LoginController extends Controller
                 //         'email' => 'Error! please try again',
                 //     ])->onlyInput('email');
                 // }
+            }elseif(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'], 'status' => 0))){
+            
+                 // Log the user out
+                 Auth::logout();
+
+                 // End the session
+                 session()->flush();
+
+                return view('waitingUser');
+
             }elseif(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'], 'status' => 1))){
                 
                 if (auth()->user()->type == 'admin') {

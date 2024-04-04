@@ -49,7 +49,7 @@ trait RegistersUsers
 
         return $request->wantsJson()
                     ? new JsonResponse([], 201)
-                    : redirect('/waitingUser');
+                    : redirect('/email/verify');
                     // : redirect($this->redirectPath());
 
         // return $request->wantsJson()
