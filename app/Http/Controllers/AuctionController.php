@@ -40,7 +40,7 @@ class AuctionController extends Controller
                 'auto_id' => 'required',
                 'description' => 'required',
                 'starting_price' => 'required',
-                 'end_dt' => 'required',
+                // 'end_dt' => 'required',
                 //'auc_date' => 'required',
                 //'auc_time' => 'required',
                 'auctionImage1' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:4096', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
@@ -52,7 +52,7 @@ class AuctionController extends Controller
             $auto_id = $request->auto_id;
             $description = $request->description;
             $starting_price = $request->starting_price;
-            $end_dt = $request->end_dt;
+            $end_dt = Carbon::now();
             //$auc_date = $request->auc_date;
             //$auc_time = $request->auc_time;
             $user = Auth::user();
@@ -122,6 +122,7 @@ class AuctionController extends Controller
             'bids.on_time',
             'users.name as creator_name',
             'auctions.auto_id',
+            'auctions.end_time',
             'auctions.auctionImage1',
             'auctions.auctionImage2',
             'auctions.auctionImage3',
