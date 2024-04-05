@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -69,8 +70,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //$imageLocations = [];
+        $dateNow = time();
 
-        $img1 = 'img1'.$data['email'].'.'.$data['img1']->extension();
+        $img1 = 'img1'.$dateNow.$data['email'].'.'.$data['img1']->extension();
         
         $data['img1']->move(public_path('images/id'), $img1);
        
