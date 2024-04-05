@@ -83,7 +83,7 @@ nav {
 }
 tr td:nth-of-type(2) {
     font-size: 2rem;
-    color: green !important;
+    color: rgb(2, 112, 255) !important;
 }
 tr td {
     font-size: 1.5rem;
