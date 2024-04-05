@@ -89,13 +89,12 @@ class LoginController extends Controller
                 //     'email' => 'Incorrect Password or Email.',
                 // ])->onlyInput('email');
             }
-        // }
-        // else
-        // {
-        //     return back()->withErrors([
-        //         'email' => 'Your acoount is not activated yet',
-        //     ])->onlyInput('email');
-        // }
+        else
+        {
+            return back()->withErrors([
+                'email' => 'Your acoount is not activated yet or not yet register',
+            ])->onlyInput('email');
+        }
 
         
             
