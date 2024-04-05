@@ -171,7 +171,7 @@
                                     @foreach($bids as $bid) 
                                     <tr>
                                         <td>{{ $bid->nickname }}</td>
-                                        <td>₱{{ $bid->bid_amount }}</td>
+                                        <td class="text-danger">₱{{ $bid->bid_amount }}</td>
                                         <!-- <td>{{ $bid->on_time }}</td> -->
                                     </tr>                                 
                                     @endforeach
