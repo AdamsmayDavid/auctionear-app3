@@ -84,6 +84,7 @@ Route::view('bbb', 'checkingWebsocket');
 
 Route::post('/send_bid', [WebSocketController::class, 'send_bid']);
 Route::post('/send_message', [WebSocketController::class, 'send_message']);
+Route::get('/userFeedback', [HomeController::class, 'userFeedback']);
 
 
 //Bidder Routes List

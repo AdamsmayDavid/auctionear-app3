@@ -51,7 +51,7 @@
                                 <div class="col-md-5">
                                     <div class="card">
                                             <div class="card-header text-dark"> <b>Hello!</b></div>
-                                                    <small class="p-3 text-center     fs-3 text-secondary ">For account activation, kindly wait. <br> After your account has been activated, <br> you will receive an SMS. <span class="text-danger"> Thank you!</span></small>
+                                                    <small class="p-3 text-center     fs-3 text-secondary ">For account activation, kindly wait. <br> After your account has been activated, <br> you will receive an SMS.  Then click this link to login<span class="text-danger"><br> <a href="http://127.0.0.1:8000/login">Login here</a></span></small>
                                                 <div class="card-body">
                                                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                                         

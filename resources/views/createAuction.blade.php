@@ -50,10 +50,10 @@
                         <textarea name="description" class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
                     </div>
 
-                    <div class="mb3">
+                    <!-- <div class="mb3">
                         <label for="datetime">End Date and Time:</label>
                         <input type="datetime-local" class="form-control" id="datetime" name="end_dt"  value="2024-04-04T15:40" required>
-                    </div>
+                    </div> -->
 
                     <div class="mb-3 mt-3">
                         <label for="startingPrice" class="form-label">Starting Price</label>
