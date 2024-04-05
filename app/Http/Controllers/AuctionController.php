@@ -52,7 +52,10 @@ class AuctionController extends Controller
             $auto_id = $request->auto_id;
             $description = $request->description;
             $starting_price = $request->starting_price;
-            $end_dt = Carbon::now();
+            $currentDate = date("Y-m-d h:i:s");
+            $end_dt = date('Y-m-d h:i:s', strtotime($currentDate . ' + 6 hours'));
+
+            //dd($end_dt);
             //$auc_date = $request->auc_date;
             //$auc_time = $request->auc_time;
             $user = Auth::user();
