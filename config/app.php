@@ -168,6 +168,7 @@ return [
         App\Providers\BroadcastServiceProvider::class, //Uncommented
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        \ESolution\DBEncryption\Providers\DBEncryptionServiceProvider::class,
     ])->toArray(),
 
     /*

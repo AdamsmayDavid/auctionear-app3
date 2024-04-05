@@ -10,7 +10,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/scroll.css">
         <!-- Styles -->
@@ -48,16 +48,16 @@
             <div id="biddingCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage1 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage2 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage3 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/auctions/{{ $auction->auctionImage }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
+                        <img src="images/auctions/{{ $auction->auctionImage4 }}" class="d-block w-100" alt="{{ $auction->auctionImage }}">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#biddingCarousel" data-bs-slide="prev">
@@ -80,7 +80,7 @@
 
 
                 @if($auction->status == 'closed')
-                    <div class="alert alert-primary w-100 h-100 text-center fs-3">This auction is completed!</div>
+                    <div class="alert alert-primary w-100 h-100 text-center fs-3">Item sold!</div>
                 @else
                         @if(auth()->user()->type == 'user')
                             <li class="list-group-item">
@@ -140,9 +140,13 @@
                     </li>
                    
                             <li class="list-group-item">
-                                <p class="mb-0">Starting price : ₱{{ $auction->starting_price }}</p>
+                                <p class="mb-0">Minimum price : ₱{{ $auction->starting_price }}</p>
                             </li>
                      
+                            <li class="list-group-item">
+                            <p class="md-title">Bidding will end in: <span id="biddingTime"></span></p>
+                            </li>
+                           
                    
                     
                             <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
@@ -156,7 +160,7 @@
                                 <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                    <th scope="col">Nickname</th>
+                                    <th scope="col">Bidders</th>
                                     <th scope="col">Bid Price</th>
                                     <!-- <th scope="col">Date</th> -->
                                     </tr>
@@ -166,7 +170,7 @@
                                 @if(!empty($bids))            
                                     @foreach($bids as $bid) 
                                     <tr>
-                                        <td>{{ $bid->name }}</td>
+                                        <td>{{ $bid->nickname }}</td>
                                         <td>₱{{ $bid->bid_amount }}</td>
                                         <!-- <td>{{ $bid->on_time }}</td> -->
                                     </tr>                                 
@@ -294,7 +298,7 @@
                           _token: '{{ csrf_token() }}',
                           message: bid_price,
                           channel: '{{ $auction->auction_id }}',
-                          bidder: "{{ Auth::user()['name'] }}",
+                          bidder: "{{ Auth::user()['nickname'] }}",//name
                         },
                         success: function(response) {
                             // Handle success if needed
@@ -443,6 +447,46 @@
         })
     }, 200)
     */
+</script>
+
+@if(!empty($auctionData))
+    @foreach($auctionData as $auction)
+    
+    @endforeach
+@endif
+
+<script>
+  
+  // kunin time sa db
+  let rawDate = '{{ $auction->end_time }}';
+
+  // convert date to milliseconds
+  let endDate = new Date(rawDate).getTime();
+
+  //running every second
+    let countDown = setInterval(() => {
+    // get auction status
+    let status = '{{$auction->status}}';
+    console.log(status);
+    let nowDate = new Date().getTime();
+    let distance = endDate - nowDate;
+
+    // kung may days
+    let days = Math.floor(distance/(1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    let seconds = Math.floor((distance%(1000*60))/1000);
+    document.getElementById("biddingTime").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
+    document.getElementById("biddingTime2").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
+    // end bidding if reached the time limit or manually closed
+    if(distance<0 || status === "closed") {
+      clearInterval(countDown);
+      document.getElementById("biddingTime").innerHTML = "Auction is completed";
+      document.getElementById("biddingTime2").innerHTML = "Auction is completed";
+    }
+  }, 1000);
+  // check kung tama time
+  console.log(rawDate);
 </script>
 
 

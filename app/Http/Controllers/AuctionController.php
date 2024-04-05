@@ -34,28 +34,41 @@ class AuctionController extends Controller
      */
     public function newAuction(Request $request)
     {
-        if($request->hasFile("auc_image"))
+        if($request->hasFile("auctionImage1") && $request->hasFile("auctionImage2") && $request->hasFile("auctionImage3") && $request->hasFile("auctionImage4"))
         {
             $request->validate([
                 'auto_id' => 'required',
                 'description' => 'required',
                 'starting_price' => 'required',
+                // 'end_dt' => 'required',
                 //'auc_date' => 'required',
                 //'auc_time' => 'required',
-                'auc_image' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:4096', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
+                'auctionImage1' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:4096', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
+                'auctionImage2' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:4096', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
+                'auctionImage3' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:4096', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
+                'auctionImage4' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:4096', //|image|mimes:jpeg,jpg,png,gif,svg|max:2048
             ]);
 
             $auto_id = $request->auto_id;
             $description = $request->description;
             $starting_price = $request->starting_price;
+            $end_dt = Carbon::now();
             //$auc_date = $request->auc_date;
             //$auc_time = $request->auc_time;
             $user = Auth::user();
             $dateNow = time();
     
-            $AutoImgLoc = 'auction_'.$dateNow.'_'.$auto_id.'.'.$request['auc_image']->extension();
-    
-            $request->auc_image->move(public_path('images/auctions'), $AutoImgLoc);
+            $auctionImage1 = 'auction_1_'.$dateNow.'_'.$auto_id.'.'.$request['auctionImage1']->extension();
+            $request->auctionImage1->move(public_path('images/auctions'), $auctionImage1);
+
+            $auctionImage2 = 'auction_2_'.$dateNow.'_'.$auto_id.'.'.$request['auctionImage2']->extension();
+            $request->auctionImage2->move(public_path('images/auctions'), $auctionImage2);
+
+            $auctionImage3 = 'auction_3_'.$dateNow.'_'.$auto_id.'.'.$request['auctionImage3']->extension();
+            $request->auctionImage3->move(public_path('images/auctions'), $auctionImage3);
+
+            $auctionImage4 = 'auction_4_'.$dateNow.'_'.$auto_id.'.'.$request['auctionImage4']->extension();
+            $request->auctionImage4->move(public_path('images/auctions'), $auctionImage4);
             
             $new_auction = auctions::create([
                 'auto_id' => $auto_id,
@@ -63,8 +76,11 @@ class AuctionController extends Controller
                 'starting_price' => $starting_price,
                 'creator_id' => $user['id'],
                 'status' => 'active',
-                'end_time' => Carbon::now()->addHours(24), //addMinutes(1) or addHours(6)
-                'auctionImage' => $AutoImgLoc,
+                'end_time' => $end_dt, //addMinutes(1) or addHours(6)
+                'auctionImage1' => $auctionImage1,
+                'auctionImage2' => $auctionImage2,
+                'auctionImage3' => $auctionImage3,
+                'auctionImage4' => $auctionImage4,
                 //'auction_date' => $auc_date,
                 //'auction_time' => $auc_time,                
                 
@@ -106,7 +122,11 @@ class AuctionController extends Controller
             'bids.on_time',
             'users.name as creator_name',
             'auctions.auto_id',
-            'auctions.auctionImage',
+            'auctions.end_time',
+            'auctions.auctionImage1',
+            'auctions.auctionImage2',
+            'auctions.auctionImage3',
+            'auctions.auctionImage4',
             'bids.bid_amount',
             DB::raw('COALESCE(MAX(bids.bid_amount), auctions.starting_price) as latest_bid_price')
         )
@@ -124,12 +144,15 @@ class AuctionController extends Controller
                         'auctions.auto_id', 
                         'bids.bid_amount',
                         'auctions.end_time',
-                        'auctions.auctionImage',
+                        'auctions.auctionImage1',
+                        'auctions.auctionImage2',
+                        'auctions.auctionImage3',
+                        'auctions.auctionImage4',
                         'auctions.description',
                     )
             ->get();
 
-            $bids = bids::select('bids.bid_id', 'users.name', 'bids.bid_amount', 'bids.on_time')
+            $bids = bids::select('bids.bid_id', 'users.nickname', 'bids.bid_amount', 'bids.on_time')
             ->join('users', 'bids.bidder_id', '=', 'users.id')
             ->where('bids.auction_id', $on_auction)
             ->orderBy('bid_amount', 'DESC')

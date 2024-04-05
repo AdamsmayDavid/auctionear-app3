@@ -9,10 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
  
 use Illuminate\Database\Eloquent\Casts\Attribute;
- 
+use ESolution\DBEncryption\Traits\EncryptedAttribute;
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, EncryptedAttribute;
  
     /**
      * The attributes that are mass assignable.
@@ -21,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
+        'nickname',
         'email',
         'address',
         'phone',
@@ -37,6 +38,10 @@ class User extends Authenticatable implements MustVerifyEmail
  
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $encryptable = [
+        'name', 'address', 'phone', 'image_location',
     ];
  
     /**

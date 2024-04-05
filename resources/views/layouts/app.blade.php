@@ -15,7 +15,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Styles -->
 
@@ -142,7 +142,7 @@
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-dark bg-primary">
                                                         @foreach($autos as $auto)
-                                                        <li><a class="dropdown-item" href="/auctionPage?type={{$auto->id}}"><i class="fa fa-car" aria-hidden="true"></i> {{$auto->auto_type}} </a></li>
+                                                            <li><a class="dropdown-item" href="/auctionPage?type={{$auto->id}}"><i class="fa fa-car" aria-hidden="true"></i> {{$auto->auto_type}} </a></li>
                                                         @endforeach
                                                     </ul>
                                                 </li>
@@ -155,7 +155,7 @@
                                         @if(auth()->user()->type == 'user')
                                         <li class="logout nav-item dropdown">
                                             <a id="navbarDropdown" class="btn btn-sm dropdown-toggle text-light mt-1" style="background-color:#FF6C22;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <i class="fa fa-user" aria-hidden="true"></i> Logout
+                                                <i class="fa fa-user" aria-hidden="true"></i> Logout
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu" style="background-color:#FF6C22;" aria-labelledby="navbarDropdown">

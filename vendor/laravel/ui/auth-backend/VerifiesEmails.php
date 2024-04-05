@@ -6,6 +6,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 trait VerifiesEmails
 {
@@ -56,9 +57,16 @@ trait VerifiesEmails
             return $response;
         }
 
+         // Log the user out
+         Auth::logout();
+
+         // End the session
+         session()->flush();
+
         return $request->wantsJson()
                     ? new JsonResponse([], 204)
-                    : redirect($this->redirectPath())->with('verified', true);
+                    //: redirect($this->redirectPath())->with('verified', true);
+                    : redirect('waitingUser')->with('verified', true);
     }
 
     /**
