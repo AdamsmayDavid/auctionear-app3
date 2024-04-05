@@ -143,6 +143,10 @@
                                 <p class="mb-0">Minimum price : ₱{{ $auction->starting_price }}</p>
                             </li>
                      
+                            <li class="list-group-item">
+                            <p class="md-title">Bidding will end in: <span id="biddingTime"></span></p>
+                            </li>
+                           
                    
                     
                             <div class="row cta-row d-flex justify-content-center mb-2 mt-2 mt-lg-5">
@@ -443,6 +447,46 @@
         })
     }, 200)
     */
+</script>
+
+@if(!empty($auctionData))
+    @foreach($auctionData as $auction)
+    
+    @endforeach
+@endif
+
+<script>
+  
+  // kunin time sa db
+  let rawDate = '{{ $auction->end_time }}';
+
+  // convert date to milliseconds
+  let endDate = new Date(rawDate).getTime();
+
+  //running every second
+    let countDown = setInterval(() => {
+    // get auction status
+    let status = '{{$auction->status}}';
+    console.log(status);
+    let nowDate = new Date().getTime();
+    let distance = endDate - nowDate;
+
+    // kung may days
+    let days = Math.floor(distance/(1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    let seconds = Math.floor((distance%(1000*60))/1000);
+    document.getElementById("biddingTime").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
+    document.getElementById("biddingTime2").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
+    // end bidding if reached the time limit or manually closed
+    if(distance<0 || status === "closed") {
+      clearInterval(countDown);
+      document.getElementById("biddingTime").innerHTML = "Auction is completed";
+      document.getElementById("biddingTime2").innerHTML = "Auction is completed";
+    }
+  }, 1000);
+  // check kung tama time
+  console.log(rawDate);
 </script>
 
 

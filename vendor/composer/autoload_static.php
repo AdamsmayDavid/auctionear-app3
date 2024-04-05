@@ -173,6 +173,7 @@ class ComposerStaticInite2856a00e8fb6ea483d2453d5d732ca3
         array (
             'Evenement\\' => 10,
             'Egulias\\EmailValidator\\' => 23,
+            'ESolution\\DBEncryption\\' => 23,
         ),
         'D' => 
         array (
@@ -568,6 +569,10 @@ class ComposerStaticInite2856a00e8fb6ea483d2453d5d732ca3
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
+        ),
+        'ESolution\\DBEncryption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/elgibor-solution/laravel-database-encryption/src',
         ),
         'Dotenv\\' => 
         array (
@@ -967,6 +972,12 @@ class ComposerStaticInite2856a00e8fb6ea483d2453d5d732ca3
         'Dotenv\\Util\\Regex' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Util/Regex.php',
         'Dotenv\\Util\\Str' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Util/Str.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
+        'ESolution\\DBEncryption\\Builders\\EncryptionEloquentBuilder' => __DIR__ . '/..' . '/elgibor-solution/laravel-database-encryption/src/Builders/EncryptionEloquentBuilder.php',
+        'ESolution\\DBEncryption\\Console\\Commands\\DecryptModel' => __DIR__ . '/..' . '/elgibor-solution/laravel-database-encryption/src/Console/Commands/DecryptModel.php',
+        'ESolution\\DBEncryption\\Console\\Commands\\EncryptModel' => __DIR__ . '/..' . '/elgibor-solution/laravel-database-encryption/src/Console/Commands/EncryptModel.php',
+        'ESolution\\DBEncryption\\Encrypter' => __DIR__ . '/..' . '/elgibor-solution/laravel-database-encryption/src/Encrypter.php',
+        'ESolution\\DBEncryption\\Providers\\DBEncryptionServiceProvider' => __DIR__ . '/..' . '/elgibor-solution/laravel-database-encryption/src/Providers/DBEncryptionServiceProvider.php',
+        'ESolution\\DBEncryption\\Traits\\EncryptedAttribute' => __DIR__ . '/..' . '/elgibor-solution/laravel-database-encryption/src/Traits/EncryptedAttribute.php',
         'Egulias\\EmailValidator\\EmailLexer' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailLexer.php',
         'Egulias\\EmailValidator\\EmailParser' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailParser.php',
         'Egulias\\EmailValidator\\EmailValidator' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailValidator.php',
