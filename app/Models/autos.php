@@ -9,5 +9,5 @@ class autos extends Model
 {
     use HasFactory;
     protected $table = 'autos';
-    protected $fillable = ['auto_type', 'suggested_price', 'auto_image'];
+    protected $fillable = ['auto_type', 'description', 'auto_image'];
 }

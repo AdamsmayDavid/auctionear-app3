@@ -60,10 +60,10 @@
                 <div class="col-sm-6 col-md-6 col-lg-6">
                   <img src="assets/images/{{$auto->auto_image}}" class="img-fluid" />
                   <div class="col text-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                   
-                  <!-- <br>
-                    {{$auto->suggested_price}} -->
+                  
+
+                    {{$auto->description}}
 
                   </div>
                  
