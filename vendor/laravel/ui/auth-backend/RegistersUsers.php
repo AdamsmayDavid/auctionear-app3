@@ -7,8 +7,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Support\Facades\Session;
-
 trait RegistersUsers
 {
     use RedirectsUsers;
@@ -40,7 +38,8 @@ trait RegistersUsers
         if ($response = $this->registered($request, $user)) {
             return $response;
         }
-        // Log the user out
+
+             // Log the user out
         Auth::logout();
 
         // End the session
