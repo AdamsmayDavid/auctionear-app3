@@ -52,8 +52,8 @@ class AuctionController extends Controller
             $auto_id = $request->auto_id;
             $description = $request->description;
             $starting_price = $request->starting_price;
-            $currentDate = date("Y-m-d h:i:s");
-            $end_dt = date('Y-m-d h:i:s', strtotime($currentDate . ' + 6 hours'));
+            // $currentDate = date("Y-m-d h:i:s");
+            // $end_dt = date('Y-m-d h:i:s', strtotime($currentDate . ' + 6 hours'));
 
             //dd($end_dt);
             //$auc_date = $request->auc_date;
@@ -79,7 +79,7 @@ class AuctionController extends Controller
                 'starting_price' => $starting_price,
                 'creator_id' => $user['id'],
                 'status' => 'active',
-                'end_time' => $end_dt, //addMinutes(1) or addHours(6)
+                'end_time' => Carbon::now()->addHours(24), //addMinutes(1) or addHours(6)
                 'auctionImage1' => $auctionImage1,
                 'auctionImage2' => $auctionImage2,
                 'auctionImage3' => $auctionImage3,
