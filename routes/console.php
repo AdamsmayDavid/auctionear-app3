@@ -36,7 +36,8 @@ Artisan::command('fetch:auctions', function () {
         
         if($openAuctions->end_time <= $now)
         {
-             $closeAuction = auctions::where('end_time', '<=', $now)->update(['status' => 'closed']);
+            $closeAuction = auctions::where('auction_id', $openAuctions->auction_id)->update(['status' => 'closed']);
+            // $closeAuction = auctions::where('end_time', '<=', $now)->update(['status' => 'closed']);
 
             // if (!$closeAuction) {
             //     return back()->with('error', 'Failed to close the auction');
