@@ -454,8 +454,54 @@
     
     @endforeach
 @endif
-
+<!-- fetch('https://worldtimeapi.org/api/ip') -->
 <script>
+  // kunin time sa db
+  let rawDate = '{{ $auction->end_time }}';
+
+  // convert end date string to JavaScript Date object
+  let endDate = new Date(rawDate);
+
+  // Update countdown timer
+  function updateCountdown() {
+    fetch('https://worldtimeapi.org/api/ip')
+      .then(response => response.json())
+      .then(data => {
+        const serverTime = new Date(data.utc_datetime);
+        // Explicitly set the timezone to 'Asia/Taipei' (Taipei Standard Time)
+        const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
+        
+        let distance = endDate - taipeiTime;
+
+        // Calculate time components
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update countdown display
+        document.getElementById("biddingTime").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        // Check if auction is completed
+        if (distance <= 0) {
+          clearInterval(countDown);
+          document.getElementById("biddingTime").innerHTML = "Auction is completed";
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching current time:', error);
+      });
+  }
+
+  // Running the countdown every second
+  let countDown = setInterval(updateCountdown, 1000);
+
+  // Initial call to update countdown
+  updateCountdown();
+</script>
+
+
+
+<!-- <script>
   
   // kunin time sa db
   let rawDate = '{{ $auction->end_time }}';
@@ -468,7 +514,9 @@
     // get auction status
     let status = '{{$auction->status}}';
     console.log(status);
-    let nowDate = new Date().getTime();
+    // Get current time in Asia/Manila timezone
+    let nowDate = new Date().toLocaleString("en-US", {timeZone: "Asia/Manila"});
+    nowDate = new Date(nowDate).getTime();
     let distance = endDate - nowDate;
 
     // kung may days
@@ -477,17 +525,17 @@
     let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
     let seconds = Math.floor((distance%(1000*60))/1000);
     document.getElementById("biddingTime").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
-    document.getElementById("biddingTime2").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
+    //document.getElementById("biddingTime2").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
     // end bidding if reached the time limit or manually closed
-    if(distance<0 || status === "closed") {
+    if(distance <= 0 || status === "closed") {
       clearInterval(countDown);
       document.getElementById("biddingTime").innerHTML = "Auction is completed";
-      document.getElementById("biddingTime2").innerHTML = "Auction is completed";
+      //document.getElementById("biddingTime2").innerHTML = "Auction is completed";
     }
   }, 1000);
   // check kung tama time
   console.log(rawDate);
-</script>
+</script> -->
 
 
 <!-- Testing create element 
