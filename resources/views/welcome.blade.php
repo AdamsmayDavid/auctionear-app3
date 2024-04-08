@@ -169,12 +169,14 @@
                       <div class="col float-end mt-5" data-aos="fade-up">
                         <h1 class="text-primary fs-1" >How to start <i class="fa fa-motorcycle" aria-hidden="true"></i></h1>
                         <hr class="border-dark">
-                          <small class="dark fs-4 text-dark" >To begin, simply navigate to our user-friendly web-based auction platform and create an account in just a few easy steps. From there, explore our listings and place bids with ease.</small>
-                          <h5 class="text-underline" style="color:#FF6C22;">   
-                            1. <u class=""> Create an account  </u><br> <br>
-                            2. <u>Verify your email account</u> <br> <br>
-                            3. <u>Waiting for activation</u> <br> <br>
-                            4. <u> If your account activated, you can now start your first bid. Enjoy!</u> 
+                          <h5 class="text-danger shadow p-5" style="color:#FF6C22;">   
+                            1.  Create an account  <br> <br>
+                            2. Fill up forms and upload selfie with your valid id <br> <br>
+                            3. Click Register<br> <br>
+                            4. Relogin<br> <br>
+                            6. Verify Your email account<br> <br>
+                            7. Waiting for account activation <br> <br>
+                            8. If your account activated, you can now start your first bid. Enjoy!
                           </h5>
                       </div>
                   </div>

@@ -10,7 +10,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/scroll.css">
         <!-- Styles -->
@@ -144,7 +144,8 @@
                             </li>
                      
                             <li class="list-group-item">
-                            <p class="md-title fs-1">Bidding will end in: <span class="text-danger" style="font-size:3vh;" id="biddingTime"></span></p>
+                                <label for="" class="fs-1" > <b><span id="bidding-pause"></span></b></label>
+                            <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime"></p>
                             </li>
                            
                    
@@ -480,11 +481,13 @@
 
         // Update countdown display
         document.getElementById("biddingTime").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+        document.getElementById("bidding-pause").innerHTML = "Bidding Will end in:";
 
         // Check if auction is completed
         if (distance <= 0) {
           clearInterval(countDown);
-          document.getElementById("biddingTime").innerHTML = "Auction is completed";
+          document.getElementById("biddingTime").innerHTML = "SOLD ITEM!";
+          document.getElementById("bidding-pause").innerHTML = "";
         }
       })
       .catch(error => {
