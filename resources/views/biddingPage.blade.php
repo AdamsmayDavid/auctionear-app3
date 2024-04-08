@@ -74,7 +74,7 @@
             <div class="card mt-3">
                 <div class="card-body">
                     <h5 class="card-title">Auction ID : {{ $auction->auction_id }}</h5>
-                    <p class="card-text">Vehicle Description : {{ $auction->description }}</p>
+                    <p class="card-text fs-1">Vehicle Description : {{ $auction->description }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
 
@@ -88,7 +88,7 @@
                                 
                                     <!-- <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required> -->
                                 <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-md btn-primary col-12 rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" required>
+                                    <button type="button" class="btn btn-md btn-primary fs-1 col-12 rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" required>
                                     Place bid
                                     </button>
                                     <!-- Modal -->
@@ -96,18 +96,18 @@
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Please review your bid before you confirm</h1>
+                                            <h1 class="modal-title fs-1" id="exampleModalLabel">Please review your bid before you confirm</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                         <div class="mb-3">
-                                            <label for="inputValue" class="form-label">Enter Value:</label>
-                                            <input type="number" class="form-control" id="bid_price" placeholder="₱">
+                                            <label for="inputValue" class="form-label  fs-1">Enter Value:</label>
+                                            <input type="number" class="form-control fs-1" id="bid_price" placeholder="₱">
                                         </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-                                            <button id="place_bid" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Confirm</button>
+                                            <button type="button" class="btn btn-secondary fs-1" data-bs-dismiss="modal" >Close</button>
+                                            <button id="place_bid" type="button" class="btn btn-primary fs-1" data-bs-dismiss="modal" >Confirm</button>
                                         </div>
                                         </div>
                                     </div>
@@ -117,7 +117,7 @@
                         @if(auth()->user()->type == 'seller')
                          
                         <div class="p-3">
-                                <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" class="btn btn-primary btn-xl col-12 fs-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     End Auction
                                 </button>
                                 </div>
@@ -140,11 +140,11 @@
                     </li>
                    
                             <li class="list-group-item">
-                                <p class="mb-0">Minimum price : ₱{{ $auction->starting_price }}</p>
+                                <p class="mb-0 " style="font-size:4vh;"> Minimum price : <b class="text-danger" style="font-size:4vh;"><u> ₱{{ $auction->starting_price }}</u></span></b></p>
                             </li>
                      
                             <li class="list-group-item">
-                            <p class="md-title">Bidding will end in: <span id="biddingTime"></span></p>
+                            <p class="md-title fs-1">Bidding will end in: <span class="text-danger" style="font-size:3vh;" id="biddingTime"></span></p>
                             </li>
                            
                    
@@ -154,14 +154,14 @@
                                 </div>       
                             </div>
 
-                            <p class="title text-start">Top Bidders</p>
+                            <h1 class="title text-start">Top Bidders </h1>
                             <div class="row bids-row bg-light-subtle mb-4">
                             <div class="bids-table mt-2">
                                 <table class="table table-striped">
                                 <thead>
-                                    <tr>
-                                    <th scope="col">Bidders</th>
-                                    <th scope="col">Bid Price</th>
+                                    <tr class="sticky-top">
+                                    <th scope="col" class="fs-1">Bidders</th>
+                                    <th scope="col" class="fs-1">Bid Price</th>
                                     <!-- <th scope="col">Date</th> -->
                                     </tr>
                                 </thead>
@@ -169,9 +169,9 @@
                                 
                                 @if(!empty($bids))            
                                     @foreach($bids as $bid) 
-                                    <tr>
-                                        <td>{{ $bid->nickname }}</td>
-                                        <td class="text-danger">₱{{ $bid->bid_amount }}</td>
+                                    <tr class="border-secondary">
+                                        <td class="fs-1 font-weight-bold "> <b>{{ $bid->nickname }}</b></td>
+                                        <td class="text-danger fs-1">₱{{ $bid->bid_amount }}</td>
                                         <!-- <td>{{ $bid->on_time }}</td> -->
                                     </tr>                                 
                                     @endforeach
@@ -199,17 +199,17 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">End Auction</h1>
+                                        <h1 class="modal-title fs-2" id="exampleModalLabel">End Auction</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body fs-1 p-5">
                                         Are you sure you want to end the Auction?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-secondary btn-lg fs-2" data-bs-dismiss="modal">Cancel</button>
                                         <a
                                             type="button"
-                                            class="btn btn-primary"
+                                            class="btn btn-primary btn-lg fs-2"
                                             
                                             href="{{ url('manual_close')}}?auction_id={{ $auction->auction_id }}"
                                         >
