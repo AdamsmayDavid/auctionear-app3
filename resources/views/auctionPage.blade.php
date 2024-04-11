@@ -78,11 +78,12 @@
                     <img src="images/auctions/{{$auction->auctionImage1}}" class="card-img-top" alt="{{$auction->auctionImage}}">
                     <div class="card-body">
                         <h5 class="card-title">Auction Id: {{$auction->auction_id}}</h5>
-                        <p class="card-text">Description: {{$auction->description}} </p>
-                        <p class="card-text">Recent Bid: </p>
+                        <p class="card-text fs-3">Description: {{$auction->description}} </p>
+                        <label for="" class="fs-3" > <b><span id="bidding-pause"></span></b></label>
+                        <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime"></p>
 
                         @if(auth()->user()->type == 'user')
-                            <a id="btn_bid" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-primary">Bid</a>
+                            <a id="btn_bid" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-lg col-12 btn-primary"></a>
                         @endif
 
                         @if(auth()->user()->type == 'seller')
@@ -99,6 +100,55 @@
      <!-- <script src="assets/js/jquery.min.js"></script> -->
             <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
             <script src="assets/js/main.js"></script>
+
+            <script>
+            // kunin time sa db
+            let rawDate = '{{ $auction->end_time }}';
+
+            // convert end date string to JavaScript Date object
+            let endDate = new Date(rawDate);
+
+            // Update countdown timer
+            function updateCountdown() {
+                fetch('https://worldtimeapi.org/api/ip')
+                .then(response => response.json())
+                .then(data => {
+                    const serverTime = new Date(data.utc_datetime);
+                    // Explicitly set the timezone to 'Asia/Taipei' (Taipei Standard Time)
+                    const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
+                    
+                    let distance = endDate - taipeiTime;
+
+                    // Calculate time components
+                    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // Update countdown display
+                    document.getElementById("biddingTime").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+                    document.getElementById("bidding-pause").innerHTML = "Bidding Will end in:";
+                    document.getElementById("btn_bid").innerHTML = "Bid";
+
+                    // Check if auction is completed
+                    if (distance <= 0) {
+                    clearInterval(countDown);
+                    document.getElementById("biddingTime").innerHTML = "SOLD ITEM!";
+                    document.getElementById("bidding-pause").innerHTML = "";
+                    document.getElementById("btn_bid").innerHTML = "View";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching current time:', error);
+                });
+            }
+
+            // Running the countdown every second
+            let countDown = setInterval(updateCountdown, 1000);
+
+            // Initial call to update countdown
+            updateCountdown();
+            </script>
+
 
     
 @endsection

@@ -10,7 +10,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- bootsrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/scroll.css">
         <!-- Styles -->
@@ -88,7 +88,7 @@
                                 
                                     <!-- <input id="bid_price" type="number" class="form-control" placeholder="Enter your bid amount" required> -->
                                 <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-md btn-primary fs-1 col-12 rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" required>
+                                    <button id="place_bidd" type="button" class="btn btn-md btn-primary fs-1 col-12 rounded" data-bs-toggle="modal" data-bs-target="#exampleModal" required>
                                     Place bid
                                     </button>
                                     <!-- Modal -->
@@ -142,7 +142,7 @@
                             <li class="list-group-item">
                                 <p class="mb-0 " style="font-size:4vh;"> Minimum price : <b class="text-danger" style="font-size:4vh;"><u> ₱{{ $auction->starting_price }}</u></span></b></p>
                             </li>
-                     
+                                <!-- bidding time -->
                             <li class="list-group-item">
                                 <label for="" class="fs-1" > <b><span id="bidding-pause"></span></b></label>
                             <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime"></p>
