@@ -33,6 +33,7 @@
       
       <div class="container mt-5 bg-light p-2" style="margin-top:100px !important">
       <section class="bg-light shadow p-3 rounded">
+
             @if(auth()->user()->type == 'user')
             <nav class=" container">
                     <div class="container">
@@ -55,6 +56,7 @@
                         </span>
                     </h1>
             @endif
+
             @if(auth()->user()->type == 'seller')
                 <!-- creation btn for seller -->
                 <nav class="container p-3 bg-primary rounded">
@@ -68,86 +70,223 @@
                 </nav>
                 <!-- creation btn for seller end-->
             @endif
+
             <section class=" p-3 rounded">
             <h5 CLASS="text-dark p-1">VEHICLE LIST</h5>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                     
-            @foreach($auctions as $auction)
+            <!-- @if(!empty($auctions))
+                @foreach($auctions as $auction)
                 <div class="col">
                     <div class="card">
                     <img src="images/auctions/{{$auction->auctionImage1}}" class="card-img-top" alt="{{$auction->auctionImage}}">
                     <div class="card-body">
                         <h5 class="card-title">Auction Id: {{$auction->auction_id}}</h5>
                         <p class="card-text fs-3">Description: {{$auction->description}} </p>
-                        <label for="" class="fs-3" > <b><span id="bidding-pause"></span></b></label>
-                        <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime"></p>
+                        <label for="" class="fs-3" > <b><span id="bidding-pause{{$auction->auction_id}}"></span></b></label>
+                        <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime{{$auction->auction_id}}"></p>
 
                         @if(auth()->user()->type == 'user')
-                            <a id="btn_bid" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-lg col-12 btn-primary"></a>
+                            <a id="btn_bid{{$auction->auction_id}}" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-lg col-12 btn-primary"></a>
                         @endif
 
                         @if(auth()->user()->type == 'seller')
-                            <a id="btn_sel" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-primary">View</a>
+                            <a id="btn_sel{{$auction->auction_id}}" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-primary">View</a>
                         @endif
 
                     </div>
                     </div>
                 </div>
-            @endforeach
+                @endforeach
+            @endif -->
+
+            @if(!empty($auctions))
+                @foreach($auctions as $auction)
+                    <div class="col">
+                        <div class="card">
+                            <img src="images/auctions/{{$auction->auctionImage1}}" class="card-img-top" alt="{{$auction->auctionImage}}">
+                            <div class="card-body">
+                                <h5 class="card-title">Auction Id: {{$auction->auction_id}}</h5>
+                                <p class="card-text fs-3">Description: {{$auction->description}} </p>
+                                <label for="" class="fs-3" > <b><span id="bidding-pause{{$auction->auction_id}}"></span></b></label>
+                                <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime{{$auction->auction_id}}"></p>
+
+                                @if(auth()->user()->type == 'user')
+                                    <a id="btn_bid{{$auction->auction_id}}" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-lg col-12 btn-primary">Bid</a>
+                                @endif
+
+                                @if(auth()->user()->type == 'seller')
+                                    <a id="btn_sel{{$auction->auction_id}}" href="/biddingPage?auction_id={{$auction->auction_id}}" class="btn btn-primary">View</a>
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+
+
             </section>
             </section>
+
+            
+                
+               
      <!-- script file -->
      <!-- <script src="assets/js/jquery.min.js"></script> -->
             <!-- <script src="assets/js/owlcarousel/owl.carousel.min.js"></script> -->
             <script src="assets/js/main.js"></script>
 
-            <script>
-            // kunin time sa db
-            let rawDate = '{{ $auction->end_time }}';
+            <!-- JavaScript for the countdown timer -->
+<!-- JavaScript for the countdown timer -->
+<script>
+    @if(!empty($auctions))
+        @foreach($auctions as $auction)
+        // Countdown logic for auction with id {{$auction->auction_id}}
+        function updateCountdown{{$auction->auction_id}}(endDate) {
+            fetch('https://worldtimeapi.org/api/ip')
+            .then(response => response.json())
+            .then(data => {
+                const serverTime = new Date(data.utc_datetime);
+                const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
+                        
+                let distance = endDate - taipeiTime;
 
-            // convert end date string to JavaScript Date object
-            let endDate = new Date(rawDate);
-
-            // Update countdown timer
-            function updateCountdown() {
-                fetch('https://worldtimeapi.org/api/ip')
-                .then(response => response.json())
-                .then(data => {
-                    const serverTime = new Date(data.utc_datetime);
-                    // Explicitly set the timezone to 'Asia/Taipei' (Taipei Standard Time)
-                    const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
-                    
-                    let distance = endDate - taipeiTime;
-
-                    // Calculate time components
+                if (distance <= 0) {
+                    clearInterval(countDown{{$auction->auction_id}});
+                    document.getElementById('biddingTime{{$auction->auction_id}}').innerHTML = "ITEM SOLD!";
+                    document.getElementById('bidding-pause{{$auction->auction_id}}').innerHTML = "";
+                    if (document.getElementById('btn_bid{{$auction->auction_id}}')) {
+                        document.getElementById('btn_bid{{$auction->auction_id}}').innerHTML = "View";
+                    }
+                } else {
                     let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                    // Update countdown display
-                    document.getElementById("biddingTime").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
-                    document.getElementById("bidding-pause").innerHTML = "Bidding Will end in:";
-                    document.getElementById("btn_bid").innerHTML = "Bid";
+                    document.getElementById('biddingTime{{$auction->auction_id}}').innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+                    document.getElementById('bidding-pause{{$auction->auction_id}}').innerHTML = "Bidding Will end in:";
+                    document.getElementById('btn_bid{{$auction->auction_id}}').innerHTML = "Bid";
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching current time:', error);
+            });
+        }
 
-                    // Check if auction is completed
-                    if (distance <= 0) {
-                    clearInterval(countDown);
-                    document.getElementById("biddingTime").innerHTML = "ITEM SOLD!";
-                    document.getElementById("bidding-pause").innerHTML = "";
-                    document.getElementById("btn_bid").innerHTML = "View";
+        let rawDate{{$auction->auction_id}} = '{{ $auction->end_time }}';
+        let endDate{{$auction->auction_id}} = new Date(rawDate{{$auction->auction_id}});
+        let countDown{{$auction->auction_id}} = setInterval(function() {
+            updateCountdown{{$auction->auction_id}}(endDate{{$auction->auction_id}});
+        }, 1000);
+
+        updateCountdown{{$auction->auction_id}}(endDate{{$auction->auction_id}});
+        @endforeach
+    @endif
+</script>
+
+
+
+
+            <!-- JavaScript for the countdown timer -->
+<!-- <script>
+    @if(!empty($auctions))
+        @foreach($auctions as $auction)
+        // Countdown logic for auction with id {{$auction->auction_id}}
+        function updateCountdown{{$auction->auction_id}}(endDate) {
+            fetch('https://worldtimeapi.org/api/ip')
+            .then(response => response.json())
+            .then(data => {
+                const serverTime = new Date(data.utc_datetime);
+                const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
+                        
+                let distance = endDate - taipeiTime;
+
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('biddingTime{{$auction->auction_id}}').innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+                document.getElementById('bidding-pause{{$auction->auction_id}}').innerHTML = "Bidding Will end in:";
+                document.getElementById('btn_bid{{$auction->auction_id}}').innerHTML = "Bid";
+
+                if (distance <= 0) {
+                    clearInterval(countDown{{$auction->auction_id}});
+                    document.getElementById('biddingTime{{$auction->auction_id}}').innerHTML = "ITEM SOLD!";
+                    document.getElementById('bidding-pause{{$auction->auction_id}}').innerHTML = "";
+                    document.getElementById('btn_bid{{$auction->auction_id}}').innerHTML = "View";
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching current time:', error);
+            });
+        }
+
+        let rawDate{{$auction->auction_id}} = '{{ $auction->end_time }}';
+        let endDate{{$auction->auction_id}} = new Date(rawDate{{$auction->auction_id}});
+        let countDown{{$auction->auction_id}} = setInterval(function() {
+            updateCountdown{{$auction->auction_id}}(endDate{{$auction->auction_id}});
+        }, 1000);
+
+        updateCountdown{{$auction->auction_id}}(endDate{{$auction->auction_id}});
+        @endforeach
+    @endif
+</script> -->
+
+
+<!-- 
+            <script>
+            @if(!empty($auctions))
+                @foreach($auctions as $auction)
+                    // kunin time sa db
+                    let rawDate = '{{ $auction->end_time }}';
+
+                    // convert end date string to JavaScript Date object
+                    let endDate = new Date(rawDate);
+
+                    // Update countdown timer
+                    function updateCountdown() {
+                        fetch('https://worldtimeapi.org/api/ip')
+                        .then(response => response.json())
+                        .then(data => {
+                            const serverTime = new Date(data.utc_datetime);
+                            // Explicitly set the timezone to 'Asia/Taipei' (Taipei Standard Time)
+                            const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
+                            
+                            let distance = endDate - taipeiTime;
+
+                            // Calculate time components
+                            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                            // Update countdown display
+                            document.getElementById("biddingTime{{$auction->auction_id}}").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+                            document.getElementById("bidding-pause{{$auction->auction_id}}").innerHTML = "Bidding Will end in:";
+                            document.getElementById("btn_bid{{$auction->auction_id}}").innerHTML = "Bid";
+
+                            // Check if auction is completed
+                            if (distance <= 0) {
+                            clearInterval(countDown);
+                            document.getElementById("biddingTime{{$auction->auction_id}}").innerHTML = "ITEM SOLD!";
+                            document.getElementById("bidding-pause{{$auction->auction_id}}").innerHTML = "";
+                            document.getElementById("btn_bid{{$auction->auction_id}}").innerHTML = "View";
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching current time:', error);
+                        });
                     }
-                })
-                .catch(error => {
-                    console.error('Error fetching current time:', error);
-                });
-            }
 
-            // Running the countdown every second
-            let countDown = setInterval(updateCountdown, 1000);
+                    // Running the countdown every second
+                    let countDown = setInterval(updateCountdown, 1000);
 
-            // Initial call to update countdown
-            updateCountdown();
-            </script>
+                    // Initial call to update countdown
+                    updateCountdown();
+
+                @endforeach
+            @endif
+            </script> -->
 
 
     
