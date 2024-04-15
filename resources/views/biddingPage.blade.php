@@ -486,7 +486,7 @@
         // Check if auction is completed
         if (distance <= 0) {
           clearInterval(countDown);
-          document.getElementById("biddingTime").innerHTML = "SOLD ITEM!";
+          document.getElementById("biddingTime").innerHTML = "ITEM SOLD!";
           document.getElementById("bidding-pause").innerHTML = "";
         }
       })
