@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:mantic-20240405
 
 LABEL maintainer="Taylor Otwell"
 
