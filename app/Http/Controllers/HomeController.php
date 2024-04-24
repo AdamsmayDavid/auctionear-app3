@@ -120,7 +120,7 @@ class HomeController extends Controller
           $client = new Client();
  
           // Specify API key directly
-          $apiKey = 'H6a46D1fu7sWpSUiBkoZuFJZKpGQXNBhMpoTmm5cRAPEWDHHvTb_X2mVU45qM_Cr';
+          $apiKey = 'WHKvc9za05GEWEBhJDjKzDLxKigdZQaPaxEo4wl66mRbxgZIIMvquMJuGGjY38Wz';
   
           // Send HTTP POST request to send SMS
           try {
@@ -131,7 +131,7 @@ class HomeController extends Controller
                  ],
                  'json' => [
                      'content' => "Your account is Activated. \n\nYou can now login your account \nand place your bid/s at auctionear(dot)shop",
-                     'from' => "+639916406021",
+                     'from' => "+639452452853",
                      'to' => '+63'.$userAct
                  ]
              ]);

@@ -224,7 +224,7 @@ class AuctionController extends Controller
          $client = new Client();
 
          // Specify API key directly
-         $apiKey = 'H6a46D1fu7sWpSUiBkoZuFJZKpGQXNBhMpoTmm5cRAPEWDHHvTb_X2mVU45qM_Cr';
+         $apiKey = 'WHKvc9za05GEWEBhJDjKzDLxKigdZQaPaxEo4wl66mRbxgZIIMvquMJuGGjY38Wz';
  
          // Send HTTP POST request to send SMS
          try {
@@ -243,8 +243,8 @@ class AuctionController extends Controller
                         ],
                         'json' => [
                             'content' => 'Congratulations! You won the Auction. Please go to Message to communicate with the auctioneer',
-                            'from' => "+639916406021",
-                            'to' => '+63'.$winnerPhone
+                            'from' => "+639452452853",
+                            'to' => "+63".$winnerPhone
                         ]
                     ]);
                 } else {
@@ -255,7 +255,7 @@ class AuctionController extends Controller
                         ],
                         'json' => [
                             'content' => 'You lost the Auction',
-                            'from' => "+639916406021",
+                            'from' => "+639452452853",
                             'to' => '+63'.$aucBidder['phone']
                         ]
                     ]);
@@ -268,7 +268,7 @@ class AuctionController extends Controller
                 ],
                 'json' => [
                     'content' => 'Your Auction Ended',
-                    'from' => "+639916406021",
+                    'from' => "+639452452853",
                     'to' => '+63'.$sellerPhone
                 ]
             ]);
