@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerificationController;
+
+use App\Http\Controllers\SmsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,3 +32,11 @@ Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify']
 // Route::group(['middleware' => ['throttle:6,1']], function () {
 //     Route::post('/email/verify/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 // });
+Route::get('student', function () {
+    return 'I am from laravel api';
+});
+
+Route::get('/send_api', [SmsController::class, 'sendSms']);
+Route::post('/received_api', [SmsController::class, 'receiveSms']);
+Route::post('/status_api', [SmsController::class, 'updateStatus']);
+

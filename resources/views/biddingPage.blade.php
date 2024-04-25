@@ -73,7 +73,7 @@
 
             <div class="card mt-3">
                 <div class="card-body">
-                    <h5 class="card-title">Auction ID : {{ $auction->auction_id }}</h5>
+                    <h2 class="card-title"> <b> Auction ID : 000{{ $auction->auction_id }}</b></h2>
                     <p class="card-text fs-1">Vehicle Description : {{ $auction->description }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -145,7 +145,8 @@
                                 <!-- bidding time -->
                             <li class="list-group-item">
                                 <label for="" class="fs-1" > <b><span id="bidding-pause"></span></b></label>
-                            <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime"></p>
+                                <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime"></p>
+                                <p class="md-title" style="font-size:3vh;" id="End_time"></p>
                             </li>
                            
                    
@@ -463,6 +464,8 @@
   // convert end date string to JavaScript Date object
   let endDate = new Date(rawDate);
 
+  let status = '{{ $auction->status}}';
+
   // Update countdown timer
   function updateCountdown() {
     fetch('https://worldtimeapi.org/api/ip')
@@ -470,7 +473,7 @@
       .then(data => {
         const serverTime = new Date(data.utc_datetime);
         // Explicitly set the timezone to 'Asia/Taipei' (Taipei Standard Time)
-        const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
+        const taipeiTime = new Date(serverTime.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
         
         let distance = endDate - taipeiTime;
 
@@ -482,12 +485,45 @@
         // Update countdown display
         document.getElementById("biddingTime").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
         document.getElementById("bidding-pause").innerHTML = "Bidding Will end in:";
+        document.getElementById("End_time").innerHTML = "";
 
         // Check if auction is completed
-        if (distance <= 0) {
+        if (distance <= 0 || status === "closed") {
           clearInterval(countDown);
           document.getElementById("biddingTime").innerHTML = "ITEM SOLD!";
           document.getElementById("bidding-pause").innerHTML = "";
+
+          //Formated date
+          // Input date string
+            let dateString = "{{ $auction->updated_at }}";
+
+            // Parse the date string into a Date object
+            let date = new Date(dateString);
+
+            // Define months array
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            // Get individual date components
+            let month = months[date.getMonth()];
+            let day = date.getDate();
+            let year = date.getFullYear();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let period = hours >= 12 ? "PM" : "AM";
+
+            // Convert hours to 12-hour format
+            hours = hours % 12 || 12; // If hours is 0, it should be 12
+
+            // Add leading zero if minutes is a single digit
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+
+            // Construct the formatted date string
+            let formattedDate = `${month} ${day}, ${year} - ${hours}:${minutes} ${period}`;
+
+
+
+
+          document.getElementById("End_time").innerHTML =  "Item sold at : " + formattedDate;
         }
       })
       .catch(error => {

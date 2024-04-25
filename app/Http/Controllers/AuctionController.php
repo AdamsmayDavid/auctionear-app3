@@ -131,6 +131,7 @@ class AuctionController extends Controller
             'auctions.auctionImage3',
             'auctions.auctionImage4',
             'bids.bid_amount',
+            'auctions.updated_at',
             DB::raw('COALESCE(MAX(bids.bid_amount), auctions.starting_price) as latest_bid_price')
         )
         ->join('users', 'auctions.creator_id', '=', 'users.id')
@@ -152,6 +153,7 @@ class AuctionController extends Controller
                         'auctions.auctionImage3',
                         'auctions.auctionImage4',
                         'auctions.description',
+                        'auctions.updated_at',
                     )
             ->get();
 

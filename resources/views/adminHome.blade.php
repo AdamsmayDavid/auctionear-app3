@@ -265,7 +265,7 @@ rel="stylesheet"
         </nav>
 
         <section  class="container p- mt-5">
-                    <nav class="navbar bg-light ">
+                    <nav class=" bg-light ">
                         <div class="container bg-light">
                             <div class="ban-user">
                                 <h1>
@@ -299,7 +299,7 @@ rel="stylesheet"
                                     
                                     </thead>
                                 <thead>
-                                    <tr>
+                                    <tr class="sticky-top">
                                     <th scope="col" class="table-primary">Id</th>
                                     <th scope="col" class="table-primary">Full Name</th>
                                     <th scope="col" class="table-primary">Contact Number</th>

@@ -106,8 +106,8 @@
                         <div class="card">
                             <img src="images/auctions/{{$auction->auctionImage1}}" class="card-img-top" alt="{{$auction->auctionImage}}">
                             <div class="card-body">
-                                <h5 class="card-title">Auction Id: {{$auction->auction_id}}</h5>
-                                <p class="card-text fs-3">Description: {{$auction->description}} </p>
+                                <h3 class="card-title"><b> Auction Id:</b> 000{{$auction->auction_id}}</h3>
+                                <p class="card-text fs-3"> <b>Description:</b> {{$auction->description}} </p>
                                 <label for="" class="fs-3" > <b><span id="bidding-pause{{$auction->auction_id}}"></span></b></label>
                                 <p class="md-title text-danger" style="font-size:4vh;" id="biddingTime{{$auction->auction_id}}"></p>
 
@@ -152,7 +152,9 @@
                         
                 let distance = endDate - taipeiTime;
 
-                if (distance <= 0) {
+                let status = '{{ $auction->status}}';
+
+                if (distance <= 0 || status === "closed") {
                     clearInterval(countDown{{$auction->auction_id}});
                     document.getElementById('biddingTime{{$auction->auction_id}}').innerHTML = "ITEM SOLD!";
                     document.getElementById('bidding-pause{{$auction->auction_id}}').innerHTML = "";
